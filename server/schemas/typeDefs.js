@@ -12,7 +12,7 @@ const typeDefs = `
     id: ID!
     name: String!
     description: String!
-    images: [String!]!
+    image: String
     contributors: [User!]!
     comments: [Comment!]!
   }
