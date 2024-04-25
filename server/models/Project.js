@@ -12,6 +12,11 @@ const projectSchema = new Schema(
             required: true,
             trim: true
         },
+        githubProjectLink: {
+            type: String,
+            required: true,
+            trim: true
+        },
         image: {
             type: String,
             trim: true

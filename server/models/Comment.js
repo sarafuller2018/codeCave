@@ -7,20 +7,16 @@ const commentSchema = new Schema(
             required: true,
             trim: true
         },
-        user: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: "User",
-                required: true
-            }
-        ],
-        project: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: "Project",
-                required: true
-            }
-        ]
+        user: {
+            type: Schema.Types.ObjectId,
+            ref: "User",
+            required: true
+        },
+        project: {
+            type: Schema.Types.ObjectId,
+            ref: "Project",
+            required: true
+        }
     }
 );
 

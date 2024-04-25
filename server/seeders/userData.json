@@ -1,0 +1,37 @@
+[ 
+    {
+        "firstName": "Sara",
+        "lastName": "Fuller",
+        "email": "sara@test.com",
+        "githubProfileLink": "https://github.com/sarafuller2018",
+        "projects": []
+    },
+    {
+        "firstName": "Efren",
+        "lastName": "Leal",
+        "email": "efren@test.com",
+        "githubProfileLink": "https://github.com/Efren96",
+        "projects": []
+    },
+    {
+        "firstName": "Cam",
+        "lastName": "Whritenour",
+        "email": "cam@test.com",
+        "githubProfileLink": "https://github.com/camwhritenour",
+        "projects": []
+    },
+    {
+        "firstName": "Derek",
+        "lastName": "Medrano",
+        "email": "derek@test.com",
+        "githubProfileLink": "https://github.com/derekmedrano",
+        "projects": []
+    },
+    {
+        "firstName": "Bernardo",
+        "lastName": "Alonso",
+        "email": "bernardo@test.com",
+        "githubProfileLink": "https://github.com/oneuglyghost",
+        "projects": []
+    }
+]

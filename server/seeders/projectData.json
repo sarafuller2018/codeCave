@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Vet-Tech",
+        "description": "This is an application designed to allow vets to securely and efficiently store and edit pet and pet owner information.",
+        "githubProjectLink": "https://github.com/Efren96/vet-tech-app",
+        "image": "",
+        "contributors": [],
+        "comments": []
+    },
+    {
+        "name": "Pure-Momentum-Workout-Site",
+        "description": "This is an application used to workout different areas of your body on certain days of the week. After working a specific area of the body, the user will be placed on rest to focus on another. In addition to the workout routines, our application will also feature an air quality meter for the outdoor enthusiast as well as a journal log for the user to keep a short description of how the workout made them feel both physically and mentally.",
+        "githubProjectLink": "https://github.com/sarafuller2018/PureMomentum-Workout-Site",
+        "image": "",
+        "contributors": [],
+        "comments": []
+    },
+    {
+        "name": "Horiseon-Marketing-Page",
+        "description": "This webpage is an informational page about the capabilities of Horiseon Marketing. Throughout refactoring the webpage code, I was able to apply my new knowledge of CSS by applying alt text to images, reorganizing the structure of the CSS page to match the flow of the HTML code, and adding comments to the code to make it easier to follow for others who may read it.",
+        "githubProjectLink": "https://github.com/sarafuller2018/Horiseon-Marketing-Page",
+        "image": "",
+        "contributors": [],
+        "comments": []
+    },
+    {
+        "name": "Weather-Dashboard",
+        "description": "Users can use the application to search for a city in the US and view weather data for the current time as well as the next 5 days. Upon search, a button will be created in the aside so the user may easily go back and view a previously searched city.",
+        "githubProjectLink": "https://github.com/derekmedrano/weather-dashboard",
+        "image": "",
+        "contributors": [],
+        "comments": []
+    },
+    {
+        "name": "Password-Generator",
+        "description": "This week's Challenge requires you to create an application that an employee can use to generate a random password based on criteria they've selected. This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes. This week's coursework will teach you all the skills you need to succeed in this assignment.",
+        "githubProjectLink": "https://github.com/camwhritenour/Homework03-Password-Generator",
+        "image": "",
+        "contributors": [],
+        "comments": []
+    }
+]

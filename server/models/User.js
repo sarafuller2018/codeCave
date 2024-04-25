@@ -18,7 +18,7 @@ const userSchema = new Schema(
             unique: true,
             trim: true
         },
-        githubLink: {
+        githubProfileLink: {
             type: String,
             required: true,
             unique: true,

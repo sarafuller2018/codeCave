@@ -4,7 +4,7 @@ const typeDefs = `
     firstName: String!
     lastName: String!
     email: String!
-    githubLink: String!
+    githubProfileLink: String!
     projects: [Project]
   }
 
@@ -12,6 +12,7 @@ const typeDefs = `
     id: ID!
     name: String!
     description: String!
+    githubProjectLink: String!
     image: String
     contributors: [User]!
     comments: [Comment]
@@ -31,7 +32,7 @@ const typeDefs = `
   }
 
   type Mutation {
-    signup(firstName: String!, lastName: String!, email: String!, githubLink: String!): User
+    signup(firstName: String!, lastName: String!, email: String!, githubProfileLink: String!): User
     login(email: String!): User
     logout: Boolean
     createProject(name: String!, description: String!, images: [String]!): Project
