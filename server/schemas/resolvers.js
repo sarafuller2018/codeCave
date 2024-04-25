@@ -1,4 +1,4 @@
-const { User, Project, Comment } = require("../models");
+const { User, Project } = require("../models");
 
 const resolvers = {
     Query: {
