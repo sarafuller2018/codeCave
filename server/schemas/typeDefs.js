@@ -4,17 +4,18 @@ const typeDefs = `
     firstName: String!
     lastName: String!
     email: String!
-    githubLink: String!
-    projects: [Project!]!
+    githubProfileLink: String!
+    projects: [Project]
   }
 
   type Project {
     id: ID!
     name: String!
     description: String!
-    images: [String!]!
-    contributors: [User!]!
-    comments: [Comment!]!
+    githubProjectLink: String!
+    image: String
+    contributors: [User]!
+    comments: [Comment]
   }
 
   type Comment {
@@ -25,17 +26,16 @@ const typeDefs = `
   }
 
   type Query {
-    projects: [Project!]!
-    project(id: ID!): Project!
-    comments(projectId: ID!): [Comment!]!
+    projects: [Project]!
+    project(projectId: ID!): Project
   }
 
   type Mutation {
-    signup(firstName: String!, lastName: String!, email: String!, githubLink: String!): User!
-    login(email: String!): User!
-    logout: Boolean!
-    createProject(name: String!, description: String!, images: [String!]!): Project!
-    addComment(projectId: ID!, text: String!): Comment!
+    addUser(firstName: String!, lastName: String!, email: String!, githubProfileLink: String!): User
+    addProject(name: String!, description: String!, githubProjectLink: String!, image: String): Project
+    addComment(projectId: ID!, text: String!): Comment
+    removeProject(projectId: ID!): Project
+    removeComment(projectId: ID!, commentId: ID!): Project
   }
 `;
 
