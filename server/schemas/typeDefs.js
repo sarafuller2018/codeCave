@@ -27,16 +27,15 @@ const typeDefs = `
 
   type Query {
     projects: [Project]!
-    project(id: ID!): Project
-    comments(projectId: ID!): [Comment]!
+    project(projectId: ID!): Project
   }
 
   type Mutation {
-    signup(firstName: String!, lastName: String!, email: String!, githubProfileLink: String!): User
-    login(email: String!): User
-    logout: Boolean
-    createProject(name: String!, description: String!, images: [String]!): Project
+    addUser(firstName: String!, lastName: String!, email: String!, githubProfileLink: String!): User
+    addProject(name: String!, description: String!, githubProjectLink: String!, image: String): Project
     addComment(projectId: ID!, text: String!): Comment
+    removeProject(projectId: ID!): Project
+    removeComment(projectId: ID!, commentId: ID!): Project
   }
 `;
 
