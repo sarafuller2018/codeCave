@@ -3,11 +3,11 @@ const { User, Project } = require("../models");
 const resolvers = {
     Query: {
         projects: async () => {
-            return Project.find();
+            return Project.find().populate("contributors").populate("comments");
         },
 
         project: async (parent, { projectId }) => {
-            return Project.findOne({ _id: projectId })
+            return Project.findOne({ _id: projectId }).populate("contributors").populate("comments");
         }
     },
 
@@ -15,8 +15,8 @@ const resolvers = {
         addUser: async (parent, { firstName, lastName, email, githubProfileLink }) => {
             return User.create({ firstName, lastName, email, githubProfileLink });
         },
-        addProject: async (parent, { name, description, githubProjectLink, image }) => {
-            return Project.create({ name, description, githubProjectLink, image });
+        addProject: async (parent, { owner, name, description, githubProjectLink, image }) => {
+            return Project.create({ owner, name, description, githubProjectLink, image });
         },
         addComment: async (parent, { projectId, text }) => {
             return Project.findOneAndUpdate(

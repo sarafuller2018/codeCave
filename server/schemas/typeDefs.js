@@ -10,11 +10,13 @@ const typeDefs = `
 
   type Project {
     id: ID!
+    owner: User!
     name: String!
     description: String!
     githubProjectLink: String!
     image: String
-    contributors: [User]!
+    createdAt: String!
+    contributors: [User]
     comments: [Comment]
   }
 
@@ -32,7 +34,7 @@ const typeDefs = `
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, githubProfileLink: String!): User
-    addProject(name: String!, description: String!, githubProjectLink: String!, image: String): Project
+    addProject(owner: User!, name: String!, description: String!, githubProjectLink: String!, image: String): Project
     addComment(projectId: ID!, text: String!): Comment
     removeProject(projectId: ID!): Project
     removeComment(projectId: ID!, commentId: ID!): Project
