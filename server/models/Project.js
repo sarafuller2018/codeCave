@@ -3,7 +3,7 @@ const dateFormat = require('../utils/dateFormat');
 
 const projectSchema = new Schema(
     {
-        user: {
+        owner: {
             type: Schema.Types.ObjectId,
             ref: "User"
         },

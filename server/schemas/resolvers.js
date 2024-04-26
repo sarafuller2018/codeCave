@@ -8,7 +8,11 @@ const resolvers = {
 
         project: async (parent, { projectId }) => {
             return Project.findOne({ _id: projectId }).populate("contributors").populate("comments");
-        }
+        },
+
+        users: async () => {
+            return User.find().populate("projects");
+        },
     },
 
     Mutation: {
