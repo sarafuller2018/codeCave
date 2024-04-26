@@ -14,10 +14,14 @@ const router = createBrowserRouter([
                 index: true,
                 element: <Home />
             },
-            // {
-            //     path: '/projects/:projectId',
-            //     element: <Profile />,
-            // },
+            {
+                path: '/user/me',
+                element: <Profile />,
+            },
+            {
+                path: '/projects/:projectId',
+                
+            }
         ],
     },
 ]);
