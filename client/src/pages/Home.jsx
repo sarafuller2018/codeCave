@@ -16,7 +16,7 @@ const Home = () => {
                 ) : (
                     <ProjectList
                     projects={projects}
-                    title="Projects In Progress"
+                    title=""
                     />
                 )}
             </div>
