@@ -3,6 +3,7 @@ const typeDefs = `
     id: ID!
     firstName: String!
     lastName: String!
+    userName: String!
     email: String!
     password: String!
     githubProfileLink: String!
@@ -16,7 +17,7 @@ const typeDefs = `
 
   type Project {
     id: ID!
-    owner: String!
+    user: String!
     name: String!
     description: String!
     githubProjectLink: String!
@@ -29,7 +30,7 @@ const typeDefs = `
   type Comment {
     id: ID!
     text: String!
-    user: User!
+    user: String!
     project: Project!
   }
 
@@ -41,13 +42,13 @@ const typeDefs = `
   }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!, githubProfileLink: String!): Auth
+    addUser(firstName: String!, lastName: String!, userName: String!, email: String!, password: String!, githubProfileLink: String!): Auth
     login(email: String!, password: String!): Auth
     
-    addProject(owner: String!, name: String!, description: String!, githubProjectLink: String!, image: String): Project
+    addProject(name: String!, description: String!, githubProjectLink: String!, image: String): Project
     addComment(projectId: ID!, text: String!): Comment
     removeProject(projectId: ID!): Project
-    removeComment(projectId: ID!, commentId: ID!): Project
+    removeComment(projectId: ID!, commentId: ID!): Comment
   }
 `;
 

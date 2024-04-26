@@ -1,4 +1,4 @@
-const { User, Project } = require("../models");
+const { User, Project, Comment } = require("../models");
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -25,8 +25,8 @@ const resolvers = {
     },
 
     Mutation: {
-        addUser: async (parent, { firstName, lastName, email, githubProfileLink }) => {
-            const user = await User.create({ firstName, lastName, email, githubProfileLink });
+        addUser: async (parent, { firstName, lastName, userName, email, githubProfileLink }) => {
+            const user = await User.create({ firstName, lastName, userName, email, githubProfileLink });
             const token = signToken(user);
 
             return { token, user }
@@ -47,41 +47,72 @@ const resolvers = {
             const token = signToken(user);
             return { token, profile };
         },
-        addProject: async (parent, { owner, name, description, githubProjectLink, image }, context) => {
+        addProject: async (parent, { name, description, githubProjectLink, image }, context) => {
             if (context.user) {
-                return Project.create({ owner, name, description, githubProjectLink, image });
+                const project = await Project.create({
+                    name, description, githubProjectLink, image,
+                    user: context.user.userName
+                });
+
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { projects: project._id } }
+                );
+
+                return project;
             }
             throw AuthenticationError;
         },
         addComment: async (parent, { projectId, text }, context) => {
             if (context.user) {
-                return Project.findOneAndUpdate(
+                const comment = await Comment.create({ text, user: context.user.userName });
+
+                await Project.findOneAndUpdate(
                     { _id: projectId },
                     {
-                        $addToSet: { comments: { text } },
+                        $addToSet: { comments: comment._id }
                     },
                     {
                         new: true,
                         runValidators: true,
                     }
                 );
+
+                return comment;
             }
             throw AuthenticationError;
         },
-        // need to see if this works? try && 
         removeProject: async (parent, { projectId }, context) => {
             if (context.user) {
-                return Project.findOneAndDelete({ _id: projectId });
+                const project = await Project.findOneAndDelete({
+                    _id: projectId,
+                    user: context.user.userName
+                });
+
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { projects: project._id } },
+                    { new: true }
+                );
+
+                return project;
             }
             throw AuthenticationError;
         },
         removeComment: async (parent, { projectId, commentId }, context) => {
             if (context.user) {
-                return Project.findOneAndUpdate(
+                const comment = await Comment.findOneAndDelete({
+                    _id: commentId,
+                    user: context.user.userName
+                });
+
+                await Project.findOneAndUpdate(
                     { _id: projectId },
-                    { $pull: { comments: { _id: commentId } } },
+                    { $pull: { comments: { comments: comment._id } } },
                     { new: true }
                 );
+
+                return comment;
             }
             throw AuthenticationError;
         },

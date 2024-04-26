@@ -8,9 +8,9 @@ const commentSchema = new Schema(
             trim: true
         },
         user: {
-            type: Schema.Types.ObjectId,
-            ref: "User",
-            required: true
+            type: String,
+            required: true,
+            trim: true,
         },
         project: {
             type: Schema.Types.ObjectId,
