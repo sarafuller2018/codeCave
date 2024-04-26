@@ -12,7 +12,7 @@ const typeDefs = `
 
   type Auth {
     token: ID!
-    profile: Profile
+    user: User
   }
 
   type Project {
@@ -38,7 +38,7 @@ const typeDefs = `
     projects: [Project]!
     project(projectId: ID!): Project
     users: [User]!
-    me: Profile
+    me: User
   }
 
   type Mutation {

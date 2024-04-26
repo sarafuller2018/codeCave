@@ -45,7 +45,7 @@ const resolvers = {
             }
 
             const token = signToken(user);
-            return { token, profile };
+            return { token, user };
         },
         addProject: async (parent, { name, description, githubProjectLink, image }, context) => {
             if (context.user) {
