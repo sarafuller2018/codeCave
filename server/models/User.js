@@ -13,6 +13,12 @@ const userSchema = new Schema(
             required: true,
             trim: true
         },
+        userName: {
+            type: String,
+            required: true,
+            unique: true,
+            trim: true,
+          },
         email: {
             type: String,
             required: true,
@@ -41,7 +47,7 @@ const userSchema = new Schema(
 );
 
 // set up pre-save middleware to create password
-profileSchema.pre('save', async function (next) {
+userSchema.pre('save', async function (next) {
     if (this.isNew || this.isModified('password')) {
       const saltRounds = 10;
       this.password = await bcrypt.hash(this.password, saltRounds);
@@ -51,7 +57,7 @@ profileSchema.pre('save', async function (next) {
   });
   
   // compare the incoming password with the hashed password
-  profileSchema.methods.isCorrectPassword = async function (password) {
+ userSchema.methods.isCorrectPassword = async function (password) {
     return bcrypt.compare(password, this.password);
   };
 
