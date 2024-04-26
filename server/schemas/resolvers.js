@@ -14,6 +14,14 @@ const resolvers = {
         users: async () => {
             return User.find().populate("projects");
         },
+
+        // by adding context to our query, we can retrieve the logged in user without specifically searching for them
+        me: async (parent, args, context) => {
+            if (context.user) {
+                return User.findOne({ _id: context.user._id });
+            }
+            throw AuthenticationError;
+        },
     },
 
     Mutation: {
@@ -39,32 +47,45 @@ const resolvers = {
             const token = signToken(user);
             return { token, profile };
         },
-        addProject: async (parent, { owner, name, description, githubProjectLink, image }) => {
-            return Project.create({ owner, name, description, githubProjectLink, image });
+        addProject: async (parent, { owner, name, description, githubProjectLink, image }, context) => {
+            if (context.user) {
+                return Project.create({ owner, name, description, githubProjectLink, image });
+            }
+            throw AuthenticationError;
         },
-        addComment: async (parent, { projectId, text }) => {
-            return Project.findOneAndUpdate(
-                { _id: projectId },
-                {
-                    $addToSet: { comments: { text } },
-                },
-                {
-                    new: true,
-                    runValidators: true,
-                }
-            );
+        addComment: async (parent, { projectId, text }, context) => {
+            if (context.user) {
+                return Project.findOneAndUpdate(
+                    { _id: projectId },
+                    {
+                        $addToSet: { comments: { text } },
+                    },
+                    {
+                        new: true,
+                        runValidators: true,
+                    }
+                );
+            }
+            throw AuthenticationError;
         },
-        removeProject: async (parent, { projectId }) => {
-            return Project.findOneAndDelete({ _id: projectId });
+        // need to see if this works? try && 
+        removeProject: async (parent, { projectId }, context) => {
+            if (context.user) {
+                return Project.findOneAndDelete({ _id: projectId });
+            }
+            throw AuthenticationError;
         },
-        removeComment: async (parent, { projectId, commentId }) => {
-            return Project.findOneAndUpdate(
-                { _id: projectId },
-                { $pull: { comments: { _id: commentId } } },
-                { new: true }
-            );
-        }
-    }
+        removeComment: async (parent, { projectId, commentId }, context) => {
+            if (context.user) {
+                return Project.findOneAndUpdate(
+                    { _id: projectId },
+                    { $pull: { comments: { _id: commentId } } },
+                    { new: true }
+                );
+            }
+            throw AuthenticationError;
+        },
+    },
 };
 
 module.exports = resolvers;

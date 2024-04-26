@@ -37,6 +37,7 @@ const typeDefs = `
     projects: [Project]!
     project(projectId: ID!): Project
     users: [User]!
+    me: Profile
   }
 
   type Mutation {
