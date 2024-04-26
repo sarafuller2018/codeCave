@@ -4,13 +4,19 @@ const typeDefs = `
     firstName: String!
     lastName: String!
     email: String!
+    password: String!
     githubProfileLink: String!
     projects: [Project]
   }
 
+  type Auth {
+    token: ID!
+    profile: Profile
+  }
+
   type Project {
     id: ID!
-    owner: User!
+    owner: String!
     name: String!
     description: String!
     githubProjectLink: String!
@@ -30,11 +36,15 @@ const typeDefs = `
   type Query {
     projects: [Project]!
     project(projectId: ID!): Project
+    users: [User]!
+    me: Profile
   }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, githubProfileLink: String!): User
-    addProject(owner: User!, name: String!, description: String!, githubProjectLink: String!, image: String): Project
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!, githubProfileLink: String!): Auth
+    login(email: String!, password: String!): Auth
+    
+    addProject(owner: String!, name: String!, description: String!, githubProjectLink: String!, image: String): Project
     addComment(projectId: ID!, text: String!): Comment
     removeProject(projectId: ID!): Project
     removeComment(projectId: ID!, commentId: ID!): Project
