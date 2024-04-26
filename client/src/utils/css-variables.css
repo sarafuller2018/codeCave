@@ -1,11 +1,45 @@
-/* CSS Variables, change colors as desired */
+/* CSS Variables, change values as desired */
+
+/* Font Imports -
+/* Fonts taken from CDN Fonts ( https://www.cdnfonts.com/ ) */
+@import url('https://fonts.cdnfonts.com/css/mont');
+@import url('https://fonts.cdnfonts.com/css/rogan');
+@import url('https://fonts.cdnfonts.com/css/adlam-display');
 
 :root {
+
+/* Color Schema */
     --codecave-primary: #2d3059;
     --codecave-secondary: #5971db;
     --codecave-accent:  #a498e9;
     --codecave-btn: #9772b5;
     --codecave-background: #000000;
-    
-}
 
+
+/* Typography / Font-Families */
+    --codecave-font-primary: 'Mont', sans-serif;
+    --codecave-font-secondary: 'Rogan', sans-serif;
+    --codecave-font-btn: 'ADLaM Display', sans-serif;
+    --line-height: 1.5;
+
+/* Spacing */
+    --spacing-small: 4px;
+    --spacing-medium: 8px;
+    --spacing-large: 16px;
+
+
+ /* Breakpoints 
+ 
+ NOTE: Definitions are based off of MOBILE-FIRST design,
+ when using @media queries, please use (min-width: ).
+ 
+ Using (max-width: ) in this case will result in poor
+ responsiveness. 
+ */
+    --breakpoint-extra-small: 475px;
+    --breakpoint-small: 640px;
+    --breakpoint-medium: 768px;
+    --breakpoint-large: 1024px;
+    --breakpoint-extra-large: 1280px;
+    --breakpoint-extra-extra-large: 1536px;
+}
