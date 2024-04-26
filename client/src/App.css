@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+    color: white;
+}
+
+header{
+    background-image: url(../public/Images/cave-img.svg);
+    background-size: cover; height: 1100px;
+    background-color: black;
+
+}
+
+.logo-div{
+    display: flex;
+    justify-content: center;
+}
+
+.codecave-logo{
+    margin-top: 50px;
+    margin-left: 160px;
+}
+
+.login-signup-btn-div{
+    float: right;
+}
+
+.login-signup-btn{
+margin: 30px;
+border: solid;
+width: 120px;
+height: 40px;
+background-color: white;
+color: black;
+border-radius: 20px;
+border-width: 1px;
+font-family: 'DM Sans', sans-serif;
+padding: 5px;
+cursor: pointer;
+                                                
+}
+
+.buttons-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.new-btn{
+    margin: 20px;
+    margin-top: 50px;
+    border: solid;
+    width: 95px;
+    height: 35px;
+   background-color: black;
+   border-radius: 20px;
+   border-width: .5px;
+   font-family: 'DM Sans', sans-serif;
+   cursor: pointer;
+}
+
+.divider{
+    display: flex;
+    justify-content: center;
+}
+
+hr{
+    width: 800px;
+    border-width: 0.3px;
+    opacity: 30%;
+    margin-top: 30px;
+}
+
+.add-project-btn-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.add-project-btn{
+    margin: 20px;
+    margin-top: 40px;
+    border: none;
+    width: 250px;
+    height: 45px;
+   background-color: #5972db;
+   border-radius: 25px;
+   border-width: 1px;
+   font-family: 'DM Sans', sans-serif;
+   cursor: pointer;
+}
+
+.project-card-div{
+    display: flex;
+    justify-content: center;
+}
+
+.project-card{
+    margin-top: 30px;
+    background-color: #2d3159;
+    width: 1000px;
+    height: 375px;
+    border-radius: 20px;
+}
+
+.project-title-div{
+    width: 400px;
+}
+
+.project-title{
+margin-left: 30px;
+margin-top: 20px;
+font-family: 'DM Sans', sans-serif;
+font-weight: 600;
+font-size: 50px;
+}
+
+.project-description-div{
+width: 650px;
+}
+
+.project-description{
+    margin-left: 30px;
+    margin-top: 20px;
+    font-family: 'Mont', sans-serif;
+}
+
+.placeholder-img-div{
+}
+
+.placeholder-img{
+    float: right;
+    width: 275px;
+    margin-right: 30px;
+    margin-top: -155px;
+}
