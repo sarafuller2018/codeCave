@@ -28,6 +28,6 @@ module.exports = sendEmail;
 
 
 //EXAMPLE ADD TO ANY PAGE THAT NEEDS TO SEND EMAIL
-// const sendEmail = require('./utils/emailUtils');
+// const sendEmail = require('.server/utils/emailUtils.js');
 
 // sendEmail(contributorEmail, postOwnerEmail, 'Subject', 'Hello, this is a test email');
