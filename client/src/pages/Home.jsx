@@ -1,6 +1,6 @@
-import { useQuery } from 'apollo/clinet';
+import { useQuery } from '@apollo/client';
 
-import { ProjectList } from '../components/ProjectList'
+import ProjectList from '../components/ProjectList/ProjectList'
 
 import { QUERY_PROJECTS } from '../utils/queries';
 
@@ -16,7 +16,7 @@ const Home = () => {
                 ) : (
                     <ProjectList
                     projects={projects}
-                    title="Projects In Progress"
+                    title=""
                     />
                 )}
             </div>

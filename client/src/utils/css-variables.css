@@ -1,0 +1,11 @@
+/* CSS Variables, change colors as desired */
+
+:root {
+    --codecave-primary: #2d3059;
+    --codecave-secondary: #5971db;
+    --codecave-accent:  #a498e9;
+    --codecave-btn: #9772b5;
+    --codecave-background: #000000;
+    
+}
+
