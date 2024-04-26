@@ -1,4 +1,5 @@
 const { User, Project } = require("../models");
+const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
     Query: {
@@ -17,7 +18,26 @@ const resolvers = {
 
     Mutation: {
         addUser: async (parent, { firstName, lastName, email, githubProfileLink }) => {
-            return User.create({ firstName, lastName, email, githubProfileLink });
+            const user = await User.create({ firstName, lastName, email, githubProfileLink });
+            const token = signToken(user);
+
+            return { token, user }
+        },
+        login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
+
+            if (!user) {
+                throw AuthenticationError
+            }
+
+            const correctPw = await user.isCorrectPassword(password);
+
+            if (!correctPw) {
+                throw AuthenticationError
+            }
+
+            const token = signToken(user);
+            return { token, profile };
         },
         addProject: async (parent, { owner, name, description, githubProjectLink, image }) => {
             return Project.create({ owner, name, description, githubProjectLink, image });
@@ -41,6 +61,7 @@ const resolvers = {
             return Project.findOneAndUpdate(
                 { _id: projectId },
                 { $pull: { comments: { _id: commentId } } },
+                { new: true }
             );
         }
     }
