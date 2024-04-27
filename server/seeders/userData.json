@@ -1,16 +1,20 @@
-[ 
+[
     {
         "firstName": "Sara",
         "lastName": "Fuller",
         "email": "sara@test.com",
         "githubProfileLink": "https://github.com/sarafuller2018",
-        "projects": []
+        "userName": "sara_fuller",
+        "password": "sara_password",
+        "project": []
     },
     {
         "firstName": "Efren",
         "lastName": "Leal",
         "email": "efren@test.com",
         "githubProfileLink": "https://github.com/Efren96",
+        "userName": "efren_leal",
+        "password": "efren_password",
         "projects": []
     },
     {
@@ -18,6 +22,8 @@
         "lastName": "Whritenour",
         "email": "cam@test.com",
         "githubProfileLink": "https://github.com/camwhritenour",
+        "userName": "cam_whritenour",
+        "password": "cam_password",
         "projects": []
     },
     {
@@ -25,6 +31,8 @@
         "lastName": "Medrano",
         "email": "derek@test.com",
         "githubProfileLink": "https://github.com/derekmedrano",
+        "userName": "derek_medrano",
+        "password": "derek_password",
         "projects": []
     },
     {
@@ -32,6 +40,9 @@
         "lastName": "Alonso",
         "email": "bernardo@test.com",
         "githubProfileLink": "https://github.com/oneuglyghost",
+        "userName": "bernardo_alonso",
+        "password": "bernardo_password",
         "projects": []
     }
 ]
+
