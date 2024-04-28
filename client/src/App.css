@@ -75,19 +75,34 @@ header{
         }
 }
 
-.btn{
+.oreIcon {
+    height: 1.5rem;
+}
+
+.ip-btn {
+    color: var(--codecave-background-secondary);
+    background-color: var(--codecave-background);
+}
+
+.fin-btn {
+    color: var(--codecave-secondary);
+    background-color: var(--codecave-background-secondary);
+}
+
+.ip-btn, .fin-btn{
     margin: 20px;
     margin-top: 50px;
     border: solid;
     width: 95px;
     height: 35px;
-    background-color: black;
     border-radius: 20px;
     border-width: .5px;
     font-family: var(--codecave-font-btn);
     font-size: var(--font-size-small);
     cursor: pointer;
 }
+
+
 
 .divider{
     display: flex;

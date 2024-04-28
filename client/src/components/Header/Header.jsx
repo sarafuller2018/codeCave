@@ -1,4 +1,5 @@
-
+// Dev Note: SVG icons are currently commented out because I can't properly align them and make them look
+//  but I 
 
 const Header = () => {
     return (
@@ -10,9 +11,15 @@ const Header = () => {
                 <img className="codecave-logo" src="./Images/codeCave(logo).svg" />
             </div>
             <div className="buttons-div">
-                <button className="new-btn">New</button>
-                <button className="btn">In Progress</button>
-                <button className="btn">Finished</button>
+                <button className="new-btn">
+                    {/* <img className="oreIcon" src="./Images/ore.svg" /> */}
+                    New
+                </button>
+                <button className="ip-btn">
+                {/* <img className="oreIcon" src="./Images/mined_ore.svg" /> */}
+                    In Progress
+                    </button>
+                <button className="fin-btn">Finished</button>
             </div>
             <div className="divider">
             <hr/>
