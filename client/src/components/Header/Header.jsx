@@ -11,8 +11,8 @@ const Header = () => {
             </div>
             <div className="buttons-div">
                 <button className="new-btn">New</button>
-                <button className="new-btn">In Progress</button>
-                <button className="new-btn">Finished</button>
+                <button className="btn">In Progress</button>
+                <button className="btn">Finished</button>
             </div>
             <div className="divider">
             <hr/>
