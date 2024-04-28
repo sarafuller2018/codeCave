@@ -210,6 +210,6 @@ hr{
 };
 
 /* 2xl */
-@media (min-width: var(--breakpoint-extra-extra-large: 1536px;)) {
+@media (min-width: var(--breakpoint-extra-extra-large)) {
 
 };
