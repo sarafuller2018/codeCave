@@ -25,6 +25,11 @@
     --codecave-font-btn: 'ADLaM Display', sans-serif;
     --codecave-font-dm-sans: 'DM Sans', sans-serif;
     --line-height: 1.5;
+    --font-size-small: 0.8rem;
+    --font-size-standard: 1rem;
+    --font-size-large: 1.2rem;
+    --font-size-larger: 2rem;
+
 
 /* Spacing */
     --spacing-small: 4px;
