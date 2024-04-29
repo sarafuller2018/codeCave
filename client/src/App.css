@@ -6,23 +6,42 @@
     box-sizing: border-box;
     font-family: "Roboto";
     color: var(--codecave-background-secondary);
-    
+
 }
 
-header{
+header {
     background-image: url(/Images/cave-img-long.svg);
-    background-size: cover; height: 100%;
-    background-color: var(--codecave-background)
+    background-size: cover;
+    height: 100%;
+    background-color: var(--codecave-background);
 
 }
 
-body{
+body {
     background-color: black;
 }
 
 .logo-div {
     display: flex;
     justify-content: center;
+}
+
+.logo-div {
+    animation: drop-in 1500ms;
+}
+
+@keyframes drop-in {
+    from {
+        transform:
+            rotate(-2deg) translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform:
+            rotate(0deg) translateY(0%);
+        opacity: 1;
+    }
 }
 
 .codecave-logo {
@@ -32,7 +51,7 @@ body{
     animation-timeline: view(5px 600px);
 }
 
-.codecave-login-logo{
+.codecave-login-logo {
     width: 600px;
     margin-top: -30px;
 }
@@ -54,7 +73,7 @@ body{
     float: right;
 }
 
-.login-signup-btn{
+.login-signup-btn {
     margin: 30px;
     border: none;
     width: 120px;
@@ -67,10 +86,10 @@ body{
     padding: 5px;
     cursor: pointer;
     box-shadow: 0px 2px 17px rgb(0, 0, 0, 0.3);
-                                                
+
 }
 
-.login-signup-btn:hover{
+.login-signup-btn:hover {
     background-color: black;
     color: white;
     transition: 0.1s;
@@ -98,15 +117,17 @@ body{
 
 }
 
-#nav-btns:focus{
-    animation: pulse 1.5s infinite alternate; 
+#nav-btns:focus {
+    animation: pulse 1.5s infinite alternate;
     background-color: rgb(142, 87, 168);
-    border:rgb(142, 87, 168) ;
+    border: rgb(142, 87, 168);
 }
+
 @keyframes pulse {
     0% {
         box-shadow: 0 0 0 0 rgba(230, 197, 255, 0.685);
     }
+
     100% {
         box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
     }
@@ -117,7 +138,8 @@ body{
 }
 
 
-.ip-btn, .fin-btn{
+.ip-btn,
+.fin-btn {
     margin: 20px;
     margin-top: 50px;
     border: solid;
@@ -130,9 +152,9 @@ body{
     cursor: pointer;
 }
 
-#nav-btns:hover{
+#nav-btns:hover {
     background-color: rgb(142, 87, 168);
-    border:rgb(142, 87, 168) ;
+    border: rgb(142, 87, 168);
     color: white;
     transition: 0.1s;
 }
@@ -147,7 +169,7 @@ body{
 
 
 
-.divider{
+.divider {
     display: flex;
     justify-content: center;
 }
@@ -181,7 +203,7 @@ hr {
     cursor: pointer;
 }
 
-.add-project-btn:hover{
+.add-project-btn:hover {
     background-color: #2848ca;
     border-width: .5px;
     transition: 0.1s;
@@ -204,7 +226,7 @@ hr {
     width: 400px;
 }
 
-.project-title{
+.project-title {
     margin-left: 30px;
     margin-top: 20px;
     font-family: var(--codecave-font-dm-sans);
@@ -213,7 +235,7 @@ hr {
     letter-spacing: -3px;
 }
 
-.project-description-div{
+.project-description-div {
     width: 650px;
 }
 
@@ -245,7 +267,7 @@ hr {
     box-shadow: 0px 2px 17px rgb(0, 0, 0, 0.1);
 }
 
-.view-project-btn:hover{
+.view-project-btn:hover {
     background-color: #2848ca;
     border-width: .5px;
     transition: 0.1s;
@@ -281,7 +303,7 @@ hr {
     font-size: 40px;
 }
 
-.add-project-btn-2:hover{
+.add-project-btn-2:hover {
     background-color: #2848ca;
     border-width: .5px;
     transition: 0.1s;
@@ -294,19 +316,21 @@ hr {
     margin-bottom: 50px;
     margin-top: -30px;
     flex-wrap: wrap;
+    animation: drop-in 1500ms;
 }
 
-.signup-form-div{
+.signup-form-div {
     display: flex;
     overflow: auto;
     justify-content: center;
     margin-bottom: 50px;
     margin-top: -30px;
     flex-wrap: wrap;
+    animation: drop-in 1500ms;
     display: none;
 }
 
-.form-card{
+.form-card {
     width: 485px;
     height: 550px;
     margin: 15px;
@@ -324,21 +348,22 @@ hr {
     color: white;
     cursor: default;
 }
-#signup-form-card{
+
+#signup-form-card {
     height: 590px;
 }
 
-.login-text-div{
-display: flex;
-justify-content: center;
-background-color: var(--codecave-primary); 
+.login-text-div {
+    display: flex;
+    justify-content: center;
+    background-color: var(--codecave-primary);
 }
 
-.login-text{
+.login-text {
     margin-top: 60px;
-    background-color: var(--codecave-primary); 
+    background-color: var(--codecave-primary);
     font-family: var(--codecave-font-dm-sans);
-    font-size: 45px;  
+    font-size: 45px;
     font-weight: 600;
     letter-spacing: -2px;
 }
@@ -347,7 +372,7 @@ background-color: var(--codecave-primary);
     margin-top: 50px;
 }
 
-.login-input{
+.login-input {
     background-color: white;
     border: none;
     margin: 10px;
@@ -360,32 +385,32 @@ background-color: var(--codecave-primary);
     outline: none;
 }
 
-.email-div{
-    background-color: var(--codecave-primary); 
+.email-div {
+    background-color: var(--codecave-primary);
     display: flex;
     justify-content: center;
 }
 
-.password-div{
-    background-color: var(--codecave-primary); 
+.password-div {
+    background-color: var(--codecave-primary);
     display: flex;
     justify-content: center;
 }
 
-.login-btn-div{
-    background-color: var(--codecave-primary); 
+.login-btn-div {
+    background-color: var(--codecave-primary);
     display: flex;
     justify-content: center;
 }
 
 
-.signup-btn-div{
-    background-color: var(--codecave-primary); 
+.signup-btn-div {
+    background-color: var(--codecave-primary);
     display: flex;
     justify-content: center;
 }
 
-.login-btn{
+.login-btn {
     font-family: var(--codecave-font-dm-sans);
     border: none;
     width: 170px;
@@ -398,57 +423,57 @@ background-color: var(--codecave-primary);
     font-size: 16px;
 }
 
-.login-btn:hover{
+.login-btn:hover {
     background-color: #2848ca;
     width: 190px;
     transition: 0.2s;
 }
 
-.signup-btn{
+.signup-btn {
     font-family: var(--codecave-font-dm-sans);
     border: solid white;
     border-width: 1px;
     width: 170px;
     height: 40px;
     border-radius: 20px;
-    background-color: var(--codecave-primary); 
+    background-color: var(--codecave-primary);
     margin-top: 20px;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
     cursor: pointer;
     font-size: 16px;
 }
 
-.signup-btn:hover{
+.signup-btn:hover {
     background-color: #ffffff;
     color: black;
     width: 190px;
     transition: 0.2s;
 }
 
-.or-div{
+.or-div {
     display: flex;
     justify-content: center;
-    background-color: var(--codecave-primary); 
+    background-color: var(--codecave-primary);
 }
 
-.or{
-    background-color: var(--codecave-primary); 
+.or {
+    background-color: var(--codecave-primary);
     display: flex;
     justify-content: center;
     font-family: var(--codecave-font-dm-sans);
 }
 
-.name-div{
+.name-div {
     display: flex;
-justify-content: start;
+    justify-content: start;
 }
 
-.name-input{
+.name-input {
     background-color: white;
     border: none;
-margin-left: 24px;
-margin-top: 50px;
-margin-right: -10px;
+    margin-left: 24px;
+    margin-top: 50px;
+    margin-right: -10px;
     margin-bottom: -40px;
     width: 212px;
     height: 50px;
@@ -461,31 +486,31 @@ margin-right: -10px;
 
 
 /* xs */
-@media (min-width: var(--breakpoint-extra-small)) {
+@media (min-width: var(--breakpoint-extra-small)) {}
 
-};
+;
 
 /* sm */
-@media (min-width: var(--breakpoint-small)) {
+@media (min-width: var(--breakpoint-small)) {}
 
-};
+;
 
 /* md */
-@media (min-width: var(--breakpoint-medium)) {
+@media (min-width: var(--breakpoint-medium)) {}
 
-};
+;
 
 /* lg */
-@media (min-width: var(--breakpoint-large)) {
+@media (min-width: var(--breakpoint-large)) {}
 
-};
+;
 
 /* xl */
-@media (min-width: var(--breakpoint-extra-large)) {
+@media (min-width: var(--breakpoint-extra-large)) {}
 
-};
+;
 
 /* 2xl */
-@media (min-width: var(--breakpoint-extra-extra-large)) {
+@media (min-width: var(--breakpoint-extra-extra-large)) {}
 
-};
+;
