@@ -5,6 +5,8 @@
 @import url('https://fonts.cdnfonts.com/css/mont');
 @import url('https://fonts.cdnfonts.com/css/rogan');
 @import url('https://fonts.cdnfonts.com/css/adlam-display');
+@import url('https://fonts.cdnfonts.com/css/dm-sans');
+                
 
 :root {
 
@@ -14,13 +16,20 @@
     --codecave-accent:  #a498e9;
     --codecave-btn: #9772b5;
     --codecave-background: #000000;
+    --codecave-background-secondary: #ffffff;
 
 
 /* Typography / Font-Families */
-    --codecave-font-primary: 'Mont', sans-serif;
-    --codecave-font-secondary: 'Rogan', sans-serif;
+    --codecave-font-mont: 'Mont', sans-serif;
+    --codecave-font-rogan: 'Rogan', sans-serif;
     --codecave-font-btn: 'ADLaM Display', sans-serif;
+    --codecave-font-dm-sans: 'DM Sans', sans-serif;
     --line-height: 1.5;
+    --font-size-small: 0.8rem;
+    --font-size-standard: 1rem;
+    --font-size-large: 1.2rem;
+    --font-size-larger: 2rem;
+
 
 /* Spacing */
     --spacing-small: 4px;
@@ -28,14 +37,15 @@
     --spacing-large: 16px;
 
 
- /* Breakpoints 
+/* Breakpoints 
  
- NOTE: Definitions are based off of MOBILE-FIRST design,
- when using @media queries, please use (min-width: ).
+NOTE: Definitions are based off of MOBILE-FIRST design,
+when using @media queries, please use (min-width: ).
  
- Using (max-width: ) in this case will result in poor
- responsiveness. 
- */
+Using (max-width: ) in this case will result in poor
+responsiveness. 
+
+*/
     --breakpoint-extra-small: 475px;
     --breakpoint-small: 640px;
     --breakpoint-medium: 768px;
@@ -43,3 +53,4 @@
     --breakpoint-extra-large: 1280px;
     --breakpoint-extra-extra-large: 1536px;
 }
+
