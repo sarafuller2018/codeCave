@@ -6,32 +6,76 @@
     box-sizing: border-box;
     font-family: "Roboto";
     color: var(--codecave-background-secondary);
-}
-
-header{
-    background-image: url(/Images/cave-img.svg);
-    background-size: cover; height: 1100px;
-    background-color: var(--codecave-background)
 
 }
 
-.logo-div{
+header {
+    background-image: url(/Images/cave-img-long.svg);
+    background-size: cover;
+    height: 100%;
+    background-color: var(--codecave-background);
+
+}
+
+body {
+    background-color: black;
+}
+
+.logo-div {
     display: flex;
     justify-content: center;
 }
 
-.codecave-logo{
-    margin-top: 50px;
-    margin-left: 160px;
+.logo-div {
+    animation: drop-in 1500ms;
 }
 
-.login-signup-btn-div{
+@keyframes drop-in {
+    from {
+        transform:
+            rotate(-2deg) translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform:
+            rotate(0deg) translateY(0%);
+        opacity: 1;
+    }
+}
+
+.codecave-logo {
+    margin-top: 100px;
+    margin-left: 160px;
+    -webkit-animation: fadeOut linear;
+    animation-timeline: view(5px 600px);
+}
+
+.codecave-login-logo {
+    width: 600px;
+    margin-top: -30px;
+}
+
+@-webkit-keyframes fadeOut {
+    from {
+        scale: .7;
+        opacity: 2;
+    }
+
+    to {
+        scale: 1.6;
+        opacity: 1;
+    }
+
+}
+
+.login-signup-btn-div {
     float: right;
 }
 
-.login-signup-btn{
+.login-signup-btn {
     margin: 30px;
-    border: solid;
+    border: none;
     width: 120px;
     height: 40px;
     background-color: var(--codecave-background-secondary);
@@ -41,17 +85,61 @@ header{
     font-family: var(--codecave-font-dm-sans);
     padding: 5px;
     cursor: pointer;
-                                                
+    box-shadow: 0px 2px 17px rgb(0, 0, 0, 0.3);
+
 }
 
-.buttons-div{
+.login-signup-btn:hover {
+    background-color: black;
+    color: white;
+    transition: 0.1s;
+}
+
+.buttons-div {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
 }
 
-.new-btn{
+#nav-btns {
+    margin: 20px;
+    margin-top: 50px;
+    border: solid;
+    width: 110px;
+    height: 40px;
+    background-color: black;
+    border-radius: 20px;
+    border-width: 1px;
+    font-family: '';
+    font-size: var(--font-size-standard);
+    cursor: pointer;
+
+}
+
+#nav-btns:focus {
+    animation: pulse 1.5s infinite alternate;
+    background-color: rgb(142, 87, 168);
+    border: rgb(142, 87, 168);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(230, 197, 255, 0.685);
+    }
+
+    100% {
+        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+    }
+}
+
+.oreIcon {
+    height: 1.5rem;
+}
+
+
+.ip-btn,
+.fin-btn {
     margin: 20px;
     margin-top: 50px;
     border: solid;
@@ -59,42 +147,19 @@ header{
     height: 40px;
     background-color: black;
     border-radius: 20px;
-    border-width: .5px;
-    background-color: var(--codecave-secondary);
-    font-family: var(--codecave-font-btn);
-    font-size: var(--font-size-large);
+    border-width: 1px;
+    font-family: 'DM Sans', sans-serif;
     cursor: pointer;
-    animation: pulse 2s infinite alternate;
-}
-    @keyframes pulse {
-        0% {
-            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-        }
-        100% {
-            box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
-        }
 }
 
-.oreIcon {
-    height: 1.5rem;
+#nav-btns:hover {
+    background-color: rgb(142, 87, 168);
+    border: rgb(142, 87, 168);
+    color: white;
+    transition: 0.1s;
 }
 
-.ip-btn {
-    color: var(--codecave-background-secondary);
-    background-color: var(--codecave-background);
-}
-
-.fin-btn {
-    color: var(--codecave-secondary);
-    background-color: var(--codecave-background-secondary);
-}
-
-.ip-btn, .fin-btn{
-    margin: 20px;
-    margin-top: 50px;
-    border: solid;
-    width: 95px;
-    height: 35px;
+.divider {
     border-radius: 20px;
     border-width: .5px;
     font-family: var(--codecave-font-btn);
@@ -104,26 +169,26 @@ header{
 
 
 
-.divider{
+.divider {
     display: flex;
     justify-content: center;
 }
 
-hr{
+hr {
     width: 800px;
     border-width: 0.3px;
     opacity: 30%;
     margin-top: 30px;
 }
 
-.add-project-btn-div{
+.add-project-btn-div {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
 }
 
-.add-project-btn{
+.add-project-btn {
     margin: 20px;
     margin-top: 40px;
     border: none;
@@ -132,84 +197,320 @@ hr{
     background-color: var(--codecave-secondary);
     border-radius: 25px;
     border-width: 1px;
-    font-family: var(--codecave-font-btn);
+    font-family: '';
+    font-size: 17px;
+    font-weight: 400;
     cursor: pointer;
 }
 
-.project-card-div{
+.add-project-btn:hover {
+    background-color: #2848ca;
+    border-width: .5px;
+    transition: 0.1s;
+}
+
+.project-card-div {
     display: flex;
     justify-content: center;
 }
 
-.project-card{
+.project-card {
     margin-top: 30px;
     background-color: var(--codecave-primary);
     width: 1000px;
-    height: 375px;
+    height: 340px;
     border-radius: 20px;
 }
 
-.project-title-div{
+.project-title-div {
     width: 400px;
 }
 
-.project-title{
+.project-title {
     margin-left: 30px;
     margin-top: 20px;
     font-family: var(--codecave-font-dm-sans);
     font-weight: 600;
     font-size: 50px;
+    letter-spacing: -3px;
 }
 
-.project-description-div{
+.project-description-div {
     width: 650px;
 }
 
-.project-description{
+.project-description {
     margin-left: 30px;
     margin-top: 20px;
     font-family: var(--codecave-font-mont);
     line-height: var(--line-height);
 }
 
-/* .placeholder-img-div{
-} */
-
-.placeholder-img{
+.placeholder-img {
     float: right;
     width: 275px;
     margin-right: 30px;
-    margin-top: -155px;
+    margin-top: -190px;
+    border-radius: 15px;
+}
+
+.view-project-btn {
+    margin-left: 30px;
+    margin-top: 20px;
+    border: none;
+    width: 120px;
+    height: 35px;
+    background-color: #5972db;
+    border-radius: 20px;
+    font-family: '', sans-serif;
+    cursor: pointer;
+    box-shadow: 0px 2px 17px rgb(0, 0, 0, 0.1);
+}
+
+.view-project-btn:hover {
+    background-color: #2848ca;
+    border-width: .5px;
+    transition: 0.1s;
+}
+
+.time-stamp {
+    font-family: 'DM Sans', sans-serif;
+    margin-left: 30px;
+    margin-top: 22px;
+    font-style: italic;
+    color: #939393;
+}
+
+.add-project-btn-2-div {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 890px;
+}
+
+.add-project-btn-2 {
+    margin: 20px;
+    margin-top: 30px;
+    margin-bottom: 100px;
+    float: right;
+    border: none;
+    width: 110px;
+    height: 50px;
+    background-color: #5972db;
+    border-radius: 25px;
+    border-width: 1px;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    font-size: 40px;
+}
+
+.add-project-btn-2:hover {
+    background-color: #2848ca;
+    border-width: .5px;
+    transition: 0.1s;
+}
+
+.form-div {
+    display: flex;
+    overflow: auto;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: -30px;
+    flex-wrap: wrap;
+    animation: drop-in 1500ms;
+}
+
+.signup-form-div {
+    display: flex;
+    overflow: auto;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: -30px;
+    flex-wrap: wrap;
+    animation: drop-in 1500ms;
+    display: none;
+}
+
+.form-card {
+    width: 485px;
+    height: 550px;
+    margin: 15px;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    justify-content: center;
+    border-radius: 30px;
+    transition: .2s;
+    cursor: pointer;
+    overflow: hidden;
+    object-fit: cover;
+    border: none;
+    background-color: var(--codecave-primary);
+    color: white;
+    cursor: default;
+}
+
+#signup-form-card {
+    height: 590px;
+}
+
+.login-text-div {
+    display: flex;
+    justify-content: center;
+    background-color: var(--codecave-primary);
+}
+
+.login-text {
+    margin-top: 60px;
+    background-color: var(--codecave-primary);
+    font-family: var(--codecave-font-dm-sans);
+    font-size: 45px;
+    font-weight: 600;
+    letter-spacing: -2px;
+}
+
+.input-div {
+    margin-top: 50px;
+}
+
+.login-input {
+    background-color: white;
+    border: none;
+    margin: 10px;
+    width: 440px;
+    height: 50px;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    font-family: var(--codecave-font-dm-sans);
+    padding-left: 10px;
+    outline: none;
+}
+
+.email-div {
+    background-color: var(--codecave-primary);
+    display: flex;
+    justify-content: center;
+}
+
+.password-div {
+    background-color: var(--codecave-primary);
+    display: flex;
+    justify-content: center;
+}
+
+.login-btn-div {
+    background-color: var(--codecave-primary);
+    display: flex;
+    justify-content: center;
 }
 
 
+.signup-btn-div {
+    background-color: var(--codecave-primary);
+    display: flex;
+    justify-content: center;
+}
+
+.login-btn {
+    font-family: var(--codecave-font-dm-sans);
+    border: none;
+    width: 170px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: var(--codecave-secondary);
+    margin-top: 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-btn:hover {
+    background-color: #2848ca;
+    width: 190px;
+    transition: 0.2s;
+}
+
+.signup-btn {
+    font-family: var(--codecave-font-dm-sans);
+    border: solid white;
+    border-width: 1px;
+    width: 170px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: var(--codecave-primary);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.signup-btn:hover {
+    background-color: #ffffff;
+    color: black;
+    width: 190px;
+    transition: 0.2s;
+}
+
+.or-div {
+    display: flex;
+    justify-content: center;
+    background-color: var(--codecave-primary);
+}
+
+.or {
+    background-color: var(--codecave-primary);
+    display: flex;
+    justify-content: center;
+    font-family: var(--codecave-font-dm-sans);
+}
+
+.name-div {
+    display: flex;
+    justify-content: start;
+}
+
+.name-input {
+    background-color: white;
+    border: none;
+    margin-left: 24px;
+    margin-top: 50px;
+    margin-right: -10px;
+    margin-bottom: -40px;
+    width: 212px;
+    height: 50px;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    font-family: var(--codecave-font-dm-sans);
+    padding-left: 10px;
+    outline: none;
+}
+
 
 /* xs */
-@media (min-width: var(--breakpoint-extra-small)) {
+@media (min-width: var(--breakpoint-extra-small)) {}
 
-};
+;
 
 /* sm */
-@media (min-width: var(--breakpoint-small)) {
+@media (min-width: var(--breakpoint-small)) {}
 
-};
+;
 
 /* md */
-@media (min-width: var(--breakpoint-medium)) {
+@media (min-width: var(--breakpoint-medium)) {}
 
-};
+;
 
 /* lg */
-@media (min-width: var(--breakpoint-large)) {
+@media (min-width: var(--breakpoint-large)) {}
 
-};
+;
 
 /* xl */
-@media (min-width: var(--breakpoint-extra-large)) {
+@media (min-width: var(--breakpoint-extra-large)) {}
 
-};
+;
 
 /* 2xl */
-@media (min-width: var(--breakpoint-extra-extra-large)) {
+@media (min-width: var(--breakpoint-extra-extra-large)) {}
 
-};
+;
