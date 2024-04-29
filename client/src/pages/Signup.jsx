@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
-
 import Auth from '../utils/auth';
 
 const Signup = () => {
   const [formState, setFormState] = useState({
-    username: '',
+    firstName: '',
+    lastName: '',
+    userName: '',
     email: '',
     password: '',
+    githubProfileLink: ''
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
@@ -53,15 +54,31 @@ const Signup = () => {
               <form onSubmit={handleFormSubmit}>
                 <input
                   className="form-input"
-                  placeholder="Your username"
-                  name="username"
+                  placeholder="Your First Name"
+                  name="firstName"
                   type="text"
-                  value={formState.name}
+                  value={formState.firstName}
                   onChange={handleChange}
                 />
                 <input
                   className="form-input"
-                  placeholder="Your email"
+                  placeholder="Your Last Name"
+                  name="lastName"
+                  type="text"
+                  value={formState.lastName}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="Your Username"
+                  name="userName"
+                  type="text"
+                  value={formState.userName}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="Your Email"
                   name="email"
                   type="email"
                   value={formState.email}
@@ -69,10 +86,18 @@ const Signup = () => {
                 />
                 <input
                   className="form-input"
-                  placeholder="******"
+                  placeholder="Your Password"
                   name="password"
                   type="password"
                   value={formState.password}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="Your Github Profile"
+                  name="githubProfileLink"
+                  type="text"
+                  value={formState.githubProfileLink}
                   onChange={handleChange}
                 />
                 <button
