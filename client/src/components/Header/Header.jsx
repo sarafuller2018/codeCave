@@ -28,7 +28,7 @@ const Header = () => {
                 <button className="add-project-btn">Add Project</button>
             </div>
 
-            <div className="project-card-div">
+            {/* <div className="project-card-div">
                 <div className="project-card">
                     <div className="project-title-div">
                     <p className="project-title">Project Title</p>
@@ -87,7 +87,7 @@ const Header = () => {
             </div>
             <div className="add-project-btn-2-div">
                 <button className="add-project-btn-2">+</button>
-            </div>
+            </div> */}
         </header>
     );
 };
