@@ -129,7 +129,7 @@ hr{
     border: none;
     width: 250px;
     height: 45px;
-    background-color: var(--codecave-secondary);
+    background-color: var(--codecave-btn);
     border-radius: 25px;
     border-width: 1px;
     font-family: var(--codecave-font-btn);
