@@ -4,8 +4,9 @@ const dateFormat = require('../utils/dateFormat');
 const projectSchema = new Schema(
     {
         user: {
-            type: Schema.Types.ObjectId,
-            ref: "User"
+            type: String,
+            required: true,
+            trim: true,
         },
         name: {
             type: String,
