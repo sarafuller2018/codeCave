@@ -1,9 +1,11 @@
 // boilerplate imported from class activities
 const { GraphQLError } = require('graphql');
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
+const path = require("path");
+require('dotenv').config({ path: path.resolve(__dirname, "../../.env")});
 
-const secret = "secret10987654321";
+
+const secret = process.env.DB_SECRET;
 const expiration = '2h';
 
 module.exports = {
