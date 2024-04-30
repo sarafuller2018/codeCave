@@ -90,8 +90,8 @@ body {
 }
 
 .login-signup-btn:hover {
-    background-color: black;
-    color: white;
+    background-color: var(--codecave-background);
+    color: var(--codecave-background-secondary);
     transition: 0.1s;
 }
 
@@ -108,7 +108,7 @@ body {
     border: solid;
     width: 110px;
     height: 40px;
-    background-color: black;
+    background-color: var(--codecave-background);
     border-radius: 20px;
     border-width: 1px;
     font-family: '';
@@ -119,8 +119,8 @@ body {
 
 #nav-btns:focus {
     animation: pulse 1.5s infinite alternate;
-    background-color: rgb(142, 87, 168);
-    border: rgb(142, 87, 168);
+    background-color: var(--codecave-active);
+    border: var(--codecave-active);
 }
 
 @keyframes pulse {
@@ -145,24 +145,24 @@ body {
     border: solid;
     width: 100px;
     height: 40px;
-    background-color: black;
+    background-color: var(--codecave-background);
     border-radius: 20px;
     border-width: 1px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--codecave-font-dm-sans);
     cursor: pointer;
 }
 
 #nav-btns:hover {
-    background-color: rgb(142, 87, 168);
-    border: rgb(142, 87, 168);
-    color: white;
+    background-color: var(--codecave-active);
+    border: var(--codecave-active);
+    color: var(--codecave-background-secondary);
     transition: 0.1s;
 }
 
 .divider {
     border-radius: 20px;
     border-width: .5px;
-    font-family: var(--codecave-font-btn);
+    font-family: var(--codecave-font-active);
     font-size: var(--font-size-small);
     cursor: pointer;
 }
@@ -204,7 +204,7 @@ hr {
 }
 
 .add-project-btn:hover {
-    background-color: #2848ca;
+    background-color: var(--codecave-hover);
     border-width: .5px;
     transition: 0.1s;
 }
@@ -260,7 +260,7 @@ hr {
     border: none;
     width: 120px;
     height: 35px;
-    background-color: #5972db;
+    background-color: var(--codecave-secondary);
     border-radius: 20px;
     font-family: '', sans-serif;
     cursor: pointer;
@@ -268,13 +268,13 @@ hr {
 }
 
 .view-project-btn:hover {
-    background-color: #2848ca;
+    background-color: var(--codecave-hover);
     border-width: .5px;
     transition: 0.1s;
 }
 
 .time-stamp {
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--codecave-font-dm-sans);
     margin-left: 30px;
     margin-top: 22px;
     font-style: italic;
@@ -295,16 +295,16 @@ hr {
     border: none;
     width: 110px;
     height: 50px;
-    background-color: #5972db;
+    background-color: var(--codecave-secondary);
     border-radius: 25px;
     border-width: 1px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--codecave-font-dm-sans);
     cursor: pointer;
     font-size: 40px;
 }
 
 .add-project-btn-2:hover {
-    background-color: #2848ca;
+    background-color: var(--codecave-hover);
     border-width: .5px;
     transition: 0.1s;
 }
@@ -374,13 +374,13 @@ hr {
 }
 
 .login-input {
-    background-color: white;
+    background-color: var(--codecave-background-secondary);
     border: none;
     margin: 10px;
     width: 440px;
     height: 50px;
     border-radius: 10px;
-    color: rgb(0, 0, 0);
+    color: var(--codecave-background);
     font-family: var(--codecave-font-dm-sans);
     padding-left: 10px;
     outline: none;
@@ -425,14 +425,14 @@ hr {
 }
 
 .login-btn:hover {
-    background-color: #2848ca;
+    background-color: var(--codecave-hover);
     width: 190px;
     transition: 0.2s;
 }
 
 .signup-btn {
     font-family: var(--codecave-font-dm-sans);
-    border: solid white;
+    border: solid var(--codecave-background-secondary);
     border-width: 1px;
     width: 170px;
     height: 40px;
@@ -445,8 +445,8 @@ hr {
 }
 
 .signup-btn:hover {
-    background-color: #ffffff;
-    color: black;
+    background-color: var(--codecave-background-secondary);
+    color: var(--codecave-background);
     width: 190px;
     transition: 0.2s;
 }
@@ -470,7 +470,7 @@ hr {
 }
 
 .name-input {
-    background-color: white;
+    background-color: var(--codecave-background-secondary);
     border: none;
     margin-left: 24px;
     margin-top: 50px;
@@ -479,7 +479,7 @@ hr {
     width: 212px;
     height: 50px;
     border-radius: 10px;
-    color: rgb(0, 0, 0);
+    color: var(--codecave-background);
     font-family: var(--codecave-font-dm-sans);
     padding-left: 10px;
     outline: none;
@@ -487,31 +487,43 @@ hr {
 
 
 /* xs */
-@media (min-width: var(--breakpoint-extra-small)) {}
+@media screen and (min-width: var(--breakpoint-extra-small)) {
+
+}
 
 ;
 
 /* sm */
-@media (min-width: var(--breakpoint-small)) {}
+@media screen and (min-width: var(--breakpoint-small)) {
+
+}
 
 ;
 
 /* md */
-@media (min-width: var(--breakpoint-medium)) {}
+@media screen and (min-width: var(--breakpoint-medium)) {
+
+}
 
 ;
 
 /* lg */
-@media (min-width: var(--breakpoint-large)) {}
+@media screen and (min-width: var(--breakpoint-large)) {
+
+}
 
 ;
 
 /* xl */
-@media (min-width: var(--breakpoint-extra-large)) {}
+@media screen and (min-width: var(--breakpoint-extra-large)) {
+    
+}
 
 ;
 
 /* 2xl */
-@media (min-width: var(--breakpoint-extra-extra-large)) {}
+@media screen and (min-width: var(--breakpoint-extra-extra-large)) {
+    
+}
 
 ;
