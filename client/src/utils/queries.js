@@ -10,4 +10,4 @@ query Projects {
       image
     }
   }
-`
+`;
