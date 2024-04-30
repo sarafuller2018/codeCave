@@ -41,6 +41,9 @@ const Signup = () => {
 
     return (
         <main>
+                        <div className="logo-div">
+                <img className="codecave-login-logo" src="./Images/codeCave(login-logo).svg" />
+            </div>
             {data ? (
                 <p>
                     Success! You may now head{' '}
@@ -52,8 +55,14 @@ const Signup = () => {
                         <div className="login-text-div">
                             <p className="login-text">Sign Up</p>
                         </div>
+
+            {error && (
+                <div className="error-text">
+                    {error.message}
+                </div>
+            )}
                         <div className="userName-div">
-                            <input className="login-input" type="text" placeholder="Username"
+                            <input className="username-input" type="text" placeholder="Username"
                                 name="userName" value={formState.userName}
                                 onChange={handleChange} />
                             <label className="form-label" ></label>
@@ -79,6 +88,12 @@ const Signup = () => {
                             </div>
                             <div className="login-btn-div">
                                 <button className="login-btn">Sign Up</button>
+                            </div>
+                            <div className='or-div'>
+                                <p className='or'>or</p>
+                            </div>
+                            <div className='signup-btn-div'>
+                                <button className="signup-btn">Login</button>
                             </div>
                         </div>
                     </form>

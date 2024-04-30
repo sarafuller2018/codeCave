@@ -46,7 +46,7 @@ body {
 
 .codecave-logo {
     margin-top: 100px;
-    margin-left: 160px;
+    margin-left: 350px;
     -webkit-animation: fadeOut linear;
     animation-timeline: view(5px 600px);
 }
@@ -317,7 +317,7 @@ hr {
     margin-top: -30px;
     flex-wrap: wrap;
     animation: drop-in 1500ms;
-    display: none;
+    /* display: none; */
 }
 
 .signup-form-div {
@@ -351,7 +351,7 @@ hr {
 }
 
 #signup-form-card {
-    height: 590px;
+    height: 690px;
 }
 
 .login-text-div {
@@ -386,6 +386,27 @@ hr {
     outline: none;
 }
 
+.username-input {
+    background-color: white;
+    border: none;
+    margin: 10px;
+    margin-bottom: -40px;
+    margin-top: 80px;
+    width: 440px;
+    height: 50px;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    font-family: var(--codecave-font-dm-sans);
+    padding-left: 10px;
+    outline: none;
+}
+
+.userName-div{
+    background-color: var(--codecave-primary);
+    display: flex;
+    justify-content: center; 
+}
+
 .email-div {
     background-color: var(--codecave-primary);
     display: flex;
@@ -393,6 +414,12 @@ hr {
 }
 
 .password-div {
+    background-color: var(--codecave-primary);
+    display: flex;
+    justify-content: center;
+}
+
+.github-div {
     background-color: var(--codecave-primary);
     display: flex;
     justify-content: center;
@@ -483,6 +510,15 @@ hr {
     font-family: var(--codecave-font-dm-sans);
     padding-left: 10px;
     outline: none;
+}
+
+.error-text{
+    display: flex;
+    justify-content: center;
+    color: rgb(255, 95, 95);
+    font-family: var(--codecave-font-dm-sans);
+    margin-top: 30px;
+    margin-bottom: -30px;
 }
 
 
