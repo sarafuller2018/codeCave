@@ -8,7 +8,6 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { Outlet } from 'react-router-dom';
 
-
 import Footer from './components/Footer/Footer.jsx';
 
 // Construct our main GraphQL API endpoint

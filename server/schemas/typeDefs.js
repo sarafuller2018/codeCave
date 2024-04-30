@@ -1,8 +1,8 @@
 const typeDefs = `
 type User {
   id: ID!
-  firstName: String!
-  lastName: String!
+  firstName: String
+  lastName: String
   userName: String!
   email: String!
   password: String!
@@ -28,10 +28,9 @@ type Project {
 }
 
 type Comment {
-  id: ID!
   text: String!
-  user: User!
-  project: Project!
+  user: String!
+  project: String!
 }
 
 type Query {
@@ -42,7 +41,7 @@ type Query {
 }
 
 type Mutation {
-  addUser(firstName: String!, lastName: String!, userName: String!, email: String!, password: String!, githubProfileLink: String!): Auth
+  addUser(firstName: String, lastName: String, userName: String!, email: String!, password: String!, githubProfileLink: String!): Auth
   login(email: String!, password: String!): Auth
   
   addProject(name: String!, description: String!, githubProjectLink: String!, image: String): Project

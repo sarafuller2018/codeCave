@@ -13,8 +13,9 @@
 /* Color Schema */
     --codecave-primary: #2d3059;
     --codecave-secondary: #5971db;
+    --codecave-hover: #2848ca;
     --codecave-accent:  #a498e9;
-    --codecave-btn: #9772b5;
+    --codecave-active: #9772b5;
     --codecave-background: #000000;
     --codecave-background-secondary: #ffffff;
 
