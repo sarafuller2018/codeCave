@@ -94,7 +94,7 @@ const Signup = () => {
                                 <p className='or'>or</p>
                             </div>
                             <div className='signup-btn-div'>
-                                <button className="signup-btn">Login</button>
+                            <Link to="/login"><button className="signup-btn">Login</button></Link>
                             </div>
                         </div>
                     </form>
