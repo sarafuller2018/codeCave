@@ -1,25 +1,38 @@
 import { Link } from 'react-router-dom';
 
-const ProjectList = ({ projects, title}) => {
+const ProjectList = ({ projects, title }) => {
     return (
-        <section className='projects-container'>
-            <h2>{title}</h2>
-            {projects &&
-            projects.map((project) => (
-                <figure className='project-item' key={project._id}>
-                    <h3 className='project-title'>{project.name}</h3>
-                    <img src={project.img} className='project-image'/>
+        <>
+        {projects &&
+        projects.map((project) => (
+            <div className="project-card-div">
+                <div className="project-card" key={project.id}>
+                    <div className="project-title-div">
+                        <p className="project-title">{project.name}</p>
+                    </div>
+                    <div className="project-description-div">
+                        <p className="project-description">{project.description}</p>
+                    </div>
+                    <div className="placeholder-img-div">
+                        <img className="placeholder-img" src={project.image} />
+                    </div>
+                    <div className="view-project-btn-div" >
+                        <Link
+                            className="view-project-btn"
+                            to={`/projects/${project.id}`}
+                        >
+                            <button className="view-project-btn">View Project</button>
+                        </Link>
 
-                    <Link
-                    className="view-project-btn"
-                    to={`/projects/${project._id}`}
-                    >
-                        View Project Details
-                    </Link>
-                </figure>
-            ))}
-        </section>
-    )
-}
+                    </div>
+                    <div >
+                        <p className="time-stamp">{project.createdAt}</p>
+                    </div>
+                </div>
+            </div>
+        ))}
+        </>
+    );
+};
 
 export default ProjectList;

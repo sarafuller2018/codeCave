@@ -16,15 +16,17 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
             {
-                index: true,
-                element: <Home />
+                element: <Home />,
+                index: true
               }, {
                 path: '/login',
                 element: <Login />
-              }, {
+              }, 
+              {
                 path: '/signup',
                 element: <Signup />
-              }, {
+              }, 
+              {
                 path: '/profiles/:username',
                 element: <ProfilePage />
               }, {
@@ -39,5 +41,5 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <RouterProvider router={router} />
+  <RouterProvider router={router} />
 )
