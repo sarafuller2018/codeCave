@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 const ProjectList = ({ projects, title }) => {
     return (
         <>
+            <div className="add-project-btn-div">
+                <button className="add-project-btn">Add Project</button>
+            </div>
         {projects &&
         projects.map((project) => (
             <div className="project-card-div">
