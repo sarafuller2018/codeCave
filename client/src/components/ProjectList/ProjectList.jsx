@@ -5,6 +5,7 @@ const ProjectList = ({ projects, title }) => {
         <>
         {projects &&
         projects.map((project) => (
+        
             <div className="project-card-div">
                 <div className="project-card" key={project.id}>
                     <div className="project-title-div">
