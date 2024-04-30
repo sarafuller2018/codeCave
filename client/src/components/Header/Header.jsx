@@ -1,11 +1,13 @@
 // Dev Note: SVG icons are currently commented out because I can't properly align them and make them look
 //  but I 
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
         <header>
             <div className="login-signup-btn-div">
-                <button className="login-signup-btn">Login/Sign Up</button>
+                <Link to="/login"><button className="login-signup-btn">Login</button></Link>
+                <Link to="/signup"><button className="login-signup-btn">Sign Up</button></Link>
             </div>
             <div className="logo-div">
                 <img className="codecave-logo" src="./Images/codeCave(logo).svg" />

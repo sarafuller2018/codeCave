@@ -4,7 +4,7 @@ import Auth from '../utils/auth';
 // import { QUERY_USER_PROFILE } from '../utils/queries';
 
 
-const Profile = () => {
+const ProfilePage = () => {
     const { profileId } = useParams();
 
     const { loading, data } = useQuery(QUERY_USER_PROFILE, {
@@ -26,4 +26,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default ProfilePage;
