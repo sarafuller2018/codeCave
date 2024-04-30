@@ -12,17 +12,15 @@ const Header = () => {
             <div className="logo-div">
                 <img className="codecave-logo" src="./Images/codeCave(logo).svg" />
             </div>
-            <div className="buttons-div">
+            {/* <div className="buttons-div">
                 <button className="new-btn" id="nav-btns">
-                    {/* <img className="oreIcon" src="./Images/ore.svg" /> */}
                     New
                 </button>
                 <button className="ip-btn" id="nav-btns">
-                {/* <img className="oreIcon" src="./Images/mined_ore.svg" /> */}
                     In Progress
                     </button>
                 <button className="fin-btn" id="nav-btns">Finished</button>
-            </div>
+            </div> */}
             <div className="divider">
             <hr/>
             </div>
