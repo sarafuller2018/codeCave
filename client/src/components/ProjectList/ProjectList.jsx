@@ -6,7 +6,7 @@ const ProjectList = ({ projects, title }) => {
         {projects &&
         projects.map((project) => (
             <div className="project-card-div">
-                <div className="project-card" key={project._id}>
+                <div className="project-card" key={project.id}>
                     <div className="project-title-div">
                         <p className="project-title">{project.name}</p>
                     </div>
@@ -14,19 +14,19 @@ const ProjectList = ({ projects, title }) => {
                         <p className="project-description">{project.description}</p>
                     </div>
                     <div className="placeholder-img-div">
-                        <img className="placeholder-img" src={project.img} />
+                        <img className="placeholder-img" src={project.image} />
                     </div>
                     <div className="view-project-btn-div" >
                         <Link
                             className="view-project-btn"
-                            to={`/projects/${project._id}`}
+                            to={`/projects/${project.id}`}
                         >
                             <button className="view-project-btn">View Project</button>
                         </Link>
 
                     </div>
                     <div >
-                        <p className="time-stamp">Posted on 04/26/2024</p>
+                        <p className="time-stamp">{project.createdAt}</p>
                     </div>
                 </div>
             </div>
