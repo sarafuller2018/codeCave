@@ -351,7 +351,7 @@ hr {
 }
 
 #signup-form-card {
-    height: 590px;
+    height: 690px;
 }
 
 .login-text-div {
@@ -386,6 +386,27 @@ hr {
     outline: none;
 }
 
+.username-input {
+    background-color: white;
+    border: none;
+    margin: 10px;
+    margin-bottom: -40px;
+    margin-top: 80px;
+    width: 440px;
+    height: 50px;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    font-family: var(--codecave-font-dm-sans);
+    padding-left: 10px;
+    outline: none;
+}
+
+.userName-div{
+    background-color: var(--codecave-primary);
+    display: flex;
+    justify-content: center; 
+}
+
 .email-div {
     background-color: var(--codecave-primary);
     display: flex;
@@ -393,6 +414,12 @@ hr {
 }
 
 .password-div {
+    background-color: var(--codecave-primary);
+    display: flex;
+    justify-content: center;
+}
+
+.github-div {
     background-color: var(--codecave-primary);
     display: flex;
     justify-content: center;
