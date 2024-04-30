@@ -58,7 +58,7 @@ const Signup = () => {
 
                         {error && (
                             <div className="error-text">
-                                <p>Please fill out required fields.</p>
+                                <p>Error with signup. Please try again!</p>
                             </div>
                         )}
                         
