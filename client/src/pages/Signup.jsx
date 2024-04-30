@@ -57,11 +57,11 @@ const Signup = () => {
                         </div>
 
                         {error && (
-                            <div className="error-text">
-                                <p>Error with signup. Please try again!</p>
+                            <div>
+                                <p className="error-text">Error with signup. Please try again!</p>
                             </div>
                         )}
-                        
+
                         <div className="userName-div">
                             <input className="username-input" type="text" placeholder="Username"
                                 name="userName" value={formState.userName}
