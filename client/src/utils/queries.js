@@ -8,6 +8,24 @@ query Projects {
       description
       githubProjectLink
       image
+      createdAt
     }
   }
 `;
+
+export const QUERY_SINGLE_PROJECT = gql`
+query Project($projectId: ID!) {
+  project(projectId: $projectId) {
+    id
+    name
+    description
+    githubProjectLink
+    image
+    createdAt
+    contributors {
+      userName
+      githubProfileLink
+    }
+  }
+}
+`
