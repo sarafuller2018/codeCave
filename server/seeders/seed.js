@@ -33,7 +33,14 @@ db.once('open', async () => {
       await User.findByIdAndUpdate(userId, { $push: { projects: project._id } });
     }
 
-    await Comment.create(commentData);
+    for (let comment of commentData) {
+      const project = createdProjects.find(p => p.name === comment.project);
+      if (project) {
+        project.comments.push(comment.id); // Use the comment ID here
+        await project.save();
+      }
+    }
+
 
     console.log('Seed data successfully');
     process.exit(0);

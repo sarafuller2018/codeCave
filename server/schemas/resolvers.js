@@ -12,7 +12,13 @@ const resolvers = {
         },
 
         users: async () => {
-            return User.find().populate("projects");
+            return User.find().populate({
+                path: 'projects',
+                populate: {
+                    path: 'comments',
+                    select:"text user project"
+                }
+            });
         },
 
         // by adding context to our query, we can retrieve the logged in user without specifically searching for them
@@ -65,22 +71,19 @@ const resolvers = {
         },
         addComment: async (parent, { projectId, text }, context) => {
             if (context.user) {
-                const comment = await Comment.create({ text, user: context.user.userName });
-
-                await Project.findOneAndUpdate(
-                    { _id: projectId },
-                    {
-                        $addToSet: { comments: comment._id }
-                    },
-                    {
-                        new: true,
-                        runValidators: true,
-                    }
+                // Create a new comment
+                const newComment = await Comment.create({ text, user: context.user.userName });
+                
+                // Find the project and add the comment's ObjectId to the comments array
+                const updatedProject = await Project.findByIdAndUpdate(
+                    projectId,
+                    { $addToSet: { comments: newComment._id } },
+                    { new: true }
                 );
-
-                return comment;
+        
+                return newComment;
             }
-            throw AuthenticationError;
+            throw new AuthenticationError("You must be logged in to add a comment.");
         },
         removeProject: async (parent, { projectId }, context) => {
             if (context.user) {
@@ -108,7 +111,7 @@ const resolvers = {
 
                 await Project.findOneAndUpdate(
                     { _id: projectId },
-                    { $pull: { comments: { comments: comment._id } } },
+                    { $pull: { comments: comment._id } },
                     { new: true }
                 );
 
