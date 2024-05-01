@@ -119,6 +119,26 @@ const resolvers = {
             }
             throw AuthenticationError;
         },
+        sendEmail: async (_, { from, to, subject, text }) => {
+            try {
+                let transporter = nodemailer.createTransport({
+                    // Your email configuration
+                });
+
+                let info = await transporter.sendMail({
+                    from: from,
+                    to: to,
+                    subject: subject,
+                    text: text,
+                });
+
+                console.log('Email sent: ' + info.response);
+                return 'Email sent successfully';
+            } catch (error) {
+                console.error('Error sending email:', error);
+                throw new Error('Failed to send email');
+            }
+        },
     },
 };
 

@@ -2,15 +2,47 @@ const express = require('express');
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
 const path = require('path');
+const nodemailer = require('nodemailer');
+const dotenv = require('dotenv');
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
+
+dotenv.config();
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+});
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+
+app.post('/send-email', async (req, res) => {
+  const { from, to, subject, text } = req.body;
+
+  const mailOptions = {
+    from: from,
+    to: to,
+    subject: subject,
+    text: text,
+  };
+
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email sent: ' + info.response);
+    res.status(200).json({ message: 'Email sent successfully' });
+  } catch (error) {
+    console.error('Error sending email:', error);
+    res.status(500).json({ message: 'Failed to send email' });
+  }
 });
 
 const startApolloServer = async () => {
