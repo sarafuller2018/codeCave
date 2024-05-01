@@ -101,7 +101,7 @@ const Login = (props) => {
                                 <p className='or'>or</p>
                             </div>
                             <div className='signup-btn-div'>
-                                <button className="signup-btn">Sign Up</button>
+                            <Link to="/signup"><button className="signup-btn">Sign Up</button></Link>
                             </div>
                         </div>
                     </form>
