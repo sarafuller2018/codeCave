@@ -63,7 +63,7 @@ const SingleProjectDetails = (projects) => {
                     </div>
                     <div className="comment-btn-div">
                         <button className='comment-btn' >Comment</button>
-                        <button className='collab-btn' >Collaborate</button>
+                        <button className='collab-btn' onClick={handleContributeClick}>Collaborate</button>
                     </div>
                 </div>
             </div>
