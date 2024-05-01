@@ -41,8 +41,8 @@ const Signup = () => {
 
     return (
         <main>
-                        <div className="logo-div">
-                <img className="codecave-login-logo" src="./Images/codeCave(login-logo).svg" />
+            <div className="logo-div">
+            <Link to="/home"> <img className="codecave-login-logo" src="/Images/codeCave(login-logo).svg" /></Link> 
             </div>
             {data ? (
                 <p>
@@ -56,11 +56,12 @@ const Signup = () => {
                             <p className="login-text">Sign Up</p>
                         </div>
 
-            {error && (
-                <div className="error-text">
-                    {error.message}
-                </div>
-            )}
+                        {error && (
+                            <div>
+                                <p className="error-text">Error with signup. Please try again!</p>
+                            </div>
+                        )}
+
                         <div className="userName-div">
                             <input className="username-input" type="text" placeholder="Username"
                                 name="userName" value={formState.userName}
@@ -75,7 +76,7 @@ const Signup = () => {
                                 <label className="form-label" ></label>
                             </div>
                             <div className="password-div">
-                                <input className="login-input" type="text" placeholder="Set Password"
+                                <input className="login-input" type="password" placeholder="Set Password"
                                     name="password" value={formState.password}
                                     onChange={handleChange} />
                                 <label className="form-label" ></label>
@@ -93,16 +94,10 @@ const Signup = () => {
                                 <p className='or'>or</p>
                             </div>
                             <div className='signup-btn-div'>
-                                <button className="signup-btn">Login</button>
+                            <Link to="/login"><button className="signup-btn">Login</button></Link>
                             </div>
                         </div>
                     </form>
-                </div>
-            )}
-
-            {error && (
-                <div className="my-3 p-3 bg-danger text-white">
-                    {error.message}
                 </div>
             )}
         </main>

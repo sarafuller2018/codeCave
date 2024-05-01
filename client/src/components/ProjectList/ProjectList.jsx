@@ -3,10 +3,18 @@ import { Link } from 'react-router-dom';
 const ProjectList = ({ projects, title }) => {
     return (
         <>
-            <div className="add-project-btn-div">
-                <button className="add-project-btn">Add Project</button>
+                <header>
+            <div className="login-signup-btn-div">
+                <Link to="/login"><button className="header-login-btn">Login</button></Link>
+                <Link to="/signup"><button className="header-signup-btn">Sign Up</button></Link>
             </div>
-        {projects &&
+            <div className="logo-div">
+                <img className="codecave-logo" src="/Images/codeCave(logo).svg" />
+            </div>
+            <div className="add-project-btn-div">
+                <Link to="/add-project"><button className="add-project-btn">Add Project</button></Link>
+            </div>
+        {projects && 
         projects.map((project) => (
         
             <div className="project-card-div">
@@ -18,13 +26,11 @@ const ProjectList = ({ projects, title }) => {
                         <p className="project-description">{project.description}</p>
                     </div>
                     <div className="placeholder-img-div">
-                        <img className="placeholder-img" src={project.image} />
+                        <img className="placeholder-img" src="./Images/placeholder-img.svg" />
                     </div>
                     <div className="view-project-btn-div" >
                         <Link
-                            className="view-project-btn"
-                            to={`/projects/${project.id}`}
-                        >
+                            to={`/projects/${project.id}`}>
                             <button className="view-project-btn">View Project</button>
                         </Link>
 
@@ -35,6 +41,7 @@ const ProjectList = ({ projects, title }) => {
                 </div>
             </div>
         ))}
+           </header>
         </>
     );
 };

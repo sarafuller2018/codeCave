@@ -14,7 +14,6 @@ const Home = () => {
     return (
         <main>
             <div className='home-projects-list'>
-            <Header />
                 {loading ? (
                     <div>Loading...</div>
                 ) : (

@@ -8,6 +8,8 @@ import Home from "./pages/Home";
 import ProfilePage from "./pages/ProfilePage";
 import SingleProjectDetails from './pages/SingleProjectDetails';
 import ErrorPage from './pages/ErrorPage';
+import AddProject from './pages/AddProject-Form'
+import ProjectList from './components/ProjectList/ProjectList';
 
 const router = createBrowserRouter([
     {
@@ -18,7 +20,11 @@ const router = createBrowserRouter([
             {
                 element: <Home />,
                 index: true
-              }, {
+              }, 
+              {
+                path: '/home',
+                element: <Home/>
+              },{
                 path: '/login',
                 element: <Login />
               }, 
@@ -35,7 +41,10 @@ const router = createBrowserRouter([
               }, {
                 path: '/projects/:projectId',
                 element: <SingleProjectDetails />
-              }
+              },{
+              path: '/add-project',
+              element: <AddProject />
+            }
         ],
     },
 ]);

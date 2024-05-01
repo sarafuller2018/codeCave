@@ -2,6 +2,7 @@ import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { QUERY_SINGLE_PROJECT } from '../utils/queries';
 import Header from '../components/Header/Header';
+import { Link } from 'react-router-dom';
 
 const SingleProjectDetails = () => {
     const { projectId } = useParams();
@@ -17,9 +18,16 @@ const SingleProjectDetails = () => {
     }
     return (
         <>
-            <Header />
+            <header>
+            <div className="login-signup-btn-div">
+                <Link to="/login"><button className="header-login-btn">Login</button></Link>
+                <Link to="/signup"><button className="header-signup-btn">Sign Up</button></Link>
+            </div>
+            <div className="logo-div">
+            <Link to="/home"> <img className="codecave-logo" src="/Images/codeCave(logo).svg" /></Link> 
+            </div>
             <div className="project-card-div">
-                <div className="project-card" key={project._id}>
+                <div className="single-project-card" key={project._id}>
                     <div className="project-title-div">
                         <p className="project-title">{project.name}</p>
                     </div>
@@ -27,13 +35,18 @@ const SingleProjectDetails = () => {
                         <p className="project-description">{project.description}</p>
                     </div>
                     <div className="placeholder-img-div">
-                        <img className="placeholder-img" src={project.image} />
+                        <img className="placeholder-img" src="../Images/placeholder-img.svg" />
                     </div>
                     <div >
                         <p className="time-stamp">{project.createdAt}</p>
                     </div>
+                    <div className="comment-btn-div">
+                        <button className='comment-btn' >Comment</button>
+                        <button className='collab-btn' >Collaborate</button>
+                    </div>
                 </div>
             </div>
+            </header>
         </>
     );
 };

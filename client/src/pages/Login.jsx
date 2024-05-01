@@ -45,7 +45,7 @@ const Login = (props) => {
     return (
         <section>
             <div className="logo-div">
-                <img className="codecave-login-logo" src="./Images/codeCave(login-logo).svg" />
+            <Link to="/home"> <img className="codecave-login-logo" src="/Images/codeCave(login-logo).svg" /></Link> 
             </div>
 
             {data ? (
@@ -101,7 +101,7 @@ const Login = (props) => {
                                 <p className='or'>or</p>
                             </div>
                             <div className='signup-btn-div'>
-                                <button className="signup-btn">Sign Up</button>
+                            <Link to="/signup"><button className="signup-btn">Sign Up</button></Link>
                             </div>
                         </div>
                     </form>
