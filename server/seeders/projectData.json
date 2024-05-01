@@ -7,7 +7,8 @@
         "image": "",
         "createdAt": "2024-04-28",
         "contributors": [],
-        "comments": []
+        "comments": [],
+        "ownerEmail":"efren@test.com"
     },
     {
         "user": "bernardo_alonso",
@@ -17,7 +18,8 @@
         "image": "",
         "createdAt": "2024-04-28",
         "contributors": [],
-        "comments": []
+        "comments": [],
+        "ownerEmail":"bernardo4430@gmail.com"
     },
     {
         "user": "sara_fuller",
@@ -27,7 +29,8 @@
         "image": "",
         "createdAt": "2024-04-28",
         "contributors": [],
-        "comments": []
+        "comments": [],
+        "ownerEmail":"sara@test.com"
     },
     {
         "user": "derek_medrano",
@@ -37,7 +40,8 @@
         "image": "",
         "createdAt": "2024-04-28",
         "contributors": [],
-        "comments": []
+        "comments": [],
+        "ownerEmail":"derek@test.com"
     },
     {
         "user": "cam_whritenour",
@@ -47,6 +51,7 @@
         "image": "",
         "createdAt": "2024-04-28",
         "contributors": [],
-        "comments": []
+        "comments": [],
+        "ownerEmail":"cam@test.com"
     }
 ]

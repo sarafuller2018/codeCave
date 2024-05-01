@@ -25,6 +25,7 @@ type Project {
   createdAt: String!
   contributors: [User]
   comments: [Comment]
+  ownerEmail: String
 }
 
 type Comment {

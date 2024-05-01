@@ -1,17 +1,38 @@
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { QUERY_SINGLE_PROJECT } from '../utils/queries';
-import Header from '../components/Header/Header';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const SingleProjectDetails = () => {
+
+const SingleProjectDetails = (projects) => {
     const { projectId } = useParams();
 
     const { loading, data } = useQuery(QUERY_SINGLE_PROJECT, {
-        variables: { projectId: projectId },
+        variables: { projectId: projectId},
     });
 
     const project = data?.project || {};
+
+    const sendEmail = async () => {
+        const url = 'http://localhost:3001/api/send-email';
+        const data = {
+            toEmail: "bernardo4430@gmail.com",
+            subject: 'Test Email',
+            text: 'This is a test email sent from your MERN stack project.'
+        };
+
+        try {
+            const response = await axios.post(url, data);
+            console.log('Email sent successfully:', response.data);
+        } catch (error) {
+            console.error('Error sending email:', error);
+        }
+    };
+
+    const handleContributeClick = () => {
+        sendEmail(); // Call sendTestEmail when the button is clicked
+    };
 
     if (loading) {
         return <div>Loading...</div>;
@@ -42,7 +63,7 @@ const SingleProjectDetails = () => {
                     </div>
                     <div className="comment-btn-div">
                         <button className='comment-btn' >Comment</button>
-                        <button className='collab-btn' >Collaborate</button>
+                        <button className='collab-btn' onClick={handleContributeClick}>Collaborate</button>
                     </div>
                 </div>
             </div>

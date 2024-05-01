@@ -57,7 +57,8 @@ const resolvers = {
             if (context.user) {
                 const project = await Project.create({
                     name, description, githubProjectLink, image,
-                    user: context.user.userName
+                    user: context.user.userName,
+                    ownerEmail:context.user.email
                 });
 
                 await User.findOneAndUpdate(
@@ -119,6 +120,7 @@ const resolvers = {
             }
             throw AuthenticationError;
         },
+        
     },
 };
 

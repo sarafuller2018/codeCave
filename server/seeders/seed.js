@@ -36,7 +36,13 @@ db.once('open', async () => {
     for (let comment of commentData) {
       const project = createdProjects.find(p => p.name === comment.project);
       if (project) {
-        project.comments.push(comment.id); // Use the comment ID here
+        const newComment = new Comment({
+          text: comment.text,
+          user: comment.user,
+          project: project._id
+        });
+        project.comments.push(newComment);
+        await newComment.save();
         await project.save();
       }
     }
