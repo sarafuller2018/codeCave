@@ -2,13 +2,10 @@ import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { QUERY_SINGLE_PROJECT } from '../utils/queries';
 import Header from '../components/Header/Header';
-import React, { useState } from 'react';
-
+import { sendEmail } from '../../../server/utils/emailUtils';
 
 const SingleProjectDetails = ({ user }) => {
     const { projectId } = useParams();
-    const [showModal, setShowModal] = useState(false);
-    const [emailPreview, setEmailPreview] = useState('');
     const { loading, data } = useQuery(QUERY_SINGLE_PROJECT, {
         variables: { projectId: projectId },
     });
@@ -20,15 +17,15 @@ const SingleProjectDetails = ({ user }) => {
     }
 
     const handleAskToContribute = async () => {
-        if (!user || !project || !project.user || !project.user.email) {
-            console.error('Invalid user or project data.');
-            return;
-        }
+        // if (!user || !project || !project.user || !project.user.email) {
+        //     console.error('Invalid user or project data.');
+        //     return;
+        // }
     
-        const from = user.email;
-        const to = project.user.email;
+        const from = "test@email.com";
+        const to = "bernardo4430@gmail.com";
         const subject = 'Someone wants to help!';
-        const text = `${user.userName} wants to help on your project.`;
+        const text = ` wants to help on your project.`;
     
         try {
             await sendEmail(from, to, subject, text);
@@ -59,19 +56,9 @@ const SingleProjectDetails = ({ user }) => {
                     <button className="contribute-btn" onClick={handleAskToContribute}>
                         Ask To Contribute
                     </button>
-                        </div>
+                </div>
             </div>
-            {showModal && (
-                <div className="email-preview-modal">
-                    <h2>Email Preview</h2>
-                    <p><strong>From:</strong> {emailPreview.from}</p>
-                    <p><strong>To:</strong> {emailPreview.to}</p>
-                    <p><strong>Subject:</strong> {emailPreview.subject}</p>
-                    <p><strong>Text:</strong> {emailPreview.text}</p>
-                    <button onClick={() => setShowModal(false)}>Close</button>
-                </div>
-            )}
-                </div>
+        </div>
         </>
     );
 };

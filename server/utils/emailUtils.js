@@ -1,37 +1,35 @@
-import dotenv from 'dotenv';
 import { createTransport } from 'nodemailer';
 
-dotenv.config();
-const sendEmail = async () => {
+const sendEmail = async (from, to, subject, text) => {
     // Create a Nodemailer transporter using SMTP
     let transporter = createTransport({
         service: 'gmail',
         auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS,
+            user: 'your_email@gmail.com',
+            pass: 'your_password',
         },
     });
 
     // Setup email data
     let mailOptions = {
-        from: process.env.EMAIL_USER,
-        to: 'recipient@example.com',
-        subject: 'Contribution Request',
-        text: '',
+        from: from,
+        to: to,
+        subject: subject,
+        text: text,
     };
 
     // Send the email
     try {
         let info = await transporter.sendMail(mailOptions);
         console.log('Email sent: ' + info.response);
+        return 'Email sent successfully';
     } catch (error) {
         console.error('Error sending email:', error);
+        throw new Error('Failed to send email');
     }
 };
 
-
 export { sendEmail };
-
 
 //EXAMPLE ADD TO ANY PAGE THAT NEEDS TO SEND EMAIL
 // const sendEmail = require('.server/utils/emailUtils.js');
