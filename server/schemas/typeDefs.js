@@ -25,6 +25,7 @@ type Project {
   createdAt: String!
   contributors: [User]
   comments: [Comment]
+  ownerEmail: String
 }
 
 type Comment {
@@ -43,7 +44,7 @@ type Query {
 type Mutation {
   addUser(firstName: String, lastName: String, userName: String!, email: String!, password: String!, githubProfileLink: String!): Auth
   login(email: String!, password: String!): Auth
-  sendEmail(from: String!, to: String!, subject: String!, text: String!): String
+  
   addProject(name: String!, description: String!, githubProjectLink: String!, image: String): Project
   addComment(projectId: ID!, text: String!): Comment
   removeProject(projectId: ID!): Project

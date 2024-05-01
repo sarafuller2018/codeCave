@@ -1,8 +1,10 @@
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { QUERY_SINGLE_PROJECT } from '../utils/queries';
+import axios from 'axios';
 
-const SingleProjectDetails = () => {
+
+const SingleProjectDetails = (projects) => {
     const { projectId } = useParams();
 
     const { loading, data } = useQuery(QUERY_SINGLE_PROJECT, {
@@ -10,6 +12,26 @@ const SingleProjectDetails = () => {
     });
 
     const project = data?.project || {};
+
+    const sendEmail = async () => {
+        const url = 'http://localhost:3001/api/send-email';
+        const data = {
+            toEmail: "bernardo4430@gmail.com",
+            subject: 'Test Email',
+            text: 'This is a test email sent from your MERN stack project.'
+        };
+
+        try {
+            const response = await axios.post(url, data);
+            console.log('Email sent successfully:', response.data);
+        } catch (error) {
+            console.error('Error sending email:', error);
+        }
+    };
+
+    const handleContributeClick = () => {
+        sendEmail(); // Call sendTestEmail when the button is clicked
+    };
 
     if (loading) {
         return <div>Loading...</div>;
@@ -30,7 +52,7 @@ const SingleProjectDetails = () => {
                 <p className="time-stamp">{project.createdAt}</p>
             </div>
             <div className="contribute-btn-div">
-                <button className="contribute-btn">Ask To Contribute</button>
+                <button className="contribute-btn" onClick={handleContributeClick}>Ask To Contribute</button>
             </div>
         </div>
     </div>
