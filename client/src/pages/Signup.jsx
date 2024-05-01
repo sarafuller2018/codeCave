@@ -42,7 +42,7 @@ const Signup = () => {
     return (
         <main>
             <div className="logo-div">
-                <img className="codecave-login-logo" src="./Images/codeCave(login-logo).svg" />
+            <Link to="/home"> <img className="codecave-login-logo" src="/Images/codeCave(login-logo).svg" /></Link> 
             </div>
             {data ? (
                 <p>

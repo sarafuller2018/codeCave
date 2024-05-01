@@ -45,7 +45,7 @@ const Login = (props) => {
     return (
         <section>
             <div className="logo-div">
-                <img className="codecave-login-logo" src="./Images/codeCave(login-logo).svg" />
+            <Link to="/home"> <img className="codecave-login-logo" src="/Images/codeCave(login-logo).svg" /></Link> 
             </div>
 
             {data ? (

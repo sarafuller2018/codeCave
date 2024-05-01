@@ -6,8 +6,8 @@ const Header = () => {
     return (
         <header>
             <div className="login-signup-btn-div">
-                <Link to="/login"><button className="login-signup-btn">Login</button></Link>
-                <Link to="/signup"><button className="login-signup-btn">Sign Up</button></Link>
+                <Link to="/login"><button className="header-login-btn">Login</button></Link>
+                <Link to="/signup"><button className="header-signup-btn">Sign Up</button></Link>
             </div>
             <div className="logo-div">
                 <img className="codecave-logo" src="/Images/codeCave(logo).svg" />
