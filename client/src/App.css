@@ -45,8 +45,11 @@ body {
 }
 
 .codecave-logo {
-    margin-top: 100px;
-    margin-left: 350px;
+margin-bottom: px;
+margin-top: 85px;
+margin-left: 300px;
+    cursor: pointer;
+
     -webkit-animation: fadeOut linear;
     animation-timeline: view(5px 600px);
 }
@@ -54,6 +57,7 @@ body {
 .codecave-login-logo {
     width: 600px;
     margin-top: -30px;
+    cursor: pointer;
 }
 
 @-webkit-keyframes fadeOut {
@@ -73,8 +77,25 @@ body {
     float: right;
 }
 
-.login-signup-btn {
+.header-signup-btn {
     margin: 30px;
+    border: none;
+    width: 120px;
+    height: 40px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: solid;
+    border-radius: 20px;
+    border-width: 1px;
+    font-family: var(--codecave-font-dm-sans);
+    padding: 5px;
+    cursor: pointer;
+    box-shadow: 0px 2px 17px rgb(0, 0, 0, 0.3);
+
+}
+.header-login-btn {
+    margin: 30px;
+    margin-right: -15px;
     border: none;
     width: 120px;
     height: 40px;
@@ -89,9 +110,17 @@ body {
 
 }
 
-.login-signup-btn:hover {
-    background-color: var(--codecave-background);
-    color: var(--codecave-background-secondary);
+.header-login-btn:hover {
+    background-color: var(--codecave-secondary);
+    color: white;
+    border: none;
+    transition: 0.1s;
+}
+
+.header-signup-btn:hover {
+    background-color: var(--codecave-active);
+    color: white;
+    border: none;
     transition: 0.1s;
 }
 
@@ -125,7 +154,7 @@ body {
 
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 0 0 rgba(230, 197, 255, 0.685);
+        box-shadow: 0 0 0 0 rgba(177, 186, 255, 0.685);
     }
 
     100% {
@@ -191,8 +220,9 @@ hr {
 .add-project-btn {
     margin: 20px;
     margin-top: 40px;
+    margin-bottom: -5px;
     border: none;
-    width: 250px;
+    width: 275px;
     height: 45px;
     background-color: var(--codecave-secondary);
     border-radius: 25px;
@@ -201,6 +231,7 @@ hr {
     font-size: 17px;
     font-weight: 400;
     cursor: pointer;
+    animation: pulse 1.5s infinite alternate;
 }
 
 .add-project-btn:hover {
@@ -215,15 +246,28 @@ hr {
 }
 
 .project-card {
-    margin-top: 30px;
+    margin-top: 40px;
+    background-color: var(--codecave-primary);
+    width: 1000px;
+    height: 350px;
+    border-radius: 20px;
+    position: relative;
+
+}
+
+.single-project-card {
+    margin-top: 100px;
     background-color: var(--codecave-primary);
     width: 1000px;
     height: 340px;
     border-radius: 20px;
+    margin-bottom: 350px;
+    position: relative;
+    animation: drop-in 1500ms;
 }
 
 .project-title-div {
-    width: 400px;
+    width: 600px;
 }
 
 .project-title {
@@ -231,7 +275,7 @@ hr {
     margin-top: 20px;
     font-family: var(--codecave-font-dm-sans);
     font-weight: 600;
-    font-size: 50px;
+    font-size: 45px;
     letter-spacing: -3px;
 }
 
@@ -244,6 +288,9 @@ hr {
     margin-top: 20px;
     font-family: var(--codecave-font-mont);
     line-height: var(--line-height);
+    height: 125px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
 }
 
 .placeholder-img {
@@ -257,14 +304,49 @@ hr {
 .view-project-btn {
     margin-left: 30px;
     margin-top: 20px;
+    margin-bottom: 30px;
     border: none;
-    width: 120px;
+    width: 150px;
     height: 35px;
     background-color: var(--codecave-secondary);
     border-radius: 20px;
     font-family: '', sans-serif;
     cursor: pointer;
     box-shadow: 0px 2px 17px rgb(0, 0, 0, 0.1);
+    position: absolute;
+    bottom: 0;
+}
+
+.comment-btn {
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border: none;
+    width: 125px;
+    height: 35px;
+    background-color: var(--codecave-secondary);
+    border-radius: 20px;
+    font-family: '', sans-serif;
+    cursor: pointer;
+    box-shadow: 0px 2px 17px rgb(0, 0, 0, 0.1);
+    position: absolute;
+    bottom: 0;
+}
+
+.collab-btn {
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 175px;
+    border: none;
+    width: 125px;
+    height: 35px;
+    background-color: var(--codecave-active);
+    border-radius: 20px;
+    font-family: '', sans-serif;
+    cursor: pointer;
+    box-shadow: 0px 2px 17px rgb(0, 0, 0, 0.1);
+    bottom: 0;
 }
 
 .view-project-btn:hover {
@@ -276,7 +358,7 @@ hr {
 .time-stamp {
     font-family: var(--codecave-font-dm-sans);
     margin-left: 30px;
-    margin-top: 22px;
+    margin-top: 10px;
     font-style: italic;
     color: #939393;
 }
@@ -350,6 +432,32 @@ hr {
     cursor: default;
 }
 
+.add-project-form-card {
+    width: 650px;
+    height: 785px;
+    margin: 15px;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 150px;
+    margin-top: 85px;
+    justify-content: center;
+    border-radius: 30px;
+    transition: .2s;
+    cursor: pointer;
+    overflow: hidden;
+    object-fit: cover;
+    border: none;
+    background-color: var(--codecave-primary);
+    color: white;
+    cursor: default;
+}
+
+.import-logo{
+    width: 25px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+}
+
 #signup-form-card {
     height: 690px;
 }
@@ -386,6 +494,85 @@ hr {
     outline: none;
 }
 
+.project-title-input {
+    background-color: var(--codecave-background-secondary);
+    border: none;
+    margin: 10px;
+    width: 550px;
+    height: 50px;
+    border-radius: 10px;
+    color: var(--codecave-background);
+    font-family: var(--codecave-font-dm-sans);
+    padding-left: 10px;
+    outline: none;
+}
+
+.project-description-input {
+    background-color: var(--codecave-background-secondary);
+    border: none;
+    margin: 10px;
+    width: 550px;
+    height: 200px;
+    border-radius: 10px;
+    color: var(--codecave-background);
+    font-family: var(--codecave-font-dm-sans);
+    padding-bottom: 150px;
+    padding-left: 10px;
+    outline: none;
+}
+
+.import-media {
+    background-color: var(--codecave-background-primary);
+    border: white;
+    border-style: dashed;
+    margin: 10px;
+    width: 550px;
+    height: 200px;
+    border-radius: 10px;
+    color: white;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+}
+
+.import-title{
+    font-family: 'DM Sans';
+    display: flex;
+    justify-content: center;
+}
+
+.upload-btn{
+    margin-top: 20px;
+    border: none;
+    width: 125px;
+    height: 35px;
+    background-color: var(--codecave-active);
+    border-radius: 20px;
+    font-family: '', sans-serif;
+    cursor: pointer;
+    box-shadow: 0px 2px 17px rgb(0, 0, 0, 0.1);
+}
+
+.done-btn{
+    margin-top: 30px;
+    border: none;
+    width: 175px;
+    height: 35px;
+    background-color: var(--codecave-secondary);
+    border-radius: 20px;
+    font-family: '', sans-serif;
+    cursor: pointer;
+    box-shadow: 0px 2px 17px rgb(0, 0, 0, 0.1);
+}
+
+.done-btn-div{
+    display: flex;
+    justify-content: center;
+}
+
 .username-input {
     background-color: white;
     border: none;
@@ -405,6 +592,12 @@ hr {
     background-color: var(--codecave-primary);
     display: flex;
     justify-content: center; 
+}
+
+.add-project-title-div {
+    background-color: var(--codecave-primary);
+    display: flex;
+    justify-content:center;
 }
 
 .email-div {
@@ -520,6 +713,7 @@ hr {
     margin-top: 30px;
     margin-bottom: -30px;
 }
+
 
 
 /* xs */
