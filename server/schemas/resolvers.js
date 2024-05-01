@@ -31,8 +31,8 @@ const resolvers = {
     },
 
     Mutation: {
-        addUser: async (parent, { firstName, lastName, userName, email, githubProfileLink }) => {
-            const user = await User.create({ firstName, lastName, userName, email, githubProfileLink });
+        addUser: async (parent, { firstName, lastName, userName, email, password, githubProfileLink }) => {
+            const user = await User.create({ firstName, lastName, userName, email, password, githubProfileLink });
             const token = signToken(user);
 
             return { token, user }

@@ -10,7 +10,7 @@ const Header = () => {
                 <Link to="/signup"><button className="login-signup-btn">Sign Up</button></Link>
             </div>
             <div className="logo-div">
-                <img className="codecave-logo" src="./Images/codeCave(logo).svg" />
+                <img className="codecave-logo" src="/Images/codeCave(logo).svg" />
             </div>
             {/* <div className="buttons-div">
                 <button className="new-btn" id="nav-btns">
@@ -23,9 +23,6 @@ const Header = () => {
             </div> */}
             <div className="divider">
             <hr/>
-            </div>
-            <div className="add-project-btn-div">
-                <button className="add-project-btn">Add Project</button>
             </div>
 
             {/* <div className="project-card-div">
