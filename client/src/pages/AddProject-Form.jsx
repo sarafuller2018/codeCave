@@ -32,6 +32,16 @@ const AddProject = () => {
                             </div>
                             <div className="add-project-title-div">
                                 <input
+                                    className="project-title-input"
+                                    placeholder="GitHub Repo Link"
+                                    name="email"
+                                    type="email"
+                                />
+                                <label className="form-label" >
+                                </label>
+                            </div>
+                            <div className="add-project-title-div">
+                                <input
                                     className="project-description-input"
                                     placeholder="Description"
                                     name="email"
@@ -40,6 +50,7 @@ const AddProject = () => {
                                 <label className="form-label" >
                                 </label>
                             </div>
+                        
                             <div className="add-project-title-div">
                                 <div className="import-media">
                                     <img className="import-logo" src="/Images/import-logo.png" />
