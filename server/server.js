@@ -9,6 +9,7 @@ const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 const PORT = process.env.PORT || 3001;
 const app = express();
+const { authMiddleware } = require('./utils/auth');
 
 app.use(cors());
 
@@ -38,11 +39,14 @@ const startApolloServer = async () => {
     });
   }
   
-  app.use('/graphql', expressMiddleware(server));
+  app.use('/graphql', expressMiddleware(server, {
+    context: authMiddleware
+  }));
   
   app.post('/api/send-email', async (req, res) => {
     const { toEmail, subject, text } = req.body;
   
+    
     try {
       await transporter.sendMail({
         from: process.env.EMAIL_USER,

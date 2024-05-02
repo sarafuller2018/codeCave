@@ -1,22 +1,20 @@
-
+import React from 'react';
 
 const CommentList = ({ comments }) => {
-    return(
-        <>
-        {comments &&
-        comments.map((comment) => (
-            <div className="comment-card-div">
-                <div className="comment-card">
-                    <div className="comment-text-div">
-                        <p className="comment-text">{comment.text}</p>
-                    </div>
-                    <div className="comment-author-div">
-                        <p className="comment-author">{comment.user}</p>
-                    </div>
+    return (
+        <div className="comment-list">
+             <div className="project-title-div">
+                            <p className="comments-title">Comments</p>
+                        </div>
+                        <hr className='divider'/>
+            {comments.map((comment, index) => (
+                <div className="comment-item" key={index}>
+                    
+                    <p className="comment-text">- {comment.text}</p>
+                    <p className="comment-user">By: {comment.user}</p>
                 </div>
-            </div>
-        ))}
-        </>
+            ))}
+        </div>
     );
 };
 

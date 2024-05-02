@@ -1,5 +1,3 @@
-// Dev Note: SVG icons are currently commented out because I can't properly align them and make them look
-//  but I 
 import { Link } from 'react-router-dom';
 
 const Header = () => {

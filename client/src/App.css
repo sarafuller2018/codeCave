@@ -72,6 +72,54 @@ margin-left: 300px;
     }
 
 }
+.emailMessage {
+    /* position: absolute;
+    background: linear-gradient(to right, rgb(66, 64, 135) 0%, transparent 98%);
+    font-size: 20px;
+    margin-left: 340px;
+    margin-top: 40px;
+    padding-left: 20px;
+    border-radius: 20px 0px 0px 20px;
+    width: 500px;
+    border-right: none; */
+}
+
+.success-message{
+    font-family: var(--codecave-font-dm-sans);
+    display: flex;
+    justify-content: center;
+    color: #aebdff;;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: -50px;
+    background-color: #1f243b;
+    width: 450px;
+    border-radius: 20px;
+    height: 40px;
+    padding-top: 7px;
+
+}
+
+.error-message{
+    font-family: var(--codecave-font-dm-sans);
+    display: flex;
+    justify-content: center;
+    color: rgb(255, 95, 95);
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: -50px;
+    background-color:rgb(44, 25, 25);
+    width: 450px;
+    border-radius: 20px;
+    height: 40px;
+    padding-top: 7px;
+
+}
+
+.error-message-div{
+    display: flex;
+    justify-content: center; 
+}
 
 .login-signup-btn-div {
     float: right;
@@ -91,6 +139,7 @@ margin-left: 300px;
     padding: 5px;
     cursor: pointer;
     box-shadow: 0px 2px 17px rgb(0, 0, 0, 0.3);
+    animation: drop-in 2000ms;
 
 }
 .header-login-btn {
@@ -107,7 +156,20 @@ margin-left: 300px;
     padding: 5px;
     cursor: pointer;
     box-shadow: 0px 2px 17px rgb(0, 0, 0, 0.3);
+    animation: drop-in 1500ms;
 
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+        opacity: 0.25;
+    }
+
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
 }
 
 .header-login-btn:hover {
@@ -188,28 +250,6 @@ margin-left: 300px;
     transition: 0.1s;
 }
 
-.divider {
-    border-radius: 20px;
-    border-width: .5px;
-    font-family: var(--codecave-font-active);
-    font-size: var(--font-size-small);
-    cursor: pointer;
-}
-
-
-
-.divider {
-    display: flex;
-    justify-content: center;
-}
-
-hr {
-    width: 800px;
-    border-width: 0.3px;
-    opacity: 30%;
-    margin-top: 30px;
-}
-
 .add-project-btn-div {
     display: flex;
     align-items: center;
@@ -245,6 +285,14 @@ hr {
     justify-content: center;
 }
 
+.single-project-card-div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+}
+
 .project-card {
     margin-top: 40px;
     background-color: var(--codecave-primary);
@@ -259,11 +307,13 @@ hr {
     margin-top: 100px;
     background-color: var(--codecave-primary);
     width: 1000px;
-    height: 340px;
+    height: auto;
     border-radius: 20px;
-    margin-bottom: 350px;
+    margin-bottom: 30px;
     position: relative;
     animation: drop-in 1500ms;
+    padding-bottom: 45px;
+
 }
 
 .project-title-div {
@@ -283,22 +333,110 @@ hr {
     width: 650px;
 }
 
+.single-project-description-div {
+    width: 650px;
+    height: auto;
+}
+
 .project-description {
     margin-left: 30px;
     margin-top: 20px;
     font-family: var(--codecave-font-mont);
     line-height: var(--line-height);
-    height: 125px;
+    height: 140px;
     overflow: hidden;
     -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
 }
+
+.single-project-description {
+    margin-left: 30px;
+    margin-top: 20px;
+    font-family: var(--codecave-font-mont);
+    line-height: var(--line-height);
+    height: 165px;
+    overflow: hidden;
+}
+
 
 .placeholder-img {
     float: right;
     width: 275px;
     margin-right: 30px;
-    margin-top: -190px;
+    margin-top: -200px;
     border-radius: 15px;
+}
+
+.single-placeholder-img {
+    float: right;
+    width: 275px;
+    margin-right: 30px;
+    margin-top: -230px;
+    border-radius: 15px;
+}
+
+.comment-form-div{
+    display: flex;
+    justify-content: center;
+}
+
+.comment-form{
+    background-color: var(--codecave-primary);
+    border-radius: 20px;
+    width: 1000px;
+
+}
+
+.comment-list{
+/* background-color: #000000bb; */
+background: linear-gradient(to right, rgb(0, 0, 0) 0%, transparent 98%);
+border: solid #5f64a6;
+width: 925px;
+height: auto;
+border-radius: 20px;
+margin-bottom: 200px;
+-webkit-animation: slide-in 1000ms;
+}
+
+.comments-title {
+    margin-left: 22px;
+    color: #000000;
+    margin-top: 7px;
+    font-family: var(--codecave-font-dm-sans);
+    font-weight: 600;
+    font-size: 35px;
+    letter-spacing: -3px;
+}
+
+.divider{
+    border: solid  #5f64a6;
+    border-width: 30px;
+    margin-top: -54px;
+    width: 922px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+hr {
+    opacity: 100%;
+    margin-top: 30px;
+}
+
+
+
+.comment-text{
+    font-family: var(--codecave-font-dm-sans);
+    margin-top: 20px;
+    margin-left: 22px;
+    font-size: 20px;
+}
+
+.comment-user{
+    font-family: var(--codecave-font-dm-sans);
+    font-style: italic;
+    color: #939393;
+    margin-left: 38px;
+    font-size: 15px;
+    margin-bottom: 40px;
 }
 
 .view-project-btn {
@@ -318,7 +456,23 @@ hr {
 }
 
 .comment-btn {
-    margin-left: 30px;
+    margin-top: 20px;
+    margin-left: 25px;
+    margin-bottom: 30px;
+    border: none;
+    width: 125px;
+    height: 35px;
+    background-color: var(--codecave-secondary);
+    border-radius: 20px;
+    font-family: '', sans-serif;
+    cursor: pointer;
+    box-shadow: 0px 2px 17px rgb(0, 0, 0, 0.1);
+    position: absolute;
+    bottom: 25px;
+    /* display: none; */
+}
+
+.submit-comment-btn {
     margin-top: 20px;
     margin-bottom: 30px;
     border: none;
@@ -330,14 +484,19 @@ hr {
     cursor: pointer;
     box-shadow: 0px 2px 17px rgb(0, 0, 0, 0.1);
     position: absolute;
-    bottom: 0;
+    bottom: 25px;
+}
+
+.comment-section-div{
+    display: flex;
+    justify-content: center;
 }
 
 .collab-btn {
     margin-left: 30px;
-    margin-top: 20px;
+    margin-top: 13px;
     margin-bottom: 30px;
-    margin-left: 175px;
+    margin-left: 160px;
     border: none;
     width: 125px;
     height: 35px;
@@ -346,7 +505,8 @@ hr {
     font-family: '', sans-serif;
     cursor: pointer;
     box-shadow: 0px 2px 17px rgb(0, 0, 0, 0.1);
-    bottom: 0;
+    position: absolute;
+    bottom: 25px;
 }
 
 .view-project-btn:hover {
@@ -361,6 +521,16 @@ hr {
     margin-top: 10px;
     font-style: italic;
     color: #939393;
+}
+
+.single-project-time-stamp {
+    font-family: var(--codecave-font-dm-sans);
+    margin-left: 30px;
+    margin-top: 10px;
+    font-style: italic;
+    color: #939393;
+    position: absolute;
+    bottom: 20px;
 }
 
 .add-project-btn-2-div {
@@ -398,7 +568,7 @@ hr {
     margin-bottom: 50px;
     margin-top: -30px;
     flex-wrap: wrap;
-    animation: drop-in 1500ms;
+    -webkit-animation: slide-in 1000ms;
     /* display: none; */
 }
 
@@ -409,7 +579,7 @@ hr {
     margin-bottom: 50px;
     margin-top: -30px;
     flex-wrap: wrap;
-    animation: drop-in 1500ms;
+    animation: drop-in 1300ms;
 
 }
 
@@ -434,7 +604,7 @@ hr {
 
 .add-project-form-card {
     width: 650px;
-    height: 785px;
+    height: 860px;
     margin: 15px;
     margin-right: 50px;
     margin-left: 50px;
@@ -519,6 +689,23 @@ hr {
     padding-bottom: 150px;
     padding-left: 10px;
     outline: none;
+}
+
+.comment-input {
+    background-color: var(--codecave-background-secondary);
+    border: none;
+    margin: 10px;
+    margin-bottom: 56px;
+    margin-left: 0;
+    width: 635px;
+    height: 110px;
+    border-radius: 10px;
+    color: var(--codecave-background);
+    font-family: var(--codecave-font-dm-sans);
+    padding-bottom: 70px;
+    padding-left: 10px;
+    outline: none;
+    /* display: none; */
 }
 
 .import-media {
@@ -713,6 +900,48 @@ hr {
     margin-top: 30px;
     margin-bottom: -30px;
 }
+
+footer {
+    display: flex;
+    justify-content: center;
+    font-family: var(--codecave-font-dm-sans);
+    font-size: var(--font-size-small);
+    margin-bottom: 30px;
+    margin-top: 60px;
+}
+
+
+footer p {
+    color: var(--codecave-footer-font-color);
+    margin-right: 50px;
+}
+
+
+footer a {
+    color: var(--codecave-footer-font-color);
+    margin-right: 50px;
+}
+
+/* Don't want hyperlink element to look different
+after being clicked */
+footer a:visited {
+    color: var(--codecave-footer-font-color);
+}
+
+footer button {
+    text-align: center;
+    color: var(--codecave-background-secondary);
+    background-color: var(--codecave-donate-btn);
+    border-style: none;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.donate-icon {
+    height: 15px;
+    padding-left: 5px;
+}
+
 
 
 
