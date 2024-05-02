@@ -28,6 +28,17 @@ query Project($projectId: ID!) {
     }
   }
 }
+`
+
+export const QUERY_COMMENTS = gql`
+query Comments($projectId: ID!) {
+  project(projectId: $projectId) {
+    comments {
+      text
+      user
+    }
+  }
+}
 `;
 
 export const QUERY_ME = gql`
