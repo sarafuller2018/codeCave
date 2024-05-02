@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_PROJECT } from '../utils/mutations';
 import { QUERY_PROJECTS, QUERY_ME } from '../utils/queries';
@@ -6,18 +6,19 @@ import { useState } from 'react';
 import Auth from '../utils/auth';
 
 const AddProject = () => {
+
+    const navigate = useNavigate();
+
     const [projectState, setProjectState] = useState({
         name: "",
         description: "",
-        githubProjectLink: "https://",
+        githubProjectLink: "",
         image: "",
     })
     const [addProject, { error }] = useMutation(ADD_PROJECT, {
         refetchQueries: [
-            QUERY_PROJECTS,
-            "Projects",
-            QUERY_ME,
-            "me"
+            { query: QUERY_PROJECTS },
+            { query: QUERY_ME }
         ]
     });
 
@@ -37,15 +38,18 @@ const AddProject = () => {
 
         try {
             const { data } = await addProject({
-                variables: {...projectState},
+                variables: { ...projectState },
             });
 
             setProjectState({
                 name: "",
                 description: "",
-                githubProjectLink: "https://",
+                githubProjectLink: "",
                 image: "",
             });
+
+            alert("Project added!");
+            navigate("/home");
         } catch (err) {
             console.error(err);
         }
@@ -89,16 +93,18 @@ const AddProject = () => {
                                     </label>
                                 </div>
                                 <div className="add-project-title-div">
-                                <input
-                                    className="project-title-input"
-                                    placeholder="GitHub Repo Link"
-                                    name="email"
-                                    type="email"
-                                />
-                                <label className="form-label" >
-                                </label>
-                            </div>
-                            <div className="add-project-title-div">
+                                    <input
+                                        className="project-title-input"
+                                        placeholder="GitHub Repo Link"
+                                        name="githubProjectLink"
+                                        type="text"
+                                        value={projectState.githubProjectLink}
+                                        onChange={handleChange}
+                                    />
+                                    <label className="form-label" >
+                                    </label>
+                                </div>
+                                <div className="add-project-title-div">
                                     <input
                                         className="project-description-input"
                                         placeholder="Description"
@@ -110,8 +116,8 @@ const AddProject = () => {
                                     <label className="form-label" >
                                     </label>
                                 </div>
-                            
-                            <div className="add-project-title-div">
+
+                                <div className="add-project-title-div">
                                     <div className="import-media">
                                         <img className="import-logo" src="/Images/import-logo.png" />
                                         <p className='import-title'>Import Media</p>
