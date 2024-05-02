@@ -72,17 +72,7 @@ margin-left: 300px;
     }
 
 }
-.emailMessage {
-    position: absolute;
-    background: linear-gradient(to right, rgb(66, 64, 135) 0%, transparent 98%);
-    font-size: 20px;
-    margin-left: 340px;
-    margin-top: 40px;
-    padding-left: 20px;
-    border-radius: 20px 0px 0px 20px;
-    width: 500px;
-    border-right: none;
-}
+
 .login-signup-btn-div {
     float: right;
 }

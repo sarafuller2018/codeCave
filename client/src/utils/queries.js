@@ -9,7 +9,6 @@ query Projects {
       githubProjectLink
       image
       createdAt
-      
     }
   }
 `;
@@ -23,7 +22,6 @@ query Project($projectId: ID!) {
     githubProjectLink
     image
     createdAt
-    ownerEmail
     contributors {
       userName
       githubProfileLink
