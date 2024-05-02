@@ -1,5 +1,6 @@
 const { User, Project, Comment } = require("../models");
 const { signToken, AuthenticationError } = require('../utils/auth');
+const { ObjectId } = require("mongoose").Types;
 
 const resolvers = {
     Query: {
@@ -57,7 +58,7 @@ const resolvers = {
             if (context.user) {
                 const project = await Project.create({
                     name, description, githubProjectLink, image,
-                    user: context.user.userName,
+                    user: new ObjectId(context.user._id),
                     ownerEmail:context.user.email
                 });
 

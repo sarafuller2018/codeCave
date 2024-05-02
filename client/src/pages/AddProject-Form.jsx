@@ -35,8 +35,7 @@ const AddProject = () => {
 
         try {
             const { data } = await addProject({
-                variables: { ...projectState },
-                user: Auth.getUser().data.user,
+                variables: {...projectState},
             });
 
             setProjectState({

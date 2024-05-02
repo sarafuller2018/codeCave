@@ -25,12 +25,10 @@ mutation Mutation($userName: String!, $email: String!, $password: String!, $gith
   `;
 
   export const ADD_PROJECT = gql`
-  mutation Mutation($name: String!, $description: String!, $githubProjectLink: String!, $image: String) {
+  mutation Mutation($name: String!, $description: String!, $githubProjectLink: String, $image: String) {
     addProject(name: $name, description: $description, githubProjectLink: $githubProjectLink, image: $image) {
       id
-      user {
-        userName
-      }
+      user
       name
       description
       githubProjectLink
