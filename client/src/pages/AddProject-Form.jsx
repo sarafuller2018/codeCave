@@ -9,7 +9,7 @@ const AddProject = () => {
     const [projectState, setProjectState] = useState({
         name: "",
         description: "",
-        githubProjectLink: "",
+        githubProjectLink: "https://",
         image: "",
     })
     const [addProject, { error }] = useMutation(ADD_PROJECT, {
@@ -28,6 +28,8 @@ const AddProject = () => {
             ...projectState,
             [name]: value,
         })
+
+        console.log(projectState)
     };
 
     const handleFormSubmit = async (event) => {
@@ -41,7 +43,7 @@ const AddProject = () => {
             setProjectState({
                 name: "",
                 description: "",
-                githubProjectLink: "",
+                githubProjectLink: "https://",
                 image: "",
             });
         } catch (err) {
