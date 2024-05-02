@@ -12,6 +12,16 @@ const resolvers = {
             return Project.findOne({ _id: projectId }).populate("contributors").populate("comments");
         },
 
+        user: async (_, { id }) => {
+            try {
+              const user = await User.findById(id);
+              return user;
+            } catch (error) {
+              console.error('Error fetching user:', error);
+              throw new Error('Failed to fetch user');
+            }
+        },
+
         users: async () => {
             return User.find().populate({
                 path: 'projects',
@@ -73,17 +83,26 @@ const resolvers = {
         },
         addComment: async (parent, { projectId, text }, context) => {
             if (context.user) {
-                // Create a new comment
-                const newComment = await Comment.create({ text, user: context.user.userName });
-                
-                // Find the project and add the comment's ObjectId to the comments array
-                const updatedProject = await Project.findByIdAndUpdate(
-                    projectId,
-                    { $addToSet: { comments: newComment._id } },
-                    { new: true }
-                );
+                try {
+                    // Create a new comment and associate it with the user
+                    const newComment = await Comment.create({ text, user: context.user.userName });
+                    
+                    // Find the project and add the comment's ObjectId to the comments array
+                    const updatedProject = await Project.findByIdAndUpdate(
+                        projectId,
+                        { $addToSet: { comments: newComment._id } },
+                        { new: true }
+                    );
         
-                return newComment;
+                    if (!updatedProject) {
+                        throw new Error('Project not found');
+                    }
+        
+                    return newComment;
+                } catch (error) {
+                    console.error('Error adding comment:', error);
+                    throw new Error('Failed to add comment');
+                }
             }
             throw new AuthenticationError("You must be logged in to add a comment.");
         },

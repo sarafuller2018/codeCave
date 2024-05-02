@@ -46,6 +46,7 @@ const startApolloServer = async () => {
   app.post('/api/send-email', async (req, res) => {
     const { toEmail, subject, text } = req.body;
   
+    
     try {
       await transporter.sendMail({
         from: process.env.EMAIL_USER,
