@@ -13,7 +13,7 @@ const SingleProjectDetails = () => {
 
 
     const { loading, data } = useQuery(QUERY_SINGLE_PROJECT, {
-        variables: { projectId: projectId},
+        variables: { projectId: projectId },
     });
 
     const project = data?.project || {};
@@ -59,6 +59,7 @@ const SingleProjectDetails = () => {
     return (
         <>
             <header>
+<<<<<<< HEAD
             <div className="login-signup-btn-div">
                 <Link to="/login"><button className="header-login-btn">Login</button></Link>
                 <Link to="/signup"><button className="header-signup-btn">Sign Up</button></Link>
@@ -88,8 +89,39 @@ const SingleProjectDetails = () => {
                         <button className='comment-btn' onClick={toggleForm}>Comment</button>
                         <button className='collab-btn' onClick={handleContributeClick}>Collaborate</button>
                     </div>
+=======
+                <div className="login-signup-btn-div">
+                    <Link to="/login"><button className="header-login-btn">Login</button></Link>
+                    <Link to="/signup"><button className="header-signup-btn">Sign Up</button></Link>
+>>>>>>> main
                 </div>
-
+                <div className="logo-div">
+                    <Link to="/home"> <img className="codecave-logo" src="/Images/codeCave(logo).svg" /></Link>
+                </div>
+                <div className="single-project-card-div">
+                    <div className="single-project-card" key={project._id}>
+                        <div className="project-title-div">
+                            <p className="project-title">{project.name}</p>
+                        </div>
+                        <div className="single-project-description-div">
+                            <p className="single-project-description">{project.description}</p>
+                        </div>
+                        <div className="single-placeholder-img-div">
+                            <img className="single-placeholder-img" src="../Images/placeholder-img.svg" />
+                        </div>
+                        <form>
+                            <input className='comment-input' placeholder='Leave Comment'/>
+                        </form>
+                        <div className='time-stamp-div' >
+                            <p className="single-project-time-stamp">{project.createdAt}</p>
+                        </div>
+                        <div className="comment-btn-div">
+                            <button className='comment-btn' onClick={toggleForm}>Comment</button>
+                            <button className='collab-btn' onClick={handleContributeClick}>Collaborate</button>
+                        </div>
+                    </div>
+                
+    
                 <CommentForm isOpen={openCommentForm} toggleForm={toggleForm} />
                 
                 <div className='comment-section-div'>
