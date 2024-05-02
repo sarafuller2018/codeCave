@@ -757,3 +757,12 @@ hr {
 }
 
 ;
+
+/*Temp css */
+.comment-form-div {
+    display: none;
+}
+
+.comment-form-div.active {
+    display: flex;
+}

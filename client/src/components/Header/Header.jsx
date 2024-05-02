@@ -22,69 +22,8 @@ const Header = () => {
                 <button className="fin-btn" id="nav-btns">Finished</button>
             </div> */}
             <div className="divider">
-            <hr/>
+                <hr />
             </div>
-
-            {/* <div className="project-card-div">
-                <div className="project-card">
-                    <div className="project-title-div">
-                    <p className="project-title">Project Title</p>
-                    </div>
-                    <div className="project-description-div">
-                        <p className="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet mi in ipsum rhoncus, nec venenatis dolor lacinia. Curabitur ut faucibus urna, at malesuada ligula. In hac habitasse platea dictumst. Mauris feugiat est at sem gravida tempor. Suspendisse aliquam eu enim eu luctus. Donec sagittis eros commodo, tincidunt odio eu, tempus enim.</p>
-                    </div>
-                    <div className="placeholder-img-div">
-                        <img className="placeholder-img" src="./Images/placeholder-img.svg"/>
-                    </div>
-                    <div className="view-project-btn-div" >
-                        <button className="view-project-btn">View Project</button>
-                    </div>
-                    <div >
-                        <p className="time-stamp">Posted on 04/26/2024</p>
-                    </div>
-                </div>
-            </div>
-            <div className="project-card-div">
-                <div className="project-card">
-                    <div className="project-title-div">
-                    <p className="project-title">Project Title</p>
-                    </div>
-                    <div className="project-description-div">
-                        <p className="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet mi in ipsum rhoncus, nec venenatis dolor lacinia. Curabitur ut faucibus urna, at malesuada ligula. In hac habitasse platea dictumst. Mauris feugiat est at sem gravida tempor. Suspendisse aliquam eu enim eu luctus. Donec sagittis eros commodo, tincidunt odio eu, tempus enim.</p>
-                    </div>
-                    <div className="placeholder-img-div">
-                        <img className="placeholder-img" src="./Images/placeholder-img.svg"/>
-                    </div>
-                    <div className="view-project-btn-div" >
-                        <button className="view-project-btn">View Project</button>
-                    </div>
-                    <div >
-                        <p className="time-stamp">Posted on 04/26/2024</p>
-                    </div>
-                </div>
-            </div>
-            <div className="project-card-div">
-                <div className="project-card">
-                    <div className="project-title-div">
-                    <p className="project-title">Project Title</p>
-                    </div>
-                    <div className="project-description-div">
-                        <p className="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet mi in ipsum rhoncus, nec venenatis dolor lacinia. Curabitur ut faucibus urna, at malesuada ligula. In hac habitasse platea dictumst. Mauris feugiat est at sem gravida tempor. Suspendisse aliquam eu enim eu luctus. Donec sagittis eros commodo, tincidunt odio eu, tempus enim.</p>
-                    </div>
-                    <div className="placeholder-img-div">
-                        <img className="placeholder-img" src="./Images/placeholder-img.svg"/>
-                    </div>
-                    <div className="view-project-btn-div" >
-                        <button className="view-project-btn">View Project</button>
-                    </div>
-                    <div >
-                        <p className="time-stamp">Posted on 04/26/2024</p>
-                    </div>
-                </div>
-            </div>
-            <div className="add-project-btn-2-div">
-                <button className="add-project-btn-2">+</button>
-            </div> */}
         </header>
     );
 };
