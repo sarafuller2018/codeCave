@@ -24,7 +24,7 @@ const SingleProjectDetails = () => {
         const data = {
             toEmail: project.ownerEmail, // Use project.ownerEmail here
             subject: 'Test Email',
-            text: `This is a ${user.email}test email sent from your MERN stack project.`
+            text: `This is a test email sent from your MERN stack project.`
         };
 
         try {
