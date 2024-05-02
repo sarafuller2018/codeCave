@@ -22,6 +22,15 @@ class AuthService {
     // If token hasn't passed its expiration time, return `false`
     return false;
   }
+  getUserId() {
+    const token = this.getToken();
+    if (!token) {
+      return null; // Return null if token is not found
+    }
+    const decoded = decode(token);
+    return decoded ? decoded.data._id : null; // Return user ID from decoded token
+  }
+  
 
   getToken() {
     return localStorage.getItem('id_token');
