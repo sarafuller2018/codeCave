@@ -3,30 +3,33 @@ import { useParams } from 'react-router-dom';
 import { QUERY_SINGLE_PROJECT } from '../utils/queries';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 
 
-const SingleProjectDetails = (projects) => {
+const SingleProjectDetails = () => {
     const { projectId } = useParams();
+
 
     const { loading, data } = useQuery(QUERY_SINGLE_PROJECT, {
         variables: { projectId: projectId},
     });
 
     const project = data?.project || {};
+    const [emailStatus, setEmailStatus] = useState(null); // State to track email status
 
     const sendEmail = async () => {
         const url = 'http://localhost:3001/api/send-email';
         const data = {
-            toEmail: "bernardo4430@gmail.com",
+            toEmail: project.ownerEmail, // Use project.ownerEmail here
             subject: 'Test Email',
-            text: 'This is a test email sent from your MERN stack project.'
+            text: `This is a ${user.email}test email sent from your MERN stack project.`
         };
 
         try {
             const response = await axios.post(url, data);
-            console.log('Email sent successfully:', response.data);
+            setEmailStatus('success'); // Set state to 'success' if email is sent successfully
         } catch (error) {
-            console.error('Error sending email:', error);
+            setEmailStatus('error'); // Set state to 'error' if there is an error sending email
         }
     };
 
@@ -37,6 +40,15 @@ const SingleProjectDetails = (projects) => {
     if (loading) {
         return <div>Loading...</div>;
     }
+
+    let message = null; // Initialize message variable
+
+    if (emailStatus === 'success') {
+        message = <div>Email sent successfully!</div>;
+    } else if (emailStatus === 'error') {
+        message = <div>Error sending email. Please try again later.</div>;
+    }
+    
     return (
         <>
             <header>
@@ -47,6 +59,10 @@ const SingleProjectDetails = (projects) => {
             <div className="logo-div">
             <Link to="/home"> <img className="codecave-logo" src="/Images/codeCave(logo).svg" /></Link> 
             </div>
+            <div className ="emailMessage">
+                {message } {/* Render message */}
+            </div>
+            
             <div className="project-card-div">
                 <div className="single-project-card" key={project._id}>
                     <div className="project-title-div">
