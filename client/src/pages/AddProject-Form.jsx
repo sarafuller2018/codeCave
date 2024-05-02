@@ -121,7 +121,8 @@ const AddProject = () => {
                                     <div className="import-media">
                                         <img className="import-logo" src="/Images/import-logo.png" />
                                         <p className='import-title'>Import Media</p>
-                                        <button className='upload-btn'>Upload</button>
+                                        <input type='file' name='image' accept='image/*' value={projectState.image} onChange={handleChange}/>
+                                        {/* <button type='button' className='upload-btn'>Upload</button> */}
                                     </div>
                                 </div>
                                 <div className='done-btn-div'>
