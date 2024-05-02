@@ -16,7 +16,7 @@ const SingleProjectDetails = () => {
     const { loading: userLoading, data: userData } = useQuery(QUERY_USER_EMAIL, {
         variables: { userId: userId }, // Provide the user ID here
     });
-    
+
 
     const { loading, data } = useQuery(QUERY_SINGLE_PROJECT, {
         variables: { projectId: projectId },
@@ -54,9 +54,8 @@ const SingleProjectDetails = () => {
         // Assuming project.comments is an array
         const newComment = { text: commentText, user: userName }; // Change "username" to the actual username
         const updatedComments = [...project.comments, newComment];
-        
-    };
 
+    };
 
     const [openCommentForm, setOpenCommentForm] = useState(false);
     const toggleForm = () => {
@@ -72,21 +71,21 @@ const SingleProjectDetails = () => {
     if (emailStatus === 'success') {
         message = <div>Email sent successfully!</div>;
     } else if (emailStatus === 'error') {
-        message = <div>Error sending email. Please try again later.</div>;
+        message = <div className="error-message-div"><div className='error-message'>Error sending email. Please try again later.</div></div>;
     }
     console.log(project.comments)
     return (
         <>
             <header>
-                {/* <div className="login-signup-btn-div">
+                <div className="login-signup-btn-div">
                     <Link to="/login"><button className="header-login-btn">Login</button></Link>
                     <Link to="/signup"><button className="header-signup-btn">Sign Up</button></Link>
-                </div> */}
+                </div>
                 <div className="logo-div">
                     <Link to="/home"> <img className="codecave-logo" src="/Images/codeCave(logo).svg" /></Link>
                 </div>
-                <div className ="emailMessage">
-                    {message } {/* Render message */}
+                <div className="emailMessage">
+                    {message} {/* Render message */}
                 </div>
                 <div className="single-project-card-div">
                     <div className="single-project-card" key={project._id}>
@@ -99,24 +98,29 @@ const SingleProjectDetails = () => {
                         <div className="single-placeholder-img-div">
                             <img className="single-placeholder-img" src="../Images/placeholder-img.svg" />
                         </div>
+                    
                         <form>
-                            <CommentForm projectId={projectId} isOpen={true} toggleForm={() => {}} addComment={handleAddComment} />
+                            <CommentForm projectId={projectId} isOpen={false} toggleForm={() => { }} addComment={handleAddComment} />
                         </form>
                         <div className='time-stamp-div' >
                             <p className="single-project-time-stamp">{project.createdAt}</p>
                         </div>
+                        <button
+                        className='comment-btn'>
+                        Comment
+                    </button>
                         <div className="comment-btn-div">
                             <button className='collab-btn' onClick={handleContributeClick}>Collaborate</button>
                         </div>
                     </div>
-                
-    
-                <CommentForm isOpen={openCommentForm} toggleForm={toggleForm} />
-                
-                <div className="comment-section-div">
-                    <CommentList comments={project.comments} />
+
+                    <div className="comment-section-div">
+                        <CommentList comments={project.comments} />
+                    </div>
+
+
+                    <CommentForm isOpen={openCommentForm} toggleForm={toggleForm} />
                 </div>
-            </div>
             </header>
         </>
     );
