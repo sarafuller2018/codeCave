@@ -724,6 +724,47 @@ hr {
     margin-bottom: -30px;
 }
 
+footer {
+    display: flex;
+    justify-content: center;
+    font-family: var(--codecave-font-dm-sans);
+    font-size: var(--font-size-small);
+    margin-bottom: 40px;
+}
+
+
+footer p {
+    color: var(--codecave-footer-font-color);
+    margin-right: 50px;
+}
+
+
+footer a {
+    color: var(--codecave-footer-font-color);
+    margin-right: 50px;
+}
+
+/* Don't want hyperlink element to look different
+after being clicked */
+footer a:visited {
+    color: var(--codecave-footer-font-color);
+}
+
+footer button {
+    text-align: center;
+    color: var(--codecave-background-secondary);
+    background-color: var(--codecave-donate-btn);
+    border-style: none;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.donate-icon {
+    height: 15px;
+    padding-left: 5px;
+}
+
+
 
 
 /* xs */
@@ -767,3 +808,12 @@ hr {
 }
 
 ;
+
+/*Temp css */
+.comment-form-div {
+    display: none;
+}
+
+.comment-form-div.active {
+    display: flex;
+}
