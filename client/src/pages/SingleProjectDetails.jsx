@@ -1,8 +1,11 @@
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
-import { QUERY_SINGLE_PROJECT } from '../utils/queries';
+import { QUERY_SINGLE_PROJECT, QUERY_COMMENTS } from '../utils/queries';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import CommentList from '../components/CommentList/CommentList';
+import CommentForm from '../components/CommentForm/CommentForm';
+import { useState } from 'react';
 
 
 const SingleProjectDetails = (projects) => {
@@ -32,6 +35,11 @@ const SingleProjectDetails = (projects) => {
 
     const handleContributeClick = () => {
         sendEmail(); // Call sendTestEmail when the button is clicked
+    };
+
+    const [openCommentForm, setOpenCommentForm] = useState(false);
+    const toggleForm = () => {
+        setOpenCommentForm(!openCommentForm);
     };
 
     if (loading) {
@@ -65,12 +73,18 @@ const SingleProjectDetails = (projects) => {
                             <p className="single-project-time-stamp">{project.createdAt}</p>
                         </div>
                         <div className="comment-btn-div">
-                            <button className='comment-btn' >Comment</button>
+                            <button className='comment-btn' onClick={toggleForm}>Comment</button>
                             <button className='collab-btn' onClick={handleContributeClick}>Collaborate</button>
                         </div>
                     </div>
                 
+    
+                <CommentForm isOpen={openCommentForm} toggleForm={toggleForm} />
+                
+                <div className='comment-section-div'>
+                    <CommentList comments={project.comments} />
                 </div>
+            </div>
             </header>
         </>
     );
