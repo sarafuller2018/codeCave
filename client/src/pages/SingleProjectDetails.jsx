@@ -69,7 +69,7 @@ const SingleProjectDetails = () => {
     let message = null; // Initialize message variable
 
     if (emailStatus === 'success') {
-        message = <div>Email sent successfully!</div>;
+        message = <div className="error-message-div"><div className='success-message'>Email sent successfully!</div></div>;
     } else if (emailStatus === 'error') {
         message = <div className="error-message-div"><div className='error-message'>Error sending email. Please try again later.</div></div>;
     }
