@@ -46,47 +46,34 @@ const CommentForm = () => {
     };
 
     return (
-        <>
-            {Auth.loggedIn() ? (
-                <div className="form-div">
-                    <form onSubmit={handleFormSubmit} className='add-project-form-card'>
-                        <div className="login-text-div">
-                            <h4 className="login-text">Add Comment</h4>
-                        </div>
-
-                        {error && (
-                            <div>
-                                <p className="error-text">Error with adding comment. Please try again!</p>
-                            </div>
-                        )}
-
-                        <div className='input-div'>
-                            <div className="add-project-title-div">
-                                <input
-                                    className="project-title-input"
-                                    placeholder="Your Comment"
-                                    name="name"
-                                    type="text"
-                                    value={formState.text}
-                                    onChange={handleChange}
-                                />
-                                <label className="form-label" >
-                                </label>
-                            </div>
-                            
-                            <div className='done-btn-div'>
-                                <button className='done-btn'>Done</button>
-                            </div>
-                        </div>
-                    </form>
+        <div className={`comment-form-div ${isOpen ? "active" : ""}`}>
+            <div className="comment-form-card">
+                <div>
+                    <p></p>
                 </div>
-            ) : (
-                <p>
-                    You need to be logged in to share your thoughts. Please{' '}
-                    <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-                </p>
-            )}
-        </>
+                <div>
+                    <input
+                        className="comment-text-input, comment-input"
+                        type="text"
+                        placeholder="Your comments here"
+                        name="commentText"
+                        value={formState.commentText}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="addComment-btn-div">
+                    <button
+                        className='submit-comment-btn'
+                        style={{ cursor: 'pointer' }}
+                        type="submit"
+                        onClick={handleSubmit}
+                    >
+                        Submit Comment
+                    </button>
+                </div>
+            </div>
+        </div>
+        
     );
 };
 
