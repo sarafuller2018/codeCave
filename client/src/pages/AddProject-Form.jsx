@@ -1,8 +1,50 @@
-import { useQuery } from '@apollo/client';
-import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { ADD_PROJECT } from '../utils/mutations';
+import { QUERY_PROJECTS } from '../utils/queries';
+import { useState } from 'react';
 
 const AddProject = () => {
+    const [projectState, setProjectState] = useState({
+        name: "",
+        description: "",
+        githubProjectLink: "",
+        image: "",
+    })
+    const [addProject, { error }] = useMutation(ADD_PROJECT, {
+        refetchQueries: [
+            QUERY_PROJECTS,
+            "Projects"
+        ]
+    });
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+
+        setProjectState({
+            ...projectState,
+            [name]: value,
+        })
+    };
+
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            const { data } = await addProject({
+                variables: { ...projectState },
+            });
+
+            setProjectState({
+                name: "",
+                description: "",
+                githubProjectLink: "",
+                image: "",
+            });
+        } catch (err) {
+            console.error(err);
+        }
+    };
 
     return (
         <>
@@ -12,20 +54,29 @@ const AddProject = () => {
                     <Link to="/signup"><button className="header-signup-btn">Sign Up</button></Link>
                 </div>
                 <div className="logo-div">
-                    <Link to="/home"> <img className="codecave-logo" src="/Images/codeCave(logo).svg" /></Link> 
+                    <Link to="/home"> <img className="codecave-logo" src="/Images/codeCave(logo).svg" /></Link>
                 </div>
                 <div className="form-div">
-                    <form className='add-project-form-card'>
+                    <form on onSubmit={handleFormSubmit} className='add-project-form-card'>
                         <div className="login-text-div">
                             <h4 className="login-text">Add Project</h4>
                         </div>
+
+                        {error && (
+                            <div>
+                                <p className="error-text">Error with adding project. Please try again!</p>
+                            </div>
+                        )}
+
                         <div className='input-div'>
                             <div className="add-project-title-div">
                                 <input
                                     className="project-title-input"
                                     placeholder="Project Title"
-                                    name="email"
-                                    type="email"
+                                    name="name"
+                                    type="text"
+                                    value={projectState.name}
+                                    onChange={handleChange}
                                 />
                                 <label className="form-label" >
                                 </label>
@@ -34,8 +85,10 @@ const AddProject = () => {
                                 <input
                                     className="project-description-input"
                                     placeholder="Description"
-                                    name="email"
-                                    type="email"
+                                    name="description"
+                                    type="text"
+                                    value={projectState.description}
+                                    onChange={handleChange}
                                 />
                                 <label className="form-label" >
                                 </label>
@@ -57,6 +110,6 @@ const AddProject = () => {
             </header>
         </>
     );
-}
+};
 
 export default AddProject;
