@@ -57,9 +57,9 @@ const SingleProjectDetails = () => {
 
     };
 
-    const [openCommentForm, setOpenCommentForm] = useState(false);
+    const [display, setDisplay] = useState(false);
     const toggleForm = () => {
-        setOpenCommentForm(!openCommentForm);
+        setDisplay(!display);
     };
 
     if (loading) {
@@ -100,17 +100,18 @@ const SingleProjectDetails = () => {
                         </div>
                     
                         <form>
-                            <CommentForm projectId={projectId} isOpen={false} toggleForm={() => { }} addComment={handleAddComment} />
+                            <CommentForm projectId={projectId} isOpen={display} addComment={handleAddComment} />
                         </form>
                         <div className='time-stamp-div' >
                             <p className="single-project-time-stamp">{project.createdAt}</p>
                         </div>
                         <button
-                        className='comment-btn'>
+                        className={`comment-btn ${display ? "hide" : ""}`}
+                        onClick={toggleForm}>
                         Comment
                     </button>
                         <div className="comment-btn-div">
-                            <button className='collab-btn' onClick={handleContributeClick}>Collaborate</button>
+                            <button className={`collab-btn ${display ? "hide" : ""}`} onClick={handleContributeClick}>Collaborate</button>
                         </div>
                     </div>
 
@@ -118,8 +119,6 @@ const SingleProjectDetails = () => {
                         <CommentList comments={project.comments} />
                     </div>
 
-
-                    <CommentForm isOpen={openCommentForm} toggleForm={toggleForm} />
                 </div>
             </header>
         </>
