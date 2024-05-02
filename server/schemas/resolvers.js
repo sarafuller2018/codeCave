@@ -16,7 +16,7 @@ const resolvers = {
             return User.find().populate({
                 path: 'projects',
                 populate: {
-                    path: 'comments',
+                    path: 'comments ownerEmail',
                     select:"text user project"
                 }
             });

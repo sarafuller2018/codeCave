@@ -43,7 +43,11 @@ const projectSchema = new Schema(
                 type: Schema.Types.ObjectId,
                 ref: "Comment"
             }
-        ]
+        ],
+        ownerEmail: {
+            type: String,
+            required: true
+        }
     }
 );
 
