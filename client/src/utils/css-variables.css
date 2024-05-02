@@ -18,6 +18,8 @@
     --codecave-active: #8b60ae;
     --codecave-background: #000000;
     --codecave-background-secondary: #ffffff;
+    --codecave-footer-font-color: #34364f; 
+    --codecave-donate-btn: #1e4d2b;
 
 
 /* Typography / Font-Families */
@@ -33,9 +35,10 @@
 
 
 /* Spacing */
-    --spacing-small: 4px;
-    --spacing-medium: 8px;
-    --spacing-large: 16px;
+    --spacing-small: 10px;
+    --spacing-medium: 20px;
+    --spacing-large: 40px;
+    --spacing-larger: 50px;
 
 
 /* Breakpoints 
