@@ -29,8 +29,10 @@ type Project {
 }
 
 type Comment {
-  text: String
-  user: String
+  id: ID!
+  text: String!
+  user: String!
+  project: Project! 
 }
 
 type Query {
