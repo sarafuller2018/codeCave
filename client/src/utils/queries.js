@@ -28,4 +28,23 @@ query Project($projectId: ID!) {
     }
   }
 }
-`
+`;
+
+export const QUERY_ME = gql`
+query Me {
+  me {
+    id
+    firstName
+    lastName
+    email
+    userName
+    githubProfileLink
+    projects {
+      id
+      name
+      description
+      createdAt
+    }
+  }
+}
+`;

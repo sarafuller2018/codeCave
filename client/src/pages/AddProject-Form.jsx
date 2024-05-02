@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_PROJECT } from '../utils/mutations';
-import { QUERY_PROJECTS } from '../utils/queries';
+import { QUERY_PROJECTS, QUERY_ME } from '../utils/queries';
 import { useState } from 'react';
+import Auth from '../utils/auth';
 
 const AddProject = () => {
     const [projectState, setProjectState] = useState({
@@ -14,7 +15,9 @@ const AddProject = () => {
     const [addProject, { error }] = useMutation(ADD_PROJECT, {
         refetchQueries: [
             QUERY_PROJECTS,
-            "Projects"
+            "Projects",
+            QUERY_ME,
+            "me"
         ]
     });
 
@@ -33,6 +36,7 @@ const AddProject = () => {
         try {
             const { data } = await addProject({
                 variables: { ...projectState },
+                user: Auth.getUser().data.user,
             });
 
             setProjectState({
@@ -56,57 +60,64 @@ const AddProject = () => {
                 <div className="logo-div">
                     <Link to="/home"> <img className="codecave-logo" src="/Images/codeCave(logo).svg" /></Link>
                 </div>
-                <div className="form-div">
-                    <form on onSubmit={handleFormSubmit} className='add-project-form-card'>
-                        <div className="login-text-div">
-                            <h4 className="login-text">Add Project</h4>
-                        </div>
 
-                        {error && (
-                            <div>
-                                <p className="error-text">Error with adding project. Please try again!</p>
+                {Auth.loggedIn() ? (
+                    <div className="form-div">
+                        <form onSubmit={handleFormSubmit} className='add-project-form-card'>
+                            <div className="login-text-div">
+                                <h4 className="login-text">Add Project</h4>
                             </div>
-                        )}
 
-                        <div className='input-div'>
-                            <div className="add-project-title-div">
-                                <input
-                                    className="project-title-input"
-                                    placeholder="Project Title"
-                                    name="name"
-                                    type="text"
-                                    value={projectState.name}
-                                    onChange={handleChange}
-                                />
-                                <label className="form-label" >
-                                </label>
-                            </div>
-                            <div className="add-project-title-div">
-                                <input
-                                    className="project-description-input"
-                                    placeholder="Description"
-                                    name="description"
-                                    type="text"
-                                    value={projectState.description}
-                                    onChange={handleChange}
-                                />
-                                <label className="form-label" >
-                                </label>
-                            </div>
-                            <div className="add-project-title-div">
-                                <div className="import-media">
-                                    <img className="import-logo" src="/Images/import-logo.png" />
-                                    <p className='import-title'>Import Media</p>
-                                    <button className='upload-btn'>Upload</button>
+                            {error && (
+                                <div>
+                                    <p className="error-text">Error with adding project. Please try again!</p>
+                                </div>
+                            )}
+
+                            <div className='input-div'>
+                                <div className="add-project-title-div">
+                                    <input
+                                        className="project-title-input"
+                                        placeholder="Project Title"
+                                        name="name"
+                                        type="text"
+                                        value={projectState.name}
+                                        onChange={handleChange}
+                                    />
+                                    <label className="form-label" >
+                                    </label>
+                                </div>
+                                <div className="add-project-title-div">
+                                    <input
+                                        className="project-description-input"
+                                        placeholder="Description"
+                                        name="description"
+                                        type="text"
+                                        value={projectState.description}
+                                        onChange={handleChange}
+                                    />
+                                    <label className="form-label" >
+                                    </label>
+                                </div>
+                                <div className="add-project-title-div">
+                                    <div className="import-media">
+                                        <img className="import-logo" src="/Images/import-logo.png" />
+                                        <p className='import-title'>Import Media</p>
+                                        <button className='upload-btn'>Upload</button>
+                                    </div>
+                                </div>
+                                <div className='done-btn-div'>
+                                    <button className='done-btn'>Done</button>
                                 </div>
                             </div>
-                            <div className='done-btn-div'>
-                                <button className='done-btn'>Done</button>
-                            </div>
-                        </div>
-                    </form>
-
-                </div>
+                        </form>
+                    </div>
+                ) : (
+                    <p>
+                        You need to be logged in to share your thoughts. Please{' '}
+                        <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+                    </p>
+                )}
             </header>
         </>
     );
