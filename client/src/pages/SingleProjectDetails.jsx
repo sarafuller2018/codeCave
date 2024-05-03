@@ -13,11 +13,15 @@ const SingleProjectDetails = () => {
     const userId = AuthService.getUserId(); // Get user ID using AuthService
     console.log(projectId)
 
+    const token = localStorage.getItem('id_token'); // Get token from localStorage
+    const logged = token && !AuthService.isTokenExpired(token); // Check if token exists and is not expired
+    console.log("is loggedin"+ " " + logged); // Output the result of the check
+
     const { loading: userLoading, data: userData } = useQuery(QUERY_USER_EMAIL, {
         variables: { userId: userId }, // Provide the user ID here
     });
 
-
+    
     const { loading, data } = useQuery(QUERY_SINGLE_PROJECT, {
         variables: { projectId: projectId },
     });
@@ -27,6 +31,7 @@ const SingleProjectDetails = () => {
     const userName = userData?.user?.userName;
     console.log(userEmail)
     console.log(userName)
+    console.log(userName +logged)
 
     const [emailStatus, setEmailStatus] = useState(null); // State to track email status
 
@@ -47,7 +52,12 @@ const SingleProjectDetails = () => {
     };
 
     const handleContributeClick = () => {
-        sendEmail(); // Call sendTestEmail when the button is clicked
+        if (!logged) {
+            alert('You need to be signed in to collaborate.'); // Display an alert message
+            return;
+        }
+    
+        sendEmail(); // Call sendEmail when the button is clicked
     };
 
     const handleAddComment = (commentText) => {
@@ -61,7 +71,8 @@ const SingleProjectDetails = () => {
     const toggleForm = () => {
         setDisplay(!display);
     };
-
+    
+    console.log(logged)
     if (loading) {
         return <div>Loading...</div>;
     }
@@ -74,12 +85,18 @@ const SingleProjectDetails = () => {
         message = <div className="error-message-div"><div className='error-message'>Error sending email. Please try again later.</div></div>;
     }
     console.log(project.comments)
+    const logout = () => {
+
+        AuthService.logout()
+    }
+
     return (
         <>
             <header>
                 <div className="login-signup-btn-div">
                     <Link to="/login"><button className="header-login-btn">Login</button></Link>
                     <Link to="/signup"><button className="header-signup-btn">Sign Up</button></Link>
+                    <button className='header-logout-btn' onClick={logout}>Logout</button>
                 </div>
                 <div className="logo-div">
                     <Link to="/home"> <img className="codecave-logo" src="/Images/codeCave(logo).svg" /></Link>
@@ -88,7 +105,7 @@ const SingleProjectDetails = () => {
                     {message} {/* Render message */}
                 </div>
                 <div className="single-project-card-div">
-                    <div className="single-project-card" key={project._id}>
+                    <div className="single-project-card" key={project.id}>
                         <div className="project-title-div">
                             <p className="project-title">{project.name}</p>
                         </div>
@@ -100,10 +117,13 @@ const SingleProjectDetails = () => {
                         </div>
                     
                         <form>
-                            <CommentForm projectId={projectId} isOpen={display} addComment={handleAddComment} />
+                            <CommentForm projectId={project.id} user={userName} isOpen={display} addComment={handleAddComment} />
                         </form>
                         <div className='time-stamp-div' >
                             <p className="single-project-time-stamp">{project.createdAt}</p>
+                        </div>
+                        <div>
+                        <p className="project-owner">{project.ownerEmail}</p>
                         </div>
                         <button
                         className={`comment-btn ${display ? "hide" : ""}`}

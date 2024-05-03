@@ -1,12 +1,20 @@
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';import AuthService from '../../utils/auth';
 
-const ProjectList = ({ projects, title }) => {
+const ProjectList = ({ projects, title, ownerEmail }) => {
+
+const logout = () => {
+
+    AuthService.logout()
+}
+
     return (
         <>
                 <header>
             <div className="login-signup-btn-div">
                 <Link to="/login"><button className="header-login-btn">Login</button></Link>
                 <Link to="/signup"><button className="header-signup-btn">Sign Up</button></Link>
+                <button className='header-logout-btn' onClick={logout}>Logout</button>
             </div>
             <div className="logo-div">
                 <img className="codecave-logo" src="/Images/codeCave(logo).svg" />
@@ -16,7 +24,7 @@ const ProjectList = ({ projects, title }) => {
             </div>
         {projects && 
         projects.map((project) => (
-        
+            
             <div className="project-card-div">
                 <div className="project-card" key={project.id}>
                     <div className="project-title-div">
@@ -37,6 +45,9 @@ const ProjectList = ({ projects, title }) => {
                     </div>
                     <div >
                         <p className="time-stamp">{project.createdAt}</p>
+                    </div>
+                    <div>
+                        <p className="project-owner">{project.ownerEmail}</p>
                     </div>
                 </div>
             </div>

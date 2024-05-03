@@ -29,10 +29,9 @@ type Project {
 }
 
 type Comment {
-  id: ID!
   text: String!
   user: String!
-  project: Project! 
+  projectId: String!
 }
 
 type Query {
@@ -48,7 +47,7 @@ type Mutation {
   login(email: String!, password: String!): Auth
   
   addProject(name: String!, description: String!, githubProjectLink: String!, image: String): Project
-  addComment(projectId: ID!, text: String!): Comment
+  addComment(projectId: ID!, text: String!, user: String!): Project
   removeProject(projectId: ID!): Project
   removeComment(projectId: ID!, commentId: ID!): Project
 }
