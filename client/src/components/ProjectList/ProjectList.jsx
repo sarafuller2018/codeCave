@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-
-const ProjectList = ({ projects, title }) => {
+import { useParams } from 'react-router-dom';
+const ProjectList = ({ projects, title, ownerEmail }) => {
     return (
         <>
                 <header>
@@ -16,7 +16,7 @@ const ProjectList = ({ projects, title }) => {
             </div>
         {projects && 
         projects.map((project) => (
-        
+            
             <div className="project-card-div">
                 <div className="project-card" key={project.id}>
                     <div className="project-title-div">
@@ -37,6 +37,9 @@ const ProjectList = ({ projects, title }) => {
                     </div>
                     <div >
                         <p className="time-stamp">{project.createdAt}</p>
+                    </div>
+                    <div>
+                        <p className="project-owner">{project.ownerEmail}</p>
                     </div>
                 </div>
             </div>

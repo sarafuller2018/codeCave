@@ -532,6 +532,16 @@ hr {
     position: absolute;
     bottom: 20px;
 }
+.project-owner {
+    font-family: var(--codecave-font-dm-sans);
+    margin-left: 30px;
+    margin-top: 20px;
+    font-style: italic;
+    color: #939393;
+    position: absolute;
+    bottom: 20px;
+}
+
 
 .add-project-btn-2-div {
     display: flex;
