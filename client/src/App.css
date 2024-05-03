@@ -6,7 +6,8 @@
     box-sizing: border-box;
     font-family: "Roboto";
     color: var(--codecave-background-secondary);
-
+    max-width: 90vw;
+    margin-left: 10px;
 }
 
 header {
@@ -15,16 +16,21 @@ header {
     height: 100%;
     background-color: var(--codecave-background);
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
 }
 
 body {
     background-color: black;
 }
 
-.logo-div {
-    display: flex;
-    justify-content: center;
-}
+/* .logo-div {
+
+} */
 
 .logo-div {
     animation: drop-in 1500ms;
@@ -45,9 +51,6 @@ body {
 }
 
 .codecave-logo {
-margin-bottom: px;
-margin-top: 85px;
-margin-left: 300px;
     cursor: pointer;
 
     -webkit-animation: fadeOut linear;
@@ -122,16 +125,18 @@ margin-left: 300px;
 }
 
 .login-signup-btn-div {
-    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .header-signup-btn {
-    margin: 30px;
+    margin: 10px;
     border: none;
     width: 120px;
     height: 40px;
-    background-color: rgb(0, 0, 0);
-    color: white;
+    background-color: var(--codecave-background);
+    color: var(--codecave-background-secondary);
     border: solid;
     border-radius: 20px;
     border-width: 1px;
@@ -143,7 +148,7 @@ margin-left: 300px;
 
 }
 .header-login-btn {
-    margin: 30px;
+    margin: 5px;
     margin-right: -15px;
     border: none;
     width: 120px;
@@ -224,10 +229,6 @@ margin-left: 300px;
     }
 }
 
-.oreIcon {
-    height: 1.5rem;
-}
-
 
 .ip-btn,
 .fin-btn {
@@ -262,7 +263,7 @@ margin-left: 300px;
     margin-top: 40px;
     margin-bottom: -5px;
     border: none;
-    width: 275px;
+    width: 200px;
     height: 45px;
     background-color: var(--codecave-secondary);
     border-radius: 25px;
@@ -283,6 +284,7 @@ margin-left: 300px;
 .project-card-div {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .single-project-card-div {
@@ -296,10 +298,14 @@ margin-left: 300px;
 .project-card {
     margin-top: 40px;
     background-color: var(--codecave-primary);
-    width: 1000px;
-    height: 350px;
+    width: 500px;
+    height: auto;
     border-radius: 20px;
     position: relative;
+    margin-left: 5%;
+
+    display: flex;
+    flex-direction: column;
 
 }
 
@@ -325,7 +331,7 @@ margin-left: 300px;
     margin-top: 20px;
     font-family: var(--codecave-font-dm-sans);
     font-weight: 600;
-    font-size: 45px;
+    font-size: var(--font-size-larger);
     letter-spacing: -3px;
 }
 
@@ -339,10 +345,12 @@ margin-left: 300px;
 }
 
 .project-description {
-    margin-left: 30px;
+    margin-right: 30px;
     margin-top: 20px;
     font-family: var(--codecave-font-mont);
-    line-height: var(--line-height);
+    line-height: 1.1;
+    font-size: var(--font-size-small);
+    width: 300px;
     height: 140px;
     overflow: hidden;
     -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
@@ -364,6 +372,7 @@ margin-left: 300px;
     margin-right: 30px;
     margin-top: -200px;
     border-radius: 15px;
+    visibility: hidden;
 }
 
 .single-placeholder-img {
@@ -521,6 +530,7 @@ hr {
     margin-top: 10px;
     font-style: italic;
     color: #939393;
+    visibility: hidden;
 }
 
 .single-project-time-stamp {
@@ -908,6 +918,7 @@ footer {
     font-size: var(--font-size-small);
     margin-bottom: 30px;
     margin-top: 60px;
+    margin-left: 5%;
 }
 
 
@@ -945,44 +956,44 @@ footer button {
 
 
 
-/* xs */
+/* xs 475px */
 @media screen and (min-width: var(--breakpoint-extra-small)) {
 
 }
 
 ;
 
-/* sm */
+/* sm 640px */
 @media screen and (min-width: var(--breakpoint-small)) {
 
 }
 
 ;
 
-/* md */
+/*md 768px */
 @media screen and (min-width: var(--breakpoint-medium)) {
 
 }
 
 ;
 
-/* lg */
+/* lg 1024px */
 @media screen and (min-width: var(--breakpoint-large)) {
 
 }
 
 ;
 
-/* xl */
+/* xl 1280px */
 @media screen and (min-width: var(--breakpoint-extra-large)) {
-    
+
 }
 
 ;
 
-/* 2xl */
+/* 2xl 1536px */
 @media screen and (min-width: var(--breakpoint-extra-extra-large)) {
-    
+
 }
 
 ;
