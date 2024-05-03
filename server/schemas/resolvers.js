@@ -89,7 +89,7 @@ const resolvers = {
                     
                     // Find the project and add the comment's ObjectId to the comments array
                     const updatedProject = await Project.findByIdAndUpdate(
-                        projectId,
+                        { _id: projectId },
                         { $addToSet: { comments: newComment._id } },
                         { new: true }
                     );

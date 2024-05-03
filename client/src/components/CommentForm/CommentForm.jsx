@@ -62,7 +62,7 @@ const CommentForm = ({ projectId, user, isOpen }) => {
         <div className={`comment-form-div ${isOpen ? "active" : ""}`}>
             <div className="comment-form-card">
                 <div>
-                    <p></p>
+                    <p>Add Your Comment</p>
                 </div>
                 <div>
                     <input
@@ -76,7 +76,7 @@ const CommentForm = ({ projectId, user, isOpen }) => {
                 </div>
                 <div className="addComment-btn-div">
                     <button
-                        className='submit-comment-btn'
+                        className='comment-btn'
                         style={{ cursor: 'pointer' }}
                         type="submit"
                         onClick={handleSubmit}
