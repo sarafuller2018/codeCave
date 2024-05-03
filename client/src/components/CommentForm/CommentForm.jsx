@@ -3,7 +3,7 @@ import { useMutation, gql } from '@apollo/client';
 import Auth from "../../utils/auth";
 import { useNavigate } from 'react-router-dom';
 import { QUERY_SINGLE_PROJECT } from "../../utils/queries";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
 const ADD_COMMENT = gql`
   mutation AddComment($projectId: ID!, $text: String!, $user: String!) {
@@ -21,7 +21,7 @@ const CommentForm = ({ projectId, user, isOpen }) => {
 
     const [addCommentMutation] = useMutation(ADD_COMMENT, {
         refetchQueries: [
-            {query: QUERY_SINGLE_PROJECT}
+            { query: QUERY_SINGLE_PROJECT }
         ]
     });
 
@@ -30,7 +30,7 @@ const CommentForm = ({ projectId, user, isOpen }) => {
         try {
             await addCommentMutation({ variables: { projectId, user, text } });
             // Optionally, you can refetch the project data to update the UI
-            
+
         } catch (error) {
             if (error.message.includes('AuthenticationError')) {
                 // Handle authentication error
@@ -54,46 +54,48 @@ const CommentForm = ({ projectId, user, isOpen }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         addComment(projectId, formState.commentText, user);
-        
+
     };
 
     return (
         <>
-        {Auth.loggedIn() ? (
-        <div className={`comment-form-div ${isOpen ? "active" : ""}`}>
-            <div className="comment-form-card">
-                <div>
-                    <p></p>
+            {Auth.loggedIn() ? (
+                <div className={`comment-form-div ${isOpen ? "active" : ""}`}>
+                    <div className="comment-form-card">
+                        <div>
+                            <p></p>
+                        </div>
+                        <div>
+                            <input
+                                className="comment-text-input, comment-input"
+                                type="text"
+                                placeholder="Your comments here"
+                                name="commentText"
+                                value={formState.commentText}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="addComment-btn-div">
+                            <button
+                                className='submit-comment-btn'
+                                style={{ cursor: 'pointer' }}
+                                type="submit"
+                                onClick={handleSubmit}
+                            >
+                                Submit Comment
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <input
-                        className="comment-text-input, comment-input"
-                        type="text"
-                        placeholder="Your comments here"
-                        name="commentText"
-                        value={formState.commentText}
-                        onChange={handleChange}
-                    />
+            ) : (
+                <div className='error-message-div'>
+                    <p className='comment-error-message'>
+                        You need to be logged in to share your thoughts. Please{' '}
+                        <Link to="/login" className="login">login</Link> or <Link className="login" to="/signup">signup.</Link>
+                    </p>
                 </div>
-                <div className="addComment-btn-div">
-                    <button
-                        className='submit-comment-btn'
-                        style={{ cursor: 'pointer' }}
-                        type="submit"
-                        onClick={handleSubmit}
-                    >
-                        Submit Comment
-                    </button>
-                </div>
-            </div>
-        </div>
-    ) : (
-        <p>
-            You need to be logged in to share your thoughts. Please{' '}
-            <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-        </p>
-    )}
-    </>
+            )}
+        </>
     );
 };
 
