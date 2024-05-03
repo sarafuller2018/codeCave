@@ -74,12 +74,18 @@ const SingleProjectDetails = () => {
         message = <div className="error-message-div"><div className='error-message'>Error sending email. Please try again later.</div></div>;
     }
     console.log(project.comments)
+    const logout = () => {
+
+        AuthService.logout()
+    }
+
     return (
         <>
             <header>
                 <div className="login-signup-btn-div">
                     <Link to="/login"><button className="header-login-btn">Login</button></Link>
                     <Link to="/signup"><button className="header-signup-btn">Sign Up</button></Link>
+                    <button className='header-logout-btn' onClick={logout}>Logout</button>
                 </div>
                 <div className="logo-div">
                     <Link to="/home"> <img className="codecave-logo" src="/Images/codeCave(logo).svg" /></Link>

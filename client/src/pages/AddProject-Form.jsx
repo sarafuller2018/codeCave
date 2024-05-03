@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_PROJECT } from '../utils/mutations';
 import { QUERY_PROJECTS, QUERY_ME } from '../utils/queries';
 import { useState, useEffect } from 'react';
+import AuthService from '../utils/auth';
 import Auth from '../utils/auth';
 
 const AddProject = () => {
@@ -61,12 +62,18 @@ const AddProject = () => {
         }
     }, [navigate]);
 
+    const logout = () => {
+
+        AuthService.logout()
+    }
+
     return (
         <>
             <header>
                 <div className="login-signup-btn-div">
                     <Link to="/login"><button className="header-login-btn">Login</button></Link>
                     <Link to="/signup"><button className="header-signup-btn">Sign Up</button></Link>
+                    <button className='header-logout-btn' onClick={logout}>Logout</button>
                 </div>
                 <div className="logo-div">
                     <Link to="/home"> <img className="codecave-logo" src="/Images/codeCave(logo).svg" /></Link>
@@ -126,8 +133,8 @@ const AddProject = () => {
                                     <div className="import-media">
                                         <img className="import-logo" src="/Images/import-logo.png" />
                                         <p className='import-title'>Import Media</p>
-                                        <input type='file' name='image' accept='image/*' value={projectState.image} onChange={handleChange}/>
-                                        {/* <button type='button' className='upload-btn'>Upload</button> */}
+                                        {/* <input className='upload-btn' type='file' name='image' accept='image/*' value={projectState.image} onChange={handleChange}/> */}
+                                        <button type='button' className='upload-btn'>Upload</button>
                                     </div>
                                 </div>
                                 <div className='done-btn-div'>
