@@ -110,7 +110,7 @@ const resolvers = {
             if (context.user) {
                 const project = await Project.findOneAndDelete({
                     _id: projectId,
-                    user: context.user.userName
+                    user: new ObjectId(context.user._id)
                 });
 
                 await User.findByIdAndUpdate(
