@@ -122,7 +122,7 @@ const SingleProjectDetails = () => {
                         <div className='time-stamp-div' >
                             <p className="single-project-time-stamp">{project.createdAt}</p>
                         </div>
-                        <div>
+                        <div className='time-stamp-div'>
                         <p className="project-owner">{project.ownerEmail}</p>
                         </div>
                         <button

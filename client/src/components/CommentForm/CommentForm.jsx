@@ -3,6 +3,7 @@ import { useMutation, gql } from '@apollo/client';
 import Auth from "../../utils/auth";
 import { useNavigate } from 'react-router-dom';
 import { QUERY_SINGLE_PROJECT } from "../../utils/queries";
+import { Link } from "react-router-dom"; 
 
 const ADD_COMMENT = gql`
   mutation AddComment($projectId: ID!, $text: String!, $user: String!) {
@@ -62,7 +63,7 @@ const CommentForm = ({ projectId, user, isOpen }) => {
         <div className={`comment-form-div ${isOpen ? "active" : ""}`}>
             <div className="comment-form-card">
                 <div>
-                    <p>Add Your Comment</p>
+                    <p></p>
                 </div>
                 <div>
                     <input
@@ -76,7 +77,7 @@ const CommentForm = ({ projectId, user, isOpen }) => {
                 </div>
                 <div className="addComment-btn-div">
                     <button
-                        className='comment-btn'
+                        className='submit-comment-btn'
                         style={{ cursor: 'pointer' }}
                         type="submit"
                         onClick={handleSubmit}
