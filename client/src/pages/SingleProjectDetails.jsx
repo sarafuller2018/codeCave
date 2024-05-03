@@ -62,14 +62,13 @@ const SingleProjectDetails = () => {
         }
     };
 
+    const [logEmailMessage, setLogEmailMessage] = useState(null); // Initialize message state
     const handleContributeClick = () => {
-        let message = null;
-
         if (!logged) {
-            message = <div className="error-message-div"><div className='error-message'>Error sending email. Please try again later.</div></div>
+            setLogEmailMessage(<div className="error-message-div"><div className='error-message'>You need to sign in to send email.</div></div>);
+        } else {
+            sendEmail(); // Call sendEmail when the button is clicked
         }
-
-        sendEmail();// Call sendEmail when the button is clicked
     };
 
     const handleAddComment = (commentText) => {
@@ -128,6 +127,7 @@ const SingleProjectDetails = () => {
                 </div>
                 <div className="emailMessage">
                     {message} {/* Render message */}
+                    {logEmailMessage}
                 </div>
                 <div className="single-project-card-div">
                     <div className="single-project-card" key={project.id}>
