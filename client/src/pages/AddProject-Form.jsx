@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_PROJECT } from '../utils/mutations';
 import { QUERY_PROJECTS, QUERY_ME } from '../utils/queries';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Auth from '../utils/auth';
 
 const AddProject = () => {
@@ -54,6 +54,12 @@ const AddProject = () => {
             console.error(err);
         }
     };
+    
+    useEffect(() => {
+        if (!Auth.loggedIn()) {
+            navigate("/login");
+        }
+    }, [navigate]);
 
     return (
         <>
@@ -66,7 +72,6 @@ const AddProject = () => {
                     <Link to="/home"> <img className="codecave-logo" src="/Images/codeCave(logo).svg" /></Link>
                 </div>
 
-                {Auth.loggedIn() ? (
                     <div className="form-div">
                         <form onSubmit={handleFormSubmit} className='add-project-form-card'>
                             <div className="login-text-div">
@@ -131,12 +136,6 @@ const AddProject = () => {
                             </div>
                         </form>
                     </div>
-                ) : (
-                    <p>
-                        You need to be logged in to share your thoughts. Please{' '}
-                        <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-                    </p>
-                )}
             </header>
         </>
     );
