@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import AuthService from '../../utils/auth';
+import { useParams } from 'react-router-dom';import AuthService from '../../utils/auth';
 
-const ProjectList = ({ projects, title }) => {
+const ProjectList = ({ projects, title, ownerEmail }) => {
 
 const logout = () => {
 
@@ -24,7 +24,7 @@ const logout = () => {
             </div>
         {projects && 
         projects.map((project) => (
-        
+            
             <div className="project-card-div">
                 <div className="project-card" key={project.id}>
                     <div className="project-title-div">
@@ -45,6 +45,9 @@ const logout = () => {
                     </div>
                     <div >
                         <p className="time-stamp">{project.createdAt}</p>
+                    </div>
+                    <div>
+                        <p className="project-owner">{project.ownerEmail}</p>
                     </div>
                 </div>
             </div>
