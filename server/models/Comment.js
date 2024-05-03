@@ -12,7 +12,7 @@ const commentSchema = new Schema(
             required: true,
             trim: true,
         },
-        project: {
+        projectId: {
             type: Schema.Types.ObjectId,
             ref: "Project",
             required: true

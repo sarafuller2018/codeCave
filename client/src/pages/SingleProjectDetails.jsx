@@ -100,7 +100,7 @@ const SingleProjectDetails = () => {
                         </div>
                     
                         <form>
-                            <CommentForm projectId={project.id} isOpen={display} addComment={handleAddComment} />
+                            <CommentForm projectId={project.id} user={userName} isOpen={display} addComment={handleAddComment} />
                         </form>
                         <div className='time-stamp-div' >
                             <p className="single-project-time-stamp">{project.createdAt}</p>
