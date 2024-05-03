@@ -13,6 +13,7 @@
 header {
     background-image: url(/Images/cave-img-long.svg);
     background-size: cover;
+
     height: 100%;
     background-color: var(--codecave-background);
 
@@ -28,9 +29,9 @@ body {
     background-color: black;
 }
 
-/* .logo-div {
-
-} */
+.logo-div {
+    width: 90vw;
+}
 
 .logo-div {
     animation: drop-in 1500ms;
@@ -298,7 +299,7 @@ body {
 .project-card {
     margin-top: 40px;
     background-color: var(--codecave-primary);
-    width: 500px;
+    width: 90vw;
     height: auto;
     border-radius: 20px;
     position: relative;
@@ -916,6 +917,7 @@ footer {
     justify-content: center;
     font-family: var(--codecave-font-dm-sans);
     font-size: var(--font-size-small);
+    width: 90vw;
     margin-bottom: 30px;
     margin-top: 60px;
     margin-left: 5%;
