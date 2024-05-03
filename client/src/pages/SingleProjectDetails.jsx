@@ -1,29 +1,40 @@
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { useParams } from 'react-router-dom';
-import { QUERY_SINGLE_PROJECT, QUERY_COMMENTS, QUERY_USER_EMAIL } from '../utils/queries';
+import { QUERY_SINGLE_PROJECT, QUERY_COMMENTS, QUERY_USER_EMAIL, QUERY_PROJECTS } from '../utils/queries';
+import { REMOVE_PROJECT } from '../utils/mutations';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CommentList from '../components/CommentList/CommentList';
 import CommentForm from '../components/CommentForm/CommentForm';
 import { useState } from 'react';
 import AuthService from '../utils/auth';
+import Auth from '../utils/auth';
 
 const SingleProjectDetails = () => {
+
+    const navigate = useNavigate();
+
     const { projectId } = useParams();
     const userId = AuthService.getUserId(); // Get user ID using AuthService
     console.log(projectId)
 
     const token = localStorage.getItem('id_token'); // Get token from localStorage
     const logged = token && !AuthService.isTokenExpired(token); // Check if token exists and is not expired
-    console.log("is loggedin"+ " " + logged); // Output the result of the check
+    console.log("is loggedin" + " " + logged); // Output the result of the check
 
     const { loading: userLoading, data: userData } = useQuery(QUERY_USER_EMAIL, {
         variables: { userId: userId }, // Provide the user ID here
     });
 
-    
+
     const { loading, data } = useQuery(QUERY_SINGLE_PROJECT, {
         variables: { projectId: projectId },
+    });
+
+    const [removeProject] = useMutation(REMOVE_PROJECT, {
+        refetchQueries: [
+            { query: QUERY_PROJECTS }
+        ]
     });
 
     const project = data?.project || {};
@@ -31,7 +42,7 @@ const SingleProjectDetails = () => {
     const userName = userData?.user?.userName;
     console.log(userEmail)
     console.log(userName)
-    console.log(userName +logged)
+    console.log(userName + logged)
 
     const [emailStatus, setEmailStatus] = useState(null); // State to track email status
 
@@ -56,7 +67,7 @@ const SingleProjectDetails = () => {
             alert('You need to be signed in to collaborate.'); // Display an alert message
             return;
         }
-    
+
         sendEmail(); // Call sendEmail when the button is clicked
     };
 
@@ -71,7 +82,20 @@ const SingleProjectDetails = () => {
     const toggleForm = () => {
         setDisplay(!display);
     };
-    
+
+    const handleRemoveProject = async () => {
+        console.log("Removing project with ID:", projectId);
+        try {
+            await removeProject({ variables: { projectId: projectId } });
+
+            confirm("Are you sure you want to delete this project?");
+            alert("Project successfully deleted.");
+            navigate("/home");
+        } catch (err) {
+            console.error("Error removing project:", err)
+        }
+    }
+
     console.log(logged)
     if (loading) {
         return <div>Loading...</div>;
@@ -115,7 +139,7 @@ const SingleProjectDetails = () => {
                         <div className="single-placeholder-img-div">
                             <img className="single-placeholder-img" src="../Images/placeholder-img.svg" />
                         </div>
-                    
+
                         <form>
                             <CommentForm projectId={project.id} user={userName} isOpen={display} addComment={handleAddComment} />
                         </form>
@@ -123,15 +147,18 @@ const SingleProjectDetails = () => {
                             <p className="single-project-time-stamp">{project.createdAt}</p>
                         </div>
                         <div className='time-stamp-div'>
-                        <p className="project-owner">{project.ownerEmail}</p>
+                            <p className="project-owner">{project.ownerEmail}</p>
                         </div>
                         <button
-                        className={`comment-btn ${display ? "hide" : ""}`}
-                        onClick={toggleForm}>
-                        Comment
-                    </button>
+                            className={`comment-btn ${display ? "hide" : ""}`}
+                            onClick={toggleForm}>
+                            Comment
+                        </button>
                         <div className="comment-btn-div">
                             <button className={`collab-btn ${display ? "hide" : ""}`} onClick={handleContributeClick}>Collaborate</button>
+                            {Auth.loggedIn() && project.ownerEmail === userEmail && (
+                                <button className="remove-project-btn" onClick={handleRemoveProject}>Remove Project</button>
+                            )}
                         </div>
                     </div>
 
