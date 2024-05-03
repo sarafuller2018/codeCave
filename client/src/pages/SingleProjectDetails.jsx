@@ -67,9 +67,9 @@ const SingleProjectDetails = () => {
 
     };
 
-    const [openCommentForm, setOpenCommentForm] = useState(false);
+    const [display, setDisplay] = useState(false);
     const toggleForm = () => {
-        setOpenCommentForm(!openCommentForm);
+        setDisplay(!display);
     };
     
     console.log(logged)
@@ -85,12 +85,18 @@ const SingleProjectDetails = () => {
         message = <div className="error-message-div"><div className='error-message'>Error sending email. Please try again later.</div></div>;
     }
     console.log(project.comments)
+    const logout = () => {
+
+        AuthService.logout()
+    }
+
     return (
         <>
             <header>
                 <div className="login-signup-btn-div">
                     <Link to="/login"><button className="header-login-btn">Login</button></Link>
                     <Link to="/signup"><button className="header-signup-btn">Sign Up</button></Link>
+                    <button className='header-logout-btn' onClick={logout}>Logout</button>
                 </div>
                 <div className="logo-div">
                     <Link to="/home"> <img className="codecave-logo" src="/Images/codeCave(logo).svg" /></Link>
@@ -111,7 +117,7 @@ const SingleProjectDetails = () => {
                         </div>
                     
                         <form>
-                            <CommentForm projectId={projectId} isOpen={false} toggleForm={() => { }} addComment={handleAddComment} />
+                            <CommentForm projectId={projectId} isOpen={display} addComment={handleAddComment} />
                         </form>
                         <div className='time-stamp-div' >
                             <p className="single-project-time-stamp">{project.createdAt}</p>
@@ -120,11 +126,12 @@ const SingleProjectDetails = () => {
                         <p className="project-owner">{project.ownerEmail}</p>
                         </div>
                         <button
-                        className='comment-btn'>
+                        className={`comment-btn ${display ? "hide" : ""}`}
+                        onClick={toggleForm}>
                         Comment
                     </button>
                         <div className="comment-btn-div">
-                            <button className='collab-btn' onClick={handleContributeClick}>Collaborate</button>
+                            <button className={`collab-btn ${display ? "hide" : ""}`} onClick={handleContributeClick}>Collaborate</button>
                         </div>
                     </div>
 
@@ -132,8 +139,6 @@ const SingleProjectDetails = () => {
                         <CommentList comments={project.comments} />
                     </div>
 
-
-                    <CommentForm isOpen={openCommentForm} toggleForm={toggleForm} />
                 </div>
             </header>
         </>

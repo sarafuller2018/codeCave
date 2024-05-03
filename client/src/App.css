@@ -93,10 +93,12 @@ margin-left: 300px;
     margin-top: 30px;
     margin-bottom: -50px;
     background-color: #1f243b;
-    width: 450px;
+    width: auto;
     border-radius: 20px;
     height: 40px;
     padding-top: 7px;
+    padding-left: 30px;
+    padding-right: 30px;
 
 }
 
@@ -109,10 +111,12 @@ margin-left: 300px;
     margin-top: 30px;
     margin-bottom: -50px;
     background-color:rgb(44, 25, 25);
-    width: 450px;
+    width: auto;
     border-radius: 20px;
     height: 40px;
     padding-top: 7px;
+    padding-left: 30px;
+    padding-right: 30px;
 
 }
 
@@ -140,6 +144,24 @@ margin-left: 300px;
     cursor: pointer;
     box-shadow: 0px 2px 17px rgb(0, 0, 0, 0.3);
     animation: drop-in 2000ms;
+
+}
+.header-logout-btn {
+    margin: 30px;
+    border: none;
+    width: 120px;
+    height: 40px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: solid;
+    border-radius: 20px;
+    border-width: 1px;
+    font-family: var(--codecave-font-dm-sans);
+    padding: 5px;
+    cursor: pointer;
+    box-shadow: 0px 2px 17px rgb(0, 0, 0, 0.3);
+    animation: drop-in 2000ms;
+    /* display: none; */
 
 }
 .header-login-btn {
@@ -1004,4 +1026,12 @@ footer button {
 
 .comment-form-div.active {
     display: flex;
+}
+
+.comment-btn.hide {
+    display: none;
+}
+
+.collab-btn.hide {
+    display: none;
 }
