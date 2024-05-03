@@ -31,3 +31,12 @@ mutation Mutation($userName: String!, $email: String!, $password: String!, $gith
     }
   }
   `;
+
+  export const ADD_COMMENT = gql`
+  mutation AddComment($projectId: ID!, $text: String!) {
+    addComment(projectId: $projectId, text: $text) {
+      text
+      user
+    }
+  }
+`;
