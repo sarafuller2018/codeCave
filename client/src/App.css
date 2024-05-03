@@ -995,3 +995,11 @@ footer button {
 .comment-form-div.active {
     display: flex;
 }
+
+.comment-btn.hide {
+    display: none;
+}
+
+.collab-btn.hide {
+    display: none;
+}
