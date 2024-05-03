@@ -94,7 +94,7 @@ const SingleProjectDetails = () => {
                     {message} {/* Render message */}
                 </div>
                 <div className="single-project-card-div">
-                    <div className="single-project-card" key={project._id}>
+                    <div className="single-project-card" key={project.id}>
                         <div className="project-title-div">
                             <p className="project-title">{project.name}</p>
                         </div>
@@ -106,7 +106,7 @@ const SingleProjectDetails = () => {
                         </div>
                     
                         <form>
-                            <CommentForm projectId={projectId} isOpen={display} addComment={handleAddComment} />
+                            <CommentForm projectId={project.id} user={userName} isOpen={display} addComment={handleAddComment} />
                         </form>
                         <div className='time-stamp-div' >
                             <p className="single-project-time-stamp">{project.createdAt}</p>

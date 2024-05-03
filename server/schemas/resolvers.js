@@ -81,11 +81,11 @@ const resolvers = {
             }
             throw AuthenticationError;
         },
-        addComment: async (parent, { projectId, text }, context) => {
+        addComment: async (parent, { projectId, text, user }, context) => {
             if (context.user) {
                 try {
                     // Create a new comment and associate it with the user
-                    const newComment = await Comment.create({ text, user: new ObjectId(context.user._id) });
+                    const newComment = await Comment.create({ projectId, text, user });
                     
                     // Find the project and add the comment's ObjectId to the comments array
                     const updatedProject = await Project.findByIdAndUpdate(
@@ -98,13 +98,13 @@ const resolvers = {
                         throw new Error('Project not found');
                     }
         
-                    return newComment;
+                    return updatedProject;
                 } catch (error) {
                     console.error('Error adding comment:', error);
                     throw new Error('Failed to add comment');
                 }
             }
-            throw new AuthenticationError("You must be logged in to add a comment.");
+            throw AuthenticationError;
         },
         removeProject: async (parent, { projectId }, context) => {
             if (context.user) {
