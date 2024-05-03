@@ -123,7 +123,7 @@ const SingleProjectDetails = () => {
                             <p className="single-project-time-stamp">{project.createdAt}</p>
                         </div>
                         <div>
-                        <p className="project-owner">{project.ownerEmail}</p>
+                        <p className="project-owner">{userName}</p>
                         </div>
                         <button
                         className={`comment-btn ${display ? "hide" : ""}`}
