@@ -12,7 +12,7 @@ mutation Mutation($userName: String!, $email: String!, $password: String!, $gith
   }
   `;
 
-  export const LOGIN_USER = gql`
+export const LOGIN_USER = gql`
   mutation Mutation($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
@@ -24,7 +24,7 @@ mutation Mutation($userName: String!, $email: String!, $password: String!, $gith
   }
   `;
 
-  export const ADD_PROJECT = gql`
+export const ADD_PROJECT = gql`
   mutation Mutation($name: String!, $description: String!, $githubProjectLink: String!, $image: String) {
     addProject(name: $name, description: $description, githubProjectLink: $githubProjectLink, image: $image) {
       id
@@ -32,11 +32,19 @@ mutation Mutation($userName: String!, $email: String!, $password: String!, $gith
   }
   `;
 
-  export const ADD_COMMENT = gql`
+export const ADD_COMMENT = gql`
   mutation AddComment($projectId: ID!, $text: String!) {
     addComment(projectId: $projectId, text: $text) {
       text
       user
     }
   }
+`;
+
+export const REMOVE_PROJECT = gql`
+mutation Mutation($projectId: ID!) {
+  removeProject(projectId: $projectId) {
+    id
+  }
+}
 `;
