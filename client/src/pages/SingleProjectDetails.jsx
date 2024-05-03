@@ -65,9 +65,23 @@ const SingleProjectDetails = () => {
     const [logEmailMessage, setLogEmailMessage] = useState(null); // Initialize message state
     const handleContributeClick = () => {
         if (!logged) {
-            setLogEmailMessage(<div className="error-message-div"><div className='error-message'>You need to sign in to send email.</div></div>);
+            setLogEmailMessage(<div className="error-message-div"><div className='error-message'>You need to{' '} <Link to="/login" className="login">login</Link> or {' '}  <Link className="login" to="/signup">signup.</Link>to send email.</div></div>);
         } else {
             sendEmail(); // Call sendEmail when the button is clicked
+        }
+    };
+
+    const [logCommentMessage, setCommentMessage] = useState(null); // Initialize message state
+    const handleCommentClick = () => {
+        if (!logged) {
+            setCommentMessage(<div className='error-message-div'>
+            <p className='comment-error-message'>
+                You need to {' '} <Link to="/login" className="login">login</Link> or <Link className="login" to="/signup">signup.</Link> to share your thoughts. 
+                
+            </p>
+        </div>);
+        } else {
+             // Call sendEmail when the button is clicked
         }
     };
 
@@ -81,6 +95,7 @@ const SingleProjectDetails = () => {
     const [display, setDisplay] = useState(false);
     const toggleForm = () => {
         setDisplay(!display);
+        handleCommentClick();
     };
 
     const handleRemoveProject = async () => {
@@ -150,6 +165,8 @@ const SingleProjectDetails = () => {
 
                         <form>
                             <CommentForm projectId={project.id} user={userName} isOpen={display} addComment={handleAddComment} />
+                            {message} {/* Render message */}
+                    {logCommentMessage}
                         </form>
                         <div className='time-stamp-div' >
                             <p className="single-project-time-stamp">{project.createdAt}</p>
@@ -159,7 +176,7 @@ const SingleProjectDetails = () => {
                         </div>
                         <button
                             className={`comment-btn ${display ? "hide" : ""}`}
-                            onClick={toggleForm}>
+                            onClick={toggleForm} >
                             Comment
                         </button>
                         <div className="comment-btn-div">
@@ -172,6 +189,7 @@ const SingleProjectDetails = () => {
 
                     <div className="comment-section-div">
                         <CommentList comments={project.comments} />
+    
                     </div>
 
                 </div>
