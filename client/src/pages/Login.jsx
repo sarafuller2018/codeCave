@@ -45,7 +45,7 @@ const Login = (props) => {
     return (
         <section>
             <div className="logo-div">
-            <Link to="/home"> <img className="codecave-login-logo" src="/Images/codeCave(login-logo).svg" /></Link> 
+                <Link to="/home"> <img className="codecave-login-logo" src="/Images/codeCave(login-logo).svg" /></Link>
             </div>
 
             {data ? (
@@ -56,15 +56,15 @@ const Login = (props) => {
             ) : (
                 <div className="form-div">
                     <form className="form-card" onSubmit={handleFormSubmit}>
-                    <div className="login-text-div">
-                <h4 className="login-text">Login</h4>
-            </div>
+                        <div className="login-text-div">
+                            <h4 className="login-text">Login</h4>
+                        </div>
 
-            {error && (
-                <div className="error-text">
-                    {error.message}
-                </div>
-            )}
+                        {error && (
+                            <div className="error-text">
+                                {error.message}
+                            </div>
+                        )}
                         <div className="input-div">
                             <div className="email-div">
                                 <input
@@ -101,7 +101,7 @@ const Login = (props) => {
                                 <p className='or'>or</p>
                             </div>
                             <div className='signup-btn-div'>
-                            <Link to="/signup"><button className="signup-btn">Sign Up</button></Link>
+                                <Link to="/signup"><button className="signup-btn">Sign Up</button></Link>
                             </div>
                         </div>
                     </form>

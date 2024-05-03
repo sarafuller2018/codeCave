@@ -4,9 +4,17 @@ const Header = () => {
     return (
         <header>
             <div className="login-signup-btn-div">
-                <Link to="/login"><button className="header-login-btn">Login</button></Link>
-                <Link to="/signup"><button className="header-signup-btn">Sign Up</button></Link>
-            </div>
+                    {!Auth.loggedIn() && (
+                        <>
+                            <Link to="/login"><button className="header-login-btn">Login</button></Link>
+                            <Link to="/signup"><button className="header-signup-btn">Sign Up</button></Link>
+                        </>
+                    )}
+
+                    {Auth.loggedIn() && (
+                        <button className='header-logout-btn' onClick={logout}>Logout</button>
+                    )}
+                </div>
             <div className="logo-div">
                 <img className="codecave-logo" src="/Images/codeCave(logo).svg" />
             </div>
