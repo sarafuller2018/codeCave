@@ -63,12 +63,13 @@ const SingleProjectDetails = () => {
     };
 
     const handleContributeClick = () => {
+        let message = null;
+
         if (!logged) {
-            alert('You need to be signed in to collaborate.'); // Display an alert message
-            return;
+            message = <div className="error-message-div"><div className='error-message'>Error sending email. Please try again later.</div></div>
         }
 
-        sendEmail(); // Call sendEmail when the button is clicked
+        sendEmail();// Call sendEmail when the button is clicked
     };
 
     const handleAddComment = (commentText) => {
@@ -153,7 +154,7 @@ const SingleProjectDetails = () => {
                         <div className='time-stamp-div' >
                             <p className="single-project-time-stamp">{project.createdAt}</p>
                         </div>
-                        <div>
+                        <div className='time-stamp-div'>
                             <p className="project-owner">{project.ownerEmail}</p>
                         </div>
                         <button
