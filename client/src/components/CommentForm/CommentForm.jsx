@@ -1,14 +1,85 @@
 import React, { useState } from "react";
-import { useMutation, gql } from '@apollo/client';
+import { useMutation } from '@apollo/client';
+import { ADD_COMMENT } from "../../utils/mutations";
+import Auth from "../../utils/auth";
+import { QUERY_COMMENTS, QUERY_PROJECTS } from "../../utils/queries";
 
-const ADD_COMMENT = gql`
-  mutation AddComment($projectId: ID!, $text: String!) {
-    addComment(projectId: $projectId, text: $text) {
-      text
-      user
-    }
-  }
-`;
+// const CommentForm = () => {
+//     const [formState, setFormState] = useState({
+//         text: '',
+//     });
+
+//     const [addComment, { error }] = useMutation(ADD_COMMENT, {
+//         refetchQueries: [
+//             { query: QUERY_PROJECTS },
+//             { query: QUERY_COMMENTS }
+//         ]
+//     });
+
+//     const handleChange = (event) => {
+//         const { name, value } = event.target;
+
+//         setFormState({
+//             ...formState,
+//             [name]: value,
+//         });
+//     };
+
+//     const handleFormSubmit = async (event) => {
+//         event.preventDefault();
+//         // addComment(projectId, formState.commentText);
+
+//         try {
+//             const { data } = await addComment({
+//                 variables: { ...formState },
+//             });
+
+//             setFormState({
+//                 text: "",
+//             });
+
+//             alert("Comment added!");
+//             // navigate("/home");
+//         } catch (err) {
+//             console.error(err);
+//         }
+//     };
+
+//     return (
+//         <div className={`comment-form-div ${isOpen ? "active" : ""}`}>
+//             <div className="comment-form-card">
+//                 <div>
+//                     <p></p>
+//                 </div>
+//                 <div>
+//                     <input
+//                         className="comment-text-input, comment-input"
+//                         type="text"
+//                         placeholder="Your comments here"
+//                         name="commentText"
+//                         value={formState.commentText}
+//                         onChange={handleChange}
+//                     />
+//                 </div>
+//                 <div className="addComment-btn-div">
+//                     <button
+//                         className='submit-comment-btn'
+//                         style={{ cursor: 'pointer' }}
+//                         type="submit"
+//                         onClick={handleSubmit}
+//                     >
+//                         Submit Comment
+//                     </button>
+//                 </div>
+//             </div>
+//         </div>
+        
+//     );
+// };
+
+// export default CommentForm;
+
+
 
 const CommentForm = ({ projectId, isOpen }) => {
     const [formState, setFormState] = useState({
@@ -51,7 +122,7 @@ const CommentForm = ({ projectId, isOpen }) => {
         <div className={`comment-form-div ${isOpen ? "active" : ""}`}>
             <div className="comment-form-card">
                 <div>
-                    <p></p>
+                    <p>Add Your Comment</p>
                 </div>
                 <div>
                     <input
@@ -65,7 +136,7 @@ const CommentForm = ({ projectId, isOpen }) => {
                 </div>
                 <div className="addComment-btn-div">
                     <button
-                        className='submit-comment-btn'
+                        className='comment-btn'
                         style={{ cursor: 'pointer' }}
                         type="submit"
                         onClick={handleSubmit}
@@ -75,7 +146,6 @@ const CommentForm = ({ projectId, isOpen }) => {
                 </div>
             </div>
         </div>
-        
     );
 };
 

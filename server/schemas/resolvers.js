@@ -85,11 +85,11 @@ const resolvers = {
             if (context.user) {
                 try {
                     // Create a new comment and associate it with the user
-                    const newComment = await Comment.create({ text, user: context.user.userName });
+                    const newComment = await Comment.create({ text, user: new ObjectId(context.user._id) });
                     
                     // Find the project and add the comment's ObjectId to the comments array
                     const updatedProject = await Project.findByIdAndUpdate(
-                        projectId,
+                        { _id: projectId },
                         { $addToSet: { comments: newComment._id } },
                         { new: true }
                     );
