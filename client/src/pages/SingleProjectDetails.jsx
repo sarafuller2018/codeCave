@@ -164,7 +164,7 @@ const SingleProjectDetails = () => {
                         </div>
 
                         <form>
-                            <CommentForm projectId={project.id} user={userName} isOpen={display} addComment={handleAddComment} />
+                            <CommentForm projectId={project.id} user={userName} isOpen={display} addComment={handleAddComment} toggleForm={toggleForm}/>
                             {} {/* Render message */}
                     {logCommentMessage}
                         </form>
@@ -175,12 +175,12 @@ const SingleProjectDetails = () => {
                             <p className="project-owner">{project.ownerEmail}</p>
                         </div>
                         <button
-                            className={`comment-btn ${display ? "" : ""}`}
+                            className={`comment-btn ${display ? "hide" : ""}`}
                             onClick={toggleForm} >
                             Comment
                         </button>
                         <div className="comment-btn-div">
-                            <button className={`collab-btn ${display ? "" : ""}`} onClick={handleContributeClick}>Collaborate</button>
+                            <button className={`collab-btn ${display ? "hide" : ""}`} onClick={handleContributeClick}>Collaborate</button>
                             {Auth.loggedIn() && project.ownerEmail === userEmail && (
                                 <button className="remove-project-btn" onClick={handleRemoveProject}>Remove Project</button>
                             )}
