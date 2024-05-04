@@ -65,7 +65,7 @@ const SingleProjectDetails = () => {
     const [logEmailMessage, setLogEmailMessage] = useState(null); // Initialize message state
     const handleContributeClick = () => {
         if (!logged) {
-            setLogEmailMessage(<div className="error-message-div"><div className='error-message'>You need to{' '} <Link to="/login" className="login">login</Link> or {' '}  <Link className="login" to="/signup">signup.</Link>to send email.</div></div>);
+            setLogEmailMessage(<div className="error-message-div"><div className='error-message'>You need to{' '} <Link to="/login" className="login">login</Link> or {' '}  <Link className="login" to="/signup">signup.</Link>to collaborate.</div></div>);
         } else {
             sendEmail(); // Call sendEmail when the button is clicked
         }

@@ -15,7 +15,13 @@ const Home = () => {
         <main>
             <div className='home-projects-list'>
                 {loading ? (
-                    <div>Loading...</div>
+                    <div className='loader-div'>
+                  
+                  <img
+                    class="spinner"
+                    alt="Loading…"
+                    src="/Images/loader.svg"
+                  /></div>
                 ) : (
                     
                     <ProjectList
