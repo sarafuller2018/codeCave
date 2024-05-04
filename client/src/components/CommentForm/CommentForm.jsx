@@ -93,10 +93,10 @@ const CommentForm = ({ projectId, user, isOpen }) => {
                 </div>
             ) : (
                 <div className='error-message-div'>
-                    <p className='comment-error-message'>
+                    {/* <p className='comment-error-message'>
                         You need to be logged in to share your thoughts. Please{' '}
                         <Link to="/login" className="login">login</Link> or <Link className="login" to="/signup">signup.</Link>
-                    </p>
+                    </p> */}
                 </div>
             )}
         </>

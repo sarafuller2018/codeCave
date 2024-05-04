@@ -16,8 +16,10 @@ const ProjectList = ({ projects, title, ownerEmail }) => {
             <div className="login-signup-btn-div">
                     {!Auth.loggedIn() && (
                         <>
+                        <div className='login-nav-div'>
                             <Link to="/login"><button className="header-login-btn">Login</button></Link>
                             <Link to="/signup"><button className="header-signup-btn">Sign Up</button></Link>
+                            </div>
                         </>
                     )}
 
