@@ -180,7 +180,7 @@ const SingleProjectDetails = () => {
                             Comment
                         </button>
                         <div className="comment-btn-div">
-                            <button className={`collab-btn ${display ? "hide" : ""}`} onClick={handleCommentClick}>Collaborate</button>
+                            <button className="collab-btn" onClick={handleContributeClick}>Collaborate</button>
                             {Auth.loggedIn() && project.ownerEmail === userEmail && (
                                 <button className="remove-project-btn" onClick={handleRemoveProject}>Remove Project</button>
                             )}
