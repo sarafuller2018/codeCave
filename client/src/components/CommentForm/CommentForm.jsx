@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useMutation, gql } from '@apollo/client';
 import Auth from "../../utils/auth";
-import { useNavigate } from 'react-router-dom';
 import { QUERY_SINGLE_PROJECT } from "../../utils/queries";
 import { Link } from "react-router-dom";
 
@@ -13,15 +12,15 @@ id
   }
 `;
 
-const CommentForm = ({ projectId, user, isOpen }) => {
+const CommentForm = ({ projectId, user, isOpen, toggleForm }) => {
     const [formState, setFormState] = useState({
         commentText: '',
     });
-    const navigate = useNavigate();
 
     const [addCommentMutation] = useMutation(ADD_COMMENT, {
         refetchQueries: [
-            { query: QUERY_SINGLE_PROJECT }
+            { query: QUERY_SINGLE_PROJECT,
+            variables: { projectId } },
         ]
     });
 
@@ -55,6 +54,11 @@ const CommentForm = ({ projectId, user, isOpen }) => {
         e.preventDefault();
         addComment(projectId, formState.commentText, user);
 
+        setFormState({
+            commentText: '',
+        });
+        toggleForm();
+        alert("Comment added!");
     };
 
     return (

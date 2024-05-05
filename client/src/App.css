@@ -162,11 +162,11 @@ body {
     font-family: var(--codecave-font-dm-sans);
     display: flex;
     justify-content: center;
-    color: rgb(220 196 255);
     font-size: 20px;
     margin-top: 30px;
     margin-bottom: -50px;
-    background-color: rgb(47 34 54);
+    color: rgb(255, 95, 95);
+    background-color: rgb(44, 25, 25);
     width: auto;
     border-radius: 20px;
     height: 40px;

@@ -65,7 +65,7 @@ const SingleProjectDetails = () => {
     const [logEmailMessage, setLogEmailMessage] = useState(null); // Initialize message state
     const handleContributeClick = () => {
         if (!logged) {
-            setLogEmailMessage(<div className="error-message-div"><div className='error-message'>You need to{' '} <Link to="/login" className="login">login</Link> or {' '}  <Link className="login" to="/signup">signup.</Link>to collaborate.</div></div>);
+            setLogEmailMessage(<div className="error-message-div"><div className='error-message'>You need to{' '} <Link to="/login" className="login">login</Link> or {' '}  <Link className="login" to="/signup">signup</Link>to collaborate.</div></div>);
         } else {
             sendEmail(); // Call sendEmail when the button is clicked
         }
@@ -76,7 +76,7 @@ const SingleProjectDetails = () => {
         if (!logged) {
             setCommentMessage(<div className='error-message-div'>
             <p className='comment-error-message'>
-                You need to {' '} <Link to="/login" className="login">login</Link> or <Link className="login" to="/signup">signup.</Link> to share your thoughts. 
+                You need to {' '} <Link to="/login" className="login">login</Link> or <Link className="login" to="/signup">signup</Link> to comment or collaborate.
                 
             </p>
         </div>);
@@ -149,7 +149,7 @@ const SingleProjectDetails = () => {
                 </div>
                 <div className="emailMessage">
                     {message} {/* Render message */}
-                    {logEmailMessage}
+                    {logCommentMessage}
                 </div>
                 <div className="single-project-card-div">
                     <div className="single-project-card" key={project.id}>
@@ -164,7 +164,7 @@ const SingleProjectDetails = () => {
                         </div>
 
                         <form>
-                            <CommentForm projectId={project.id} user={userName} isOpen={display} addComment={handleAddComment} />
+                            <CommentForm projectId={project.id} user={userName} isOpen={display} addComment={handleAddComment} toggleForm={toggleForm}/>
                             {} {/* Render message */}
                     {logCommentMessage}
                         </form>
@@ -175,12 +175,12 @@ const SingleProjectDetails = () => {
                             <p className="project-owner">{project.ownerEmail}</p>
                         </div>
                         <button
-                            className={`comment-btn ${display ? "" : ""}`}
+                            className={`comment-btn ${display ? "hide" : ""}`}
                             onClick={toggleForm} >
                             Comment
                         </button>
                         <div className="comment-btn-div">
-                            <button className={`collab-btn ${display ? "" : ""}`} onClick={handleContributeClick}>Collaborate</button>
+                            <button className={`collab-btn ${display ? "hide" : ""}`} onClick={handleCommentClick}>Collaborate</button>
                             {Auth.loggedIn() && project.ownerEmail === userEmail && (
                                 <button className="remove-project-btn" onClick={handleRemoveProject}>Remove Project</button>
                             )}
