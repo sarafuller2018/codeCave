@@ -12,7 +12,7 @@ id
   }
 `;
 
-const CommentForm = ({ projectId, user, isOpen }) => {
+const CommentForm = ({ projectId, user, isOpen, toggleForm }) => {
     const [formState, setFormState] = useState({
         commentText: '',
     });
@@ -57,7 +57,7 @@ const CommentForm = ({ projectId, user, isOpen }) => {
         setFormState({
             commentText: '',
         });
-
+        toggleForm();
         alert("Comment added!");
     };
 
