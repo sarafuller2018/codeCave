@@ -20,7 +20,7 @@ const SingleProjectDetails = () => {
 
     const token = localStorage.getItem('id_token'); // Get token from localStorage
     const logged = token && !AuthService.isTokenExpired(token); // Check if token exists and is not expired
-    console.log("is loggedin" + " " + logged); // Output the result of the check
+    console.log("is loggedin?" + " " + logged); // Output the result of the check
 
     const { loading: userLoading, data: userData } = useQuery(QUERY_USER_EMAIL, {
         variables: { userId: userId }, // Provide the user ID here
@@ -62,24 +62,39 @@ const SingleProjectDetails = () => {
         }
     };
 
-    const [logEmailMessage, setLogEmailMessage] = useState(null); // Initialize message state
+    const [logCommentMessage, setCommentMessage] = useState(null); // Initialize message state
     const handleContributeClick = () => {
         if (!logged) {
-            setLogEmailMessage(<div className="error-message-div"><div className='error-message'>You need to{' '} <Link to="/login" className="login">login</Link> or {' '}  <Link className="login" to="/signup">signup</Link>to collaborate.</div></div>);
+            setCommentMessage(null);
+            setCommentMessage(<div className='error-message-div'>
+                <p className='comment-error-message'>
+                    You need to {' '} <Link to="/login" className="login">login</Link> or <Link className="login" to="/signup">signup</Link> to comment or collaborate.
+                </p>
+            </div>
+            );
+            // Hide the message after 15 seconds
+        setTimeout(() => {
+            setCommentMessage(null);
+        }, 10000);
         } else {
             sendEmail(); // Call sendEmail when the button is clicked
         }
     };
 
-    const [logCommentMessage, setCommentMessage] = useState(null); // Initialize message state
+    
     const handleCommentClick = () => {
         if (!logged) {
+            setCommentMessage(null);
             setCommentMessage(<div className='error-message-div'>
             <p className='comment-error-message'>
                 You need to {' '} <Link to="/login" className="login">login</Link> or <Link className="login" to="/signup">signup</Link> to comment or collaborate.
                 
             </p>
-        </div>);
+        </div>
+        );
+        setTimeout(() => {
+            setCommentMessage(null);
+        }, 10000);
         } else {
              // Call sendEmail when the button is clicked
         }
@@ -119,10 +134,28 @@ const SingleProjectDetails = () => {
     let message = null; // Initialize message variable
 
     if (emailStatus === 'success') {
-        message = <div className="error-message-div"><div className='success-message'>Email sent successfully!</div></div>;
+        message = (
+            <div className="error-message-div">
+                <div className='success-message'>Project owner was asked to collaborate!</div>
+            </div>
+        );
+        // Hide the message after 15 seconds
+        setTimeout(() => {
+            setEmailStatus(null);
+        }, 10000);
     } else if (emailStatus === 'error') {
-        message = <div className="error-message-div"><div className='error-message'>Error sending email. Please try again later.</div></div>;
+        message = (
+            <div className="error-message-div">
+                <div className='error-message'>Error sending email. Please try again later.</div>
+            </div>
+        );
+    
+        // Hide the message after 15 seconds
+        setTimeout(() => {
+            setEmailStatus(null);
+        }, 10000);
     }
+    
     console.log(project.comments)
     const logout = () => {
 
@@ -175,7 +208,7 @@ const SingleProjectDetails = () => {
                             <p className="project-owner">{project.ownerEmail}</p>
                         </div>
                         <button
-                            className={`comment-btn ${display ? "hide" : ""}`}
+                            className="comment-btn"
                             onClick={toggleForm} >
                             Comment
                         </button>
