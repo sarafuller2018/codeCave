@@ -126,6 +126,7 @@ const SingleProjectDetails = () => {
         }
     }
 
+
     console.log(logged)
     if (loading) {
         return <div>Loading...</div>;
@@ -208,7 +209,7 @@ const SingleProjectDetails = () => {
                             <p className="project-owner">{project.ownerEmail}</p>
                         </div>
                         <button
-                            className="comment-btn"
+                            className={`comment-btn ${display ? "hide" : ""}`}
                             onClick={toggleForm} >
                             Comment
                         </button>

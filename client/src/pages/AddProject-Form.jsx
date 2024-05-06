@@ -89,7 +89,7 @@ const AddProject = () => {
                 <div className="form-div">
                     <form onSubmit={handleFormSubmit} className='add-project-form-card'>
                         <div className="login-text-div">
-                            <h4 className="login-text">Add Project</h4>
+                            <h4 className="add-project-title">Add Project</h4>
                         </div>
 
                         {error && (
