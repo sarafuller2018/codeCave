@@ -14,6 +14,7 @@ header {
     background-size: cover;
     height: 100%;
     background-color: var(--codecave-background);
+    min-height: 1250px;
 
 }
 
@@ -130,33 +131,35 @@ body {
     animation: bounce 200ms alternate 4 cubic-bezier(.25, .65, .6, 1);
     color: rgb(255, 95, 95);
     background-color: rgb(44, 25, 25);
-    
+
 }
 
-.loader-div{
+.loader-div {
     display: flex;
     justify-content: center;
 }
 
 @keyframes spin {
     from {
-      transform: rotate(0turn);
+        transform: rotate(0turn);
     }
+
     to {
-      transform: rotate(1turn);
+        transform: rotate(1turn);
     }
-  }
-  
-  .spinner {
+}
+
+.spinner {
     animation: spin 1000ms;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-  }
-  .spinner {
+}
+
+.spinner {
     margin-top: 400px;
     margin-bottom: 600px;
     width: 75px;
-  }
+}
 
 .comment-error-message {
     font-family: var(--codecave-font-dm-sans);
@@ -179,14 +182,16 @@ body {
     animation: bounce 200ms alternate 4 cubic-bezier(.25, .65, .6, 1);
 
 }
+
 @keyframes bounce {
     from {
-      transform: translateY(0px);
+        transform: translateY(0px);
     }
+
     to {
-      transform: translateY(-20px);
+        transform: translateY(-20px);
     }
-  }
+}
 
 @keyframes fade-out {
     from {
@@ -797,6 +802,15 @@ hr {
     letter-spacing: -2px;
 }
 
+.add-project-title {
+    margin-top: 60px;
+    background-color: var(--codecave-primary);
+    font-family: var(--codecave-font-dm-sans);
+    font-size: 45px;
+    font-weight: 600;
+    letter-spacing: -2px;
+}
+
 .input-div {
     margin-top: 50px;
 }
@@ -1051,6 +1065,11 @@ hr {
     margin-bottom: -30px;
 }
 
+.footer-div {
+    display: flex;
+    justify-content: center;
+}
+
 footer {
     display: flex;
     justify-content: center;
@@ -1092,39 +1111,6 @@ footer button {
     padding-left: 5px;
 }
 
-
-
-
-/* xs */
-@media screen and (min-width: var(--breakpoint-extra-small)) {}
-
-;
-
-/* sm */
-@media screen and (min-width: var(--breakpoint-small)) {}
-
-;
-
-/* md */
-@media screen and (min-width: var(--breakpoint-medium)) {}
-
-;
-
-/* lg */
-@media screen and (min-width: var(--breakpoint-large)) {}
-
-;
-
-/* xl */
-@media screen and (min-width: var(--breakpoint-extra-large)) {}
-
-;
-
-/* 2xl */
-@media screen and (min-width: var(--breakpoint-extra-extra-large)) {}
-
-;
-
 /*Temp css */
 .comment-form-div {
     display: none;
@@ -1140,4 +1126,254 @@ footer button {
 
 .collab-btn.hide {
     display: none;
+}
+
+
+
+
+
+
+
+@media(max-width: 990px) {
+    header {
+        width: 1050px;
+    }
+}
+
+@media (max-width: 590px) {
+    .codecave-login-logo {
+        width: 500px;
+    }
+
+
+    .add-project-btn {
+        width: 310px;
+        height: 55px;
+        font-size: 25px;
+    }
+
+    .view-project-btn {
+        font-size: 18px;
+        width: 165px;
+        height: 40px;
+    }
+
+    .comment-btn,
+    .collab-btn {
+        font-size: 18px;
+        height: 40px;
+    }
+
+    .project-title {
+        font-size: 55px;
+    }
+
+    .header-login-btn,
+    .header-signup-btn {
+        font-size: 22px;
+        width: 130px;
+        height: 45px;
+    }
+
+    .project-description,
+    .single-project-description,
+    .comment-text {
+        font-size: 25px;
+    }
+
+    .project-card {
+        height: 400px;
+    }
+
+}
+
+@media (max-width: 490px) {
+    .codecave-login-logo {
+        width: 300px;
+    }
+}
+
+@media (max-width: 400px) {
+    .form-card {
+        height: 415px;
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+
+    #signup-form-card {
+        height: 550px;
+    }
+
+    .login-text {
+        margin-top: 35px;
+        margin-bottom: -25px;
+        font-size: 28px;
+    }
+
+    .add-project-btn {
+        width: 310px;
+        height: 55px;
+        font-size: 32px;
+        border-radius: 45px;
+    }
+
+    .view-project-btn {
+        font-size: 28px;
+        width: 195px;
+        height: 50px;
+        border-radius: 45px;
+    }
+
+    .comment-btn,
+    .collab-btn {
+        font-size: 28px;
+        width: 190px;
+        height: 45px;
+        border-radius: 45px;
+    }
+
+    .collab-btn {
+        margin-left: 230px
+    }
+
+    .remove-project-btn {
+        font-size: 28px;
+        width: 200px;
+        height: 45px;
+        margin-left: 440px;
+        border-radius: 45px;
+    }
+
+    .submit-comment-btn {
+        font-size: 28px;
+        width: 225px;
+        height: 45px;
+    }
+
+    .project-title {
+        font-size: 50px;
+    }
+
+    .header-login-btn,
+    .header-signup-btn,
+    .header-logout-btn {
+        font-size: 28px;
+        width: 150px;
+        height: 50px;
+        border-radius: 45px;
+    }
+
+    .project-description,
+    .single-project-description,
+    .comment-text {
+        font-size: 25px;
+    }
+
+    .project-description {
+        height: 160px;
+    }
+
+    .project-card {
+        height: 400px;
+    }
+
+    .login-input {
+        height: 40px;
+    }
+
+    .username-input {
+        height: 40px;
+        font-size: 12px;
+    }
+
+    .add-project-form-card {
+        width: 900px;
+        height: 1150px;
+    }
+
+    .project-title-input {
+        width: 800px;
+        height: 85px;
+        font-size: 28px;
+    }
+
+    .project-description-input {
+        width: 800px;
+        height: 250px;
+        font-size: 28px;
+        padding-bottom: 174px;
+        padding-left: 15px;
+    }
+
+    .import-media {
+        width: 800px;
+        height: 270px;
+        font-size: 28px;
+    }
+
+    .import-logo {
+        width: 41px;
+        margin-bottom: 10px;
+        margin-left: 80px
+    }
+
+    .upload-btn {
+        width: 200px;
+        height: 45px;
+        font-size: 25px;
+        border-radius: 45px;
+    }
+
+    .done-btn {
+        width: 252px;
+        height: 55px;
+        font-size: 35px;
+        border-radius: 45px;
+    }
+
+    .add-project-title {
+        font-size: 50px;
+        font-size: 55px;
+    }
+
+    .login-btn,
+    .signup-btn {
+        width: 135px;
+        height: 30px;
+        border-radius: 20px;
+        font-size: 12px;
+    }
+
+    .login-input {
+        font-size: 12px;
+    }
+
+    .error-text {
+        font-size: 12px;
+        margin-top: 35px;
+        margin-bottom: -40px;
+    }
+
+    .success-message {
+        font-size: 35px;
+        padding-top: 2px;
+        padding-bottom: 15px;
+    }
+
+    .comment-input {
+        background-color: var(--codecave-background-secondary);
+        border: none;
+        margin: 10px;
+        margin-bottom: 81px;
+        font-size: 25px;
+        margin-left: 0;
+        width: 635px;
+        height: 165px;
+        border-radius: 10px;
+        color: var(--codecave-background);
+        font-family: var(--codecave-font-dm-sans);
+        padding-bottom: 113px;
+        padding-left: 10px;
+        outline: none;
+    }
 }

@@ -1,5 +1,6 @@
 const Footer = () => {
     return (
+        <div className="footer-div">
         <footer>
                 <p className="info"> 
                 codeCave created by YR Limited 
@@ -15,6 +16,7 @@ const Footer = () => {
                     <img src="/Images/coins-solid.svg" className="donate-icon" />
                 </button>
         </footer>
+        </div>
     );
 };
 
