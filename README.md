@@ -9,7 +9,8 @@ codeCave is a niche social website for web developers who are actively working o
 3. [License](#license)
 4. [Contributing](#contributing)
 5. [Tests](#tests)
-6. [Questions](#questions)
+6. [Technologies](#technologies)
+7. [Questions](#questions)
 
 ## Application
 codeCave is found online at: https://codecave.onrender.com/
@@ -17,12 +18,21 @@ codeCave is found online at: https://codecave.onrender.com/
 ## Code
 This section contains some code snippets with short descriptions.
 
+Main commands when running in Node.js: 
+
+<b>Install:</b> <i>npm i/npm install</i>
+
+<b>Seed:</b> <i>npm run seed</i>
+
+<b>Start:</b> <i>npm run develop</i>
+<br>
+
 Below is a screenshot of a more detailed file structure.
 It was built with MERN stack in mind. It contains a client and server side.
 As you can see, we have a .env file in the screenshot but we ignore it using the .gitignore file.
 
 Note: Don't forget to add a .env file onto your local machine if you clone this repository.
-<br>
+
 ![cc1](https://github.com/sarafuller2018/codeCave/assets/42650709/188c8d40-c2dc-4d66-9888-400b4dc82f8f)
 
 The server.js was set up to ensure that all dependancies, technologies, and middleware necessary are ran with no errors before opening the port.
@@ -47,6 +57,30 @@ Users can contribute via Github Branching.
 
 ## Tests
 Insomnia, GraphQL, WebDev Tools
+
+## Technologies
+
+<i>( Sorted alphabetically )</i>
+
+1. [Adobe Photoshop](https://www.adobe.com/products/photoshop.html)
+2. [AntDesign](https://ant.design/)
+3. [Apollo/GraphQL](https://www.apollographql.com/docs/react/)
+4. [Axios](https://axios-http.com/docs/intro)
+5. [Bcrypt](https://www.npmjs.com/package/bcrypt)
+6. [Coolers](https://coolors.co/97947c)
+7. [Cors](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+8. [Eslint](https://eslint.org/)
+9. [Express](https://expressjs.com/)
+10. [FontAwesome](https://fontawesome.com/)
+11. [Google Fonts](https://fonts.google.com/)
+12. [Insomnia](https://insomnia.rest/)
+13. [JWT](https://jwt.io/)
+14. [Mongoose](https://mongoosejs.com/)
+15. [Nodemailer](https://nodemailer.com/)
+16. [Nodemon](https://www.npmjs.com/package/nodemon)
+17. [React](https://react.dev/)
+18. [Vite](https://vitejs.dev/)
+
 
 ## Questions
 

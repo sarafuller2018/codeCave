@@ -19,7 +19,7 @@ header {
 }
 
 body {
-    background-color: black;
+    background-color: var(--codecave-background);
 }
 
 .logo-div {
@@ -98,7 +98,7 @@ body {
     padding-right: 30px;
     animation: grow-and-shrink 600ms;
     animation-timing-function: ease-in-out;
-    color: #aebdff;
+    color: var(--codecave-accent);
     background-color: #1f243b;
 }
 
@@ -205,7 +205,7 @@ body {
 
 .login {
     font-family: "DM Sans";
-    color: rgb(255, 255, 255);
+    color: var(--codecave-background-secondary);
     margin-right: 6px;
     margin-left: 6px;
 }
@@ -227,7 +227,7 @@ body {
     width: 120px;
     height: 40px;
     background-color: rgb(0, 0, 0);
-    color: white;
+    color: var(--codecave-background-secondary);
     border: solid;
     border-radius: 20px;
     border-width: 1px;
@@ -244,8 +244,8 @@ body {
     border: none;
     width: 120px;
     height: 40px;
-    background-color: rgb(0, 0, 0);
-    color: white;
+    background-color: var(--codecave-background);
+    color: var(--codecave-background-secondary);
     border: solid;
     border-radius: 20px;
     border-width: 1px;
@@ -260,7 +260,7 @@ body {
 
 .header-logout-btn:hover {
     background-color: var(--codecave-active);
-    color: white;
+    color: var(--codecave-background-secondary);
     border: none;
     transition: 0.1s;
 }
@@ -297,14 +297,14 @@ body {
 
 .header-login-btn:hover {
     background-color: var(--codecave-secondary);
-    color: white;
+    color: var(--codecave-background-secondary);
     border: none;
     transition: 0.1s;
 }
 
 .header-signup-btn:hover {
     background-color: var(--codecave-active);
-    color: white;
+    color: var(--codecave-background-secondary);
     border: none;
     transition: 0.1s;
 }
@@ -524,7 +524,7 @@ body {
 
 .comments-title {
     margin-left: 22px;
-    color: #000000;
+    color: var(--codecave-background);
     margin-top: 7px;
     font-family: var(--codecave-font-dm-sans);
     font-weight: 600;
@@ -753,7 +753,7 @@ hr {
     object-fit: cover;
     border: none;
     background-color: var(--codecave-primary);
-    color: white;
+    color: var(--codecave-background-secondary);
     cursor: default;
 }
 
@@ -773,7 +773,7 @@ hr {
     object-fit: cover;
     border: none;
     background-color: var(--codecave-primary);
-    color: white;
+    color: var(--codecave-background-secondary);
     cursor: default;
 }
 
@@ -874,13 +874,13 @@ hr {
 
 .import-media {
     background-color: var(--codecave-background-primary);
-    border: white;
+    border: var(--codecave-background-secondary);
     border-style: dashed;
     margin: 10px;
     width: 550px;
     height: 200px;
     border-radius: 10px;
-    color: white;
+    color: var(--codecave-background-secondary);
     outline: none;
     display: flex;
     justify-content: center;
@@ -925,7 +925,7 @@ hr {
 }
 
 .username-input {
-    background-color: white;
+    background-color: var(--codecave-background-secondary);
     border: none;
     margin: 10px;
     margin-bottom: -40px;
