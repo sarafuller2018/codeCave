@@ -47,18 +47,25 @@ const SingleProjectDetails = () => {
     const [emailStatus, setEmailStatus] = useState(null); // State to track email status
 
     const sendEmail = async () => {
-        const url = 'http://localhost:3001/api/send-email';
-        const data = {
-            toEmail: project.ownerEmail, // Use project.ownerEmail here
+        let url = 'http://localhost:3001/api/send-email';
+        let data = {
+            toEmail: project.ownerEmail,
             subject: 'Collaboration Request',
-            text: `The user ${userName} is interested in collaborating with you on your project "${project.name}" . Get in contact with them ${userEmail}`
+            text: `The user ${userName} is interested in collaborating with you on your project "${project.name}". Get in contact with them ${userEmail}`
         };
-
+    
         try {
             const response = await axios.post(url, data);
-            setEmailStatus('success'); // Set state to 'success' if email is sent successfully
+            setEmailStatus('success');
         } catch (error) {
-            setEmailStatus('error'); // Set state to 'error' if there is an error sending email
+            // If the first URL fails, try the second URL
+            url = 'https://codecave.onrender.com/api/send-email';
+            try {
+                const response = await axios.post(url, data);
+                setEmailStatus('success');
+            } catch (error) {
+                setEmailStatus('error');
+            }
         }
     };
 
