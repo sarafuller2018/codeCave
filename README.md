@@ -3,6 +3,9 @@
 ## Description
 codeCave is a niche social website for web developers who are actively working on projects. It is designed with collaboration in mind and focuses on allowing developers of all fields and interests to complete projects togther for mutual benefit. Developers can sign-up to create new projects or find work from other users. They will then be able to comment and/or contribute on other users' projects.
 
+![Screenshot_7-5-2024_18834_codecave onrender com](https://github.com/sarafuller2018/codeCave/assets/42650709/97daa97f-89d8-4ab1-b5a6-05abf26adb10)
+
+
 ## Table of Contents
 1. [Application](#application)
 2. [Code](#code)
